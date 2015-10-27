@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -115,6 +116,27 @@ namespace HamCheck {
                 return (int)Math.Round(0.74 * this.DefaultQuestionsCount);
             }
         }
+
+
+        #region Questions
+
+        public ReadOnlyCollection<ExamItem> GetAllQuestions() {
+            var result = new List<ExamItem>();
+
+            foreach (var subelement in this.Subelements) {
+                foreach (var group in subelement.Groups) {
+                    foreach (var question in group.Questions) {
+                        var answers = new List<ExamAnswer>(question.Answers);
+                        result.Add(new ExamItem(question, answers.AsReadOnly(), group));
+                    }
+                }
+            }
+
+            return result.AsReadOnly();
+        }
+
+        #endregion
+
 
         #region Load/Save
 

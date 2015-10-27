@@ -5,6 +5,6 @@ namespace HamCheck {
         None,
         Practice,
         Randomize,
-        Find
+        All
     }
 }

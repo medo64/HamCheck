@@ -56,6 +56,7 @@
     <Compile Include="ExamAnswers.cs" />
     <Compile Include="ExamExplanation.cs" />
     <Compile Include="ExamIllustration.cs" />
+    <Compile Include="ExamItem.cs" />
     <Compile Include="ExamQuestion.cs" />
     <Compile Include="ExamGroup.cs" />
     <Compile Include="ExamGroups.cs" />

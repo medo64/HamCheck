@@ -75,6 +75,9 @@
     <Compile Include="ExamSetupMenuControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ExamShowControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ExamType.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

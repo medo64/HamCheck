@@ -49,11 +49,11 @@ namespace HamCheck {
                         this.Controls.Add(btn);
                     }
                     {
-                        var btn = new Button() { Text = "Find", BackColor = buttonColor, FlatStyle = FlatStyle.Flat, Tag = Keys.F };
+                        var btn = new Button() { Text = "All", BackColor = buttonColor, FlatStyle = FlatStyle.Flat, Tag = Keys.A };
                         btn.KeyDown += Control_KeyDown;
                         btn.Click += delegate (object sender, EventArgs e) {
                             var eh = this.Selected;
-                            if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.Find)); }
+                            if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.All)); }
                         };
                         this.Controls.Add(btn);
                     }
@@ -62,8 +62,8 @@ namespace HamCheck {
                         var btn = new Button() { Text = "Go back", FlatStyle = FlatStyle.Flat, Tag = Keys.Escape };
                         btn.KeyDown += Control_KeyDown;
                         btn.Click += delegate (object sender, EventArgs e) {
-                            var eh = this.Selected;
-                            if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.None)); }
+                            var eh = this.GoBack;
+                            if (eh != null) { eh.Invoke(sender, new EventArgs()); }
                         };
                         this.Controls.Add(btn);
                     }
@@ -114,6 +114,7 @@ namespace HamCheck {
 
 
         public event EventHandler<ExamElementEventArgs> Selected;
+        public event EventHandler<EventArgs> GoBack;
 
     }
 }

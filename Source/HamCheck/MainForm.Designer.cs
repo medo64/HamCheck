@@ -28,6 +28,7 @@
             this.lblLoading = new System.Windows.Forms.Label();
             this.hamSelect = new HamCheck.ExamSelectMenuControl();
             this.hamSetup = new HamCheck.ExamSetupMenuControl();
+            this.hamShow = new HamCheck.ExamShowControl();
             this.SuspendLayout();
             // 
             // bwEnumerateExams
@@ -70,21 +71,37 @@
             this.hamSetup.Size = new System.Drawing.Size(582, 353);
             this.hamSetup.TabIndex = 1;
             this.hamSetup.Visible = false;
-            this.hamSetup.Selected += new System.EventHandler<ExamElementEventArgs>(this.hamSetup_Selected);
+            this.hamSetup.Selected += new System.EventHandler<HamCheck.ExamElementEventArgs>(this.hamSetup_Selected);
+            this.hamSetup.GoBack += new System.EventHandler<System.EventArgs>(this.hamSetup_GoBack);
+            // 
+            // hamShow
+            // 
+            this.hamShow.BackColor = System.Drawing.SystemColors.Window;
+            this.hamShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hamShow.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.hamShow.Location = new System.Drawing.Point(0, 0);
+            this.hamShow.Name = "hamShow";
+            this.hamShow.Items = null;
+            this.hamShow.Size = new System.Drawing.Size(582, 353);
+            this.hamShow.TabIndex = 2;
+            this.hamShow.Visible = false;
+            this.hamShow.GoBack += new System.EventHandler<System.EventArgs>(this.hamShow_GoBack);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 353);
-            this.Controls.Add(this.hamSetup);
             this.Controls.Add(this.lblLoading);
             this.Controls.Add(this.hamSelect);
+            this.Controls.Add(this.hamSetup);
+            this.Controls.Add(this.hamShow);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "MainForm";
             this.Text = "Ham check";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_FormClosing);
             this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
 
@@ -96,6 +113,7 @@
         private System.Windows.Forms.Label lblLoading;
         private ExamSelectMenuControl hamSelect;
         private ExamSetupMenuControl hamSetup;
+        private ExamShowControl hamShow;
     }
 }
 
