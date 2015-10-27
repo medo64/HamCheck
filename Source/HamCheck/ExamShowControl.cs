@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace HamCheck {
     internal class ExamShowControl : ScrollableControl {
 
         public ExamShowControl() {
-            //this.AutoScroll = true;
+            this.AutoScroll = true;
             this.BackColor = SystemColors.Window;
             this.ForeColor = SystemColors.WindowText;
 
@@ -55,6 +56,25 @@ namespace HamCheck {
                     this.Invalidate();
                     break;
 
+                case Keys.Down:
+                    {
+                        var currY = -this.AutoScrollPosition.Y;
+                        var maxY = (this.AutoScrollMinSize.Height - this.Height);
+                        if (currY < maxY) {
+                            this.AutoScrollPosition = new Point(this.AutoScrollPosition.X, Math.Min(-this.AutoScrollPosition.Y + SystemInformation.CursorSize.Height, maxY));
+                        }
+                    }
+                    break;
+
+                case Keys.Up:
+                    {
+                        var currY = -this.AutoScrollPosition.Y;
+                        if (currY > 0) {
+                            this.AutoScrollPosition = new Point(this.AutoScrollPosition.X, Math.Max(-this.AutoScrollPosition.Y - SystemInformation.CursorSize.Height, 0));
+                        }
+                    }
+                    break;
+
             }
         }
 
@@ -80,6 +100,8 @@ namespace HamCheck {
         private int ItemIndex;
 
         private void Control_Paint(object sender, PaintEventArgs e) {
+            e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
+
             if (this.Items == null) { return; }
 
             var item = this.Items[this.ItemIndex];
@@ -89,8 +111,10 @@ namespace HamCheck {
             var width = emSize.Width * 36;
             var height = emSize.Width * 24;
 
-            if (width > this.Width - SystemInformation.Border3DSize.Width - SystemInformation.VerticalScrollBarWidth) { width = this.Width - SystemInformation.Border3DSize.Width - SystemInformation.VerticalScrollBarWidth; }
-            if (height > this.Height - SystemInformation.Border3DSize.Height * 2) { height = this.Height - SystemInformation.Border3DSize.Height * 2; }
+            var maxWidth = this.Width - SystemInformation.Border3DSize.Width - SystemInformation.VerticalScrollBarWidth;
+            var maxHeight = this.Height - SystemInformation.Border3DSize.Height * 2;
+            if (width > maxWidth) { width = maxWidth; }
+            if (height > maxHeight) { height = maxHeight; }
 
             var left = (this.Width - width) / 2;
             var right = left + width;
@@ -104,6 +128,11 @@ namespace HamCheck {
             var questionCodeRectange = new Rectangle(left, top, width, emSize.Height);
             e.Graphics.DrawString(item.Question.Code, this.Font, SystemBrushes.GrayText, questionCodeRectange, StringFormat.GenericTypographic);
 
+            var questionNumberRectange = new Rectangle(left, top, width - SystemInformation.VerticalScrollBarWidth - SystemInformation.Border3DSize.Width, emSize.Height);
+            var questionNumberText = string.Format(CultureInfo.CurrentCulture, "{0}/{1}", this.ItemIndex + 1, this.Items.Count);
+            e.Graphics.DrawString(questionNumberText, this.Font, SystemBrushes.GrayText, questionNumberRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Far });
+
+
             top += emSize.Height * 2;
 
             int illustrationBottom = 0;
@@ -115,7 +144,7 @@ namespace HamCheck {
                     imageWidth = (int)(imageWidth * 0.75);
                     imageHeight = (int)(imageHeight * 0.75);
                 }
-                var imageLeft = left + width - imageWidth;
+                var imageLeft = left + width - imageWidth - SystemInformation.VerticalScrollBarWidth;
                 var imageTop = top;
                 var imageRectange = new Rectangle(imageLeft, imageTop, imageWidth, imageHeight);
 
@@ -127,7 +156,7 @@ namespace HamCheck {
             }
 
             var questionFont = new Font(this.Font.FontFamily, this.Font.Size * 1.2F);
-            int maxQuestionWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0);
+            int maxQuestionWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - SystemInformation.VerticalScrollBarWidth;
             var questionTextSize = e.Graphics.MeasureString(item.Question.Text, questionFont, maxQuestionWidth, StringFormat.GenericDefault).ToSize();
             var questionRectange = new Rectangle(left, top, questionTextSize.Width, questionTextSize.Height);
             e.Graphics.DrawString(item.Question.Text, questionFont, SystemBrushes.WindowText, questionRectange, StringFormat.GenericTypographic);
@@ -139,7 +168,7 @@ namespace HamCheck {
             foreach (var answer in item.Answers) {
                 e.Graphics.DrawString(answerLetter.ToString(), new Font(this.Font, FontStyle.Bold), SystemBrushes.WindowText, left, top, StringFormat.GenericTypographic);
 
-                int maxAnswerWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - emSize.Width;
+                int maxAnswerWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - emSize.Width - SystemInformation.VerticalScrollBarWidth;
                 var answerTextSize = e.Graphics.MeasureString(answer.Text, this.Font, maxAnswerWidth, StringFormat.GenericDefault).ToSize();
                 var answerRectangle = new Rectangle(left + emSize.Width, top, answerTextSize.Width, answerTextSize.Height);
                 e.Graphics.DrawString(answer.Text, this.Font, SystemBrushes.WindowText, answerRectangle, StringFormat.GenericTypographic);
@@ -152,7 +181,8 @@ namespace HamCheck {
             top -= emSize.Height;
             top += SystemInformation.Border3DSize.Height;
 
-            this.AutoScrollMinSize = new Size(width, top);
+            var newSize = new Size(width, top);
+            if (this.AutoScrollMinSize != newSize) { this.AutoScrollMinSize = newSize; }
         }
 
         #endregion
