@@ -47,16 +47,33 @@ namespace HamCheck {
                     break;
 
                 case Keys.Right:
-                    this.ItemIndex += 1;
-                    this.Invalidate();
+                case Keys.Space:
+                    if (this.ShowAnswerAfterEveryQuestion && !this.ShowingAnswer) {
+                        this.ShowingAnswer = true;
+                        this.Invalidate();
+                    } else if (this.ItemIndex < this.Items.Count - 1) {
+                        this.ShowingAnswer = false;
+                        this.ItemIndex += 1;
+                        this.Invalidate();
+                    }
                     break;
 
                 case Keys.Left:
-                    this.ItemIndex -= 1;
-                    this.Invalidate();
+                    if (this.ShowAnswerAfterEveryQuestion && this.ShowingAnswer) {
+                        this.ShowingAnswer = false;
+                        this.Invalidate();
+                    } else if (this.ShowAnswerAfterEveryQuestion && (this.ItemIndex > 0)) {
+                        this.ShowingAnswer = true;
+                        this.ItemIndex -= 1;
+                        this.Invalidate();
+                    } else if ((this.ItemIndex > 0)) {
+                        this.ShowingAnswer = false;
+                        this.ItemIndex -= 1;
+                        this.Invalidate();
+                    }
                     break;
 
-                case Keys.Down:
+                case Keys.PageDown:
                     {
                         var currY = -this.AutoScrollPosition.Y;
                         var maxY = (this.AutoScrollMinSize.Height - this.Height);
@@ -66,12 +83,93 @@ namespace HamCheck {
                     }
                     break;
 
-                case Keys.Up:
+                case Keys.PageUp:
                     {
                         var currY = -this.AutoScrollPosition.Y;
                         if (currY > 0) {
                             this.AutoScrollPosition = new Point(this.AutoScrollPosition.X, Math.Max(-this.AutoScrollPosition.Y - SystemInformation.CursorSize.Height, 0));
                         }
+                    }
+                    break;
+
+                case Keys.A:
+                case Keys.D1:
+                case Keys.NumPad1:
+                    if (this.ShowingAnswer) { break; }
+                    if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                        var item = this.Items[this.ItemIndex];
+                        item.SelectedAnswerIndex = 0;
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.B:
+                case Keys.D2:
+                case Keys.NumPad2:
+                    if (this.ShowingAnswer) { break; }
+                    if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                        var item = this.Items[this.ItemIndex];
+                        item.SelectedAnswerIndex = 1;
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.C:
+                case Keys.D3:
+                case Keys.NumPad3:
+                    if (this.ShowingAnswer) { break; }
+                    if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                        var item = this.Items[this.ItemIndex];
+                        item.SelectedAnswerIndex = 2;
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.D:
+                case Keys.D4:
+                case Keys.NumPad4:
+                    if (this.ShowingAnswer) { break; }
+                    if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                        var item = this.Items[this.ItemIndex];
+                        item.SelectedAnswerIndex = 3;
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.Up:
+                    if (this.ShowingAnswer) { break; }
+                    if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                        var item = this.Items[this.ItemIndex];
+                        if (item.SelectedAnswerIndex == null) {
+                            item.SelectedAnswerIndex = 0;
+                        } else if (item.SelectedAnswerIndex > 0) {
+                            item.SelectedAnswerIndex -= 1;
+                        }
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.Down:
+                    if (this.ShowingAnswer) { break; }
+                    if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                        var item = this.Items[this.ItemIndex];
+                        if (item.SelectedAnswerIndex == null) {
+                            item.SelectedAnswerIndex = 0;
+                        } else if (item.SelectedAnswerIndex < item.Answers.Count - 1) {
+                            item.SelectedAnswerIndex += 1;
+                        }
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.Back:
+                case Keys.D0:
+                case Keys.NumPad0:
+                    if (this.ShowingAnswer) { break; }
+                    if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                        var item = this.Items[this.ItemIndex];
+                        item.SelectedAnswerIndex = null;
+                        this.Invalidate();
                     }
                     break;
 
@@ -98,6 +196,7 @@ namespace HamCheck {
         #region Events
 
         private int ItemIndex;
+        private bool ShowingAnswer;
 
         private void Control_Paint(object sender, PaintEventArgs e) {
             e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
@@ -164,18 +263,28 @@ namespace HamCheck {
 
             top += questionTextSize.Height + emSize.Height;
 
-            var answerLetter = 'A';
-            foreach (var answer in item.Answers) {
-                e.Graphics.DrawString(answerLetter.ToString(), new Font(this.Font, FontStyle.Bold), SystemBrushes.WindowText, left, top, StringFormat.GenericTypographic);
+            using (var boldFont = new Font(this.Font, FontStyle.Bold)) {
+                for (int i = 0; i < item.Answers.Count; i++) {
+                    var answer = item.Answers[i];
 
-                int maxAnswerWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - emSize.Width - SystemInformation.VerticalScrollBarWidth;
-                var answerTextSize = e.Graphics.MeasureString(answer.Text, this.Font, maxAnswerWidth, StringFormat.GenericDefault).ToSize();
-                var answerRectangle = new Rectangle(left + emSize.Width, top, answerTextSize.Width, answerTextSize.Height);
-                e.Graphics.DrawString(answer.Text, this.Font, SystemBrushes.WindowText, answerRectangle, StringFormat.GenericTypographic);
-                //e.Graphics.DrawRectangle(Pens.Green, answerRectangle);
+                    var letterFont = boldFont;
+                    var answerFont = (item.SelectedAnswerIndex == i) || (this.ShowingAnswer && answer.IsCorrect) ? boldFont : this.Font;
+                    Brush answerBrush = SystemBrushes.WindowText;
+                    if (this.ShowingAnswer) {
+                        letterFont = (answer.IsCorrect) ? boldFont : this.Font;
+                        answerBrush = (answer.IsCorrect) ? SystemBrushes.WindowText : SystemBrushes.GrayText;
+                    }
 
-                top += answerTextSize.Height + emSize.Height;
-                answerLetter++;
+                    e.Graphics.DrawString(((char)('A' + i)).ToString(), letterFont, answerBrush, left, top, StringFormat.GenericTypographic);
+
+                    int maxAnswerWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - emSize.Width - SystemInformation.VerticalScrollBarWidth;
+                    var answerTextSize = e.Graphics.MeasureString(answer.Text, answerFont, maxAnswerWidth, StringFormat.GenericDefault).ToSize();
+                    var answerRectangle = new Rectangle(left + emSize.Width, top, answerTextSize.Width, answerTextSize.Height);
+                    e.Graphics.DrawString(answer.Text, answerFont, answerBrush, answerRectangle, StringFormat.GenericTypographic);
+                    //e.Graphics.DrawRectangle(Pens.Green, answerRectangle);
+
+                    top += answerTextSize.Height + emSize.Height;
+                }
             }
 
             top -= emSize.Height;

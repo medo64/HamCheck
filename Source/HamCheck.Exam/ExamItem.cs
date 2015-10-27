@@ -32,7 +32,7 @@ namespace HamCheck {
         /// <summary>
         /// Gets user-selected answer.
         /// </summary>
-        public int SelectedAnswerIndex { get; set; }
+        public int? SelectedAnswerIndex { get; set; }
 
     }
 }
