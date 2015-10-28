@@ -68,11 +68,17 @@ namespace HamCheck {
 
                 case Keys.Right:
                 case Keys.Space:
-                    if (this.ShowAnswerAfterEveryQuestion && !this.ShowingAnswer) {
+                    if (this.ShowAnswerAfterEveryQuestion && (this.LastAnswerIndex > this.ItemIndex)) { //show only answers once it has been shown
+                        this.ShowingAnswer = true;
+                        if (this.ItemIndex < this.Items.Count - 1) {
+                            this.ItemIndex += 1;
+                            this.Invalidate();
+                        }
+                    } else if (this.ShowAnswerAfterEveryQuestion && !this.ShowingAnswer) { //after question switch to showing its answer
                         this.LastAnswerIndex = Math.Max(this.LastAnswerIndex, this.ItemIndex);
                         this.ShowingAnswer = true;
                         this.Invalidate();
-                    } else if (this.ItemIndex < this.Items.Count - 1) {
+                    } else if (this.ItemIndex < this.Items.Count - 1) { //go to next question
                         this.ShowingAnswer = false;
                         this.ItemIndex += 1;
                         this.Invalidate();
@@ -80,14 +86,13 @@ namespace HamCheck {
                     break;
 
                 case Keys.Left:
-                    if (this.ShowAnswerAfterEveryQuestion && this.ShowingAnswer) {
-                        this.ShowingAnswer = false;
-                        this.Invalidate();
-                    } else if (this.ShowAnswerAfterEveryQuestion && (this.ItemIndex > 0)) {
+                    if (this.ShowAnswerAfterEveryQuestion) { //show only answers for already answered questions
                         this.ShowingAnswer = true;
-                        this.ItemIndex -= 1;
-                        this.Invalidate();
-                    } else if ((this.ItemIndex > 0)) {
+                        if (this.ItemIndex > 0) {
+                            this.ItemIndex -= 1;
+                            this.Invalidate();
+                        }
+                    } else if (this.ItemIndex > 0) { //go to previous question
                         this.ShowingAnswer = false;
                         this.ItemIndex -= 1;
                         this.Invalidate();
