@@ -74,12 +74,12 @@ namespace HamCheck {
             switch (e.Type) {
                 case ExamType.Practice:
                     hamShow.ShowAnswerAfterEveryQuestion = false;
-                    //hamShow.Items =
+                    hamShow.Items = hamSetup.Element.GetExamQuestions();
                     break;
 
                 case ExamType.Randomize:
                     hamShow.ShowAnswerAfterEveryQuestion = true;
-                    //hamShow.Items =
+                    hamShow.Items = hamSetup.Element.GetRandomizedQuestions();
                     break;
 
                 case ExamType.All:

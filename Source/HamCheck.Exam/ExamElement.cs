@@ -120,19 +120,63 @@ namespace HamCheck {
 
         #region Questions
 
-        public ReadOnlyCollection<ExamItem> GetAllQuestions() {
-            var result = new List<ExamItem>();
+        public ReadOnlyCollection<ExamItem> GetExamQuestions() {
+            var items = new List<ExamItem>();
+
+            foreach (var subelement in this.Subelements) {
+                foreach (var group in subelement.Groups) {
+                    var question = group.Questions[Random.Next(group.Questions.Count)]; //one question from each group
+                    var answers = new List<ExamAnswer>(question.Answers);
+                    RandomizeList(answers);
+                    items.Add(new ExamItem(question, answers.AsReadOnly(), group));
+                }
+            }
+
+            return items.AsReadOnly();
+        }
+
+        public ReadOnlyCollection<ExamItem> GetRandomizedQuestions() {
+            var items = new List<ExamItem>();
 
             foreach (var subelement in this.Subelements) {
                 foreach (var group in subelement.Groups) {
                     foreach (var question in group.Questions) {
                         var answers = new List<ExamAnswer>(question.Answers);
-                        result.Add(new ExamItem(question, answers.AsReadOnly(), group));
+                        RandomizeList(answers);
+                        items.Add(new ExamItem(question, answers.AsReadOnly(), group));
                     }
                 }
             }
 
-            return result.AsReadOnly();
+            RandomizeList(items);
+
+            return items.AsReadOnly();
+        }
+
+        public ReadOnlyCollection<ExamItem> GetAllQuestions() {
+            var items = new List<ExamItem>();
+
+            foreach (var subelement in this.Subelements) {
+                foreach (var group in subelement.Groups) {
+                    foreach (var question in group.Questions) {
+                        var answers = new List<ExamAnswer>(question.Answers);
+                        RandomizeList(answers);
+                        items.Add(new ExamItem(question, answers.AsReadOnly(), group));
+                    }
+                }
+            }
+
+            return items.AsReadOnly();
+        }
+
+        private static Random Random = new Random();
+        private static void RandomizeList<T>(IList<T> items) {
+            for (int i = 0; i < items.Count; i++) {
+                var j = Random.Next(items.Count);
+                var temp = items[i];
+                items[i] = items[j];
+                items[j] = temp;
+            }
         }
 
         #endregion
