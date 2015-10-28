@@ -210,15 +210,29 @@ namespace HamCheck {
         protected override void OnMouseDown(MouseEventArgs e) {
             base.OnMouseDown(e);
 
+            var location = e.Location;
+            location.Offset(-this.AutoScrollPosition.X, -this.AutoScrollPosition.Y);
+
             if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { return; }
             if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                 var item = this.Items[this.ItemIndex];
-                for (int i = 0; i < this.AnswerRectangles.Count; i++) {
-                    if (this.AnswerRectangles[i].Contains(e.Location)) {
+                for (int i = 0; i < this.AnswerHitRectangles.Count; i++) {
+                    if (this.AnswerHitRectangles[i].Contains(location)) {
                         item.SelectedAnswerIndex = i;
                         this.Invalidate();
                         break;
                     }
+                }
+            }
+        }
+
+        protected override void OnDoubleClick(EventArgs e) {
+            base.OnDoubleClick(e);
+
+            if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                var item = this.Items[this.ItemIndex];
+                if (item.SelectedAnswerIndex != null) { //move to next page if anything is selected
+                    OnKeyDown(new KeyEventArgs(Keys.Enter));
                 }
             }
         }
@@ -228,14 +242,14 @@ namespace HamCheck {
         private int LastAnswerIndex;
         private bool ShowingAnswer;
         private bool ShowingResults;
-        private List<Rectangle> AnswerRectangles = new List<Rectangle>();
+        private List<Rectangle> AnswerHitRectangles = new List<Rectangle>();
 
 
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
             if (this.Items == null) { return; }
 
-            this.AnswerRectangles.Clear();
+            this.AnswerHitRectangles.Clear();
             e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
 
             var emSize = e.Graphics.MeasureString("M", this.Font).ToSize();
@@ -398,7 +412,8 @@ namespace HamCheck {
                     e.Graphics.DrawString(answer.Text, answerFont, answerBrush, answerRectangle, StringFormat.GenericTypographic);
                     if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Green, answerRectangle); }
                     if (!this.ShowingAnswer && !this.ShowingResults) {
-                        this.AnswerRectangles.Add(answerRectangle);
+                        var answerHitRectange = new Rectangle(answerRectangle.Left - emSize.Width, answerRectangle.Top, answerRectangle.Width + emSize.Width, answerRectangle.Height);
+                        this.AnswerHitRectangles.Add(answerHitRectange);
                     }
 
                     top += answerTextSize.Height + emSize.Height;

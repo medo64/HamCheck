@@ -160,7 +160,6 @@ namespace HamCheck {
                 foreach (var group in subelement.Groups) {
                     foreach (var question in group.Questions) {
                         var answers = new List<ExamAnswer>(question.Answers);
-                        RandomizeList(answers);
                         items.Add(new ExamItem(question, answers.AsReadOnly(), group));
                     }
                 }
