@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Globalization;
@@ -196,13 +197,32 @@ namespace HamCheck {
             }
         }
 
+        protected override void OnMouseDown(MouseEventArgs e) {
+            base.OnMouseDown(e);
+
+            if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { return; }
+            if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
+                var item = this.Items[this.ItemIndex];
+                for (int i = 0; i < this.AnswerRectangles.Count; i++) {
+                    if (this.AnswerRectangles[i].Contains(e.Location)) {
+                        item.SelectedAnswerIndex = i;
+                        this.Invalidate();
+                        break;
+                    }
+                }
+            }
+        }
+
 
         private int ItemIndex;
         private int LastAnswerIndex;
         private bool ShowingAnswer;
+        private List<Rectangle> AnswerRectangles = new List<Rectangle>();
+
 
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
+            this.AnswerRectangles.Clear();
 
             e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
 
@@ -287,6 +307,9 @@ namespace HamCheck {
                     var answerRectangle = new Rectangle(left + emSize.Width, top, answerTextSize.Width, answerTextSize.Height);
                     e.Graphics.DrawString(answer.Text, answerFont, answerBrush, answerRectangle, StringFormat.GenericTypographic);
                     //e.Graphics.DrawRectangle(Pens.Green, answerRectangle);
+                    if (!this.ShowingAnswer) {
+                        this.AnswerRectangles.Add(answerRectangle);
+                    }
 
                     top += answerTextSize.Height + emSize.Height;
                 }
