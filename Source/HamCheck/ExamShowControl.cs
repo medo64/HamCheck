@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Globalization;
@@ -21,10 +20,30 @@ namespace HamCheck {
             this.SetStyle(ControlStyles.StandardClick, true);
             this.SetStyle(ControlStyles.StandardDoubleClick, true);
             this.SetStyle(ControlStyles.UserPaint, true);
-
-            this.Paint += Control_Paint;
         }
 
+
+        private ReadOnlyCollection<ExamItem> _items;
+        public ReadOnlyCollection<ExamItem> Items {
+            get { return this._items; }
+            set {
+                this._items = value;
+                this.ItemIndex = 0;
+                this.LastAnswerIndex = -1;
+                this.ShowingAnswer = false;
+
+                if (this._items != null) {
+                }
+
+                this.Invalidate();
+            }
+        }
+
+
+        public bool ShowAnswerAfterEveryQuestion { get; set; }
+
+
+        #region Events
 
         protected override bool IsInputKey(Keys keyData) {
             switch (keyData) {
@@ -49,6 +68,7 @@ namespace HamCheck {
                 case Keys.Right:
                 case Keys.Space:
                     if (this.ShowAnswerAfterEveryQuestion && !this.ShowingAnswer) {
+                        this.LastAnswerIndex = Math.Max(this.LastAnswerIndex, this.ItemIndex);
                         this.ShowingAnswer = true;
                         this.Invalidate();
                     } else if (this.ItemIndex < this.Items.Count - 1) {
@@ -95,7 +115,7 @@ namespace HamCheck {
                 case Keys.A:
                 case Keys.D1:
                 case Keys.NumPad1:
-                    if (this.ShowingAnswer) { break; }
+                    if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 0;
@@ -106,7 +126,7 @@ namespace HamCheck {
                 case Keys.B:
                 case Keys.D2:
                 case Keys.NumPad2:
-                    if (this.ShowingAnswer) { break; }
+                    if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 1;
@@ -117,7 +137,7 @@ namespace HamCheck {
                 case Keys.C:
                 case Keys.D3:
                 case Keys.NumPad3:
-                    if (this.ShowingAnswer) { break; }
+                    if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 2;
@@ -128,7 +148,7 @@ namespace HamCheck {
                 case Keys.D:
                 case Keys.D4:
                 case Keys.NumPad4:
-                    if (this.ShowingAnswer) { break; }
+                    if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 3;
@@ -137,7 +157,7 @@ namespace HamCheck {
                     break;
 
                 case Keys.Up:
-                    if (this.ShowingAnswer) { break; }
+                    if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         if (item.SelectedAnswerIndex == null) {
@@ -150,7 +170,7 @@ namespace HamCheck {
                     break;
 
                 case Keys.Down:
-                    if (this.ShowingAnswer) { break; }
+                    if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         if (item.SelectedAnswerIndex == null) {
@@ -165,7 +185,7 @@ namespace HamCheck {
                 case Keys.Back:
                 case Keys.D0:
                 case Keys.NumPad0:
-                    if (this.ShowingAnswer) { break; }
+                    if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = null;
@@ -176,29 +196,14 @@ namespace HamCheck {
             }
         }
 
-        private ReadOnlyCollection<ExamItem> _items;
-        public ReadOnlyCollection<ExamItem> Items {
-            get { return this._items; }
-            set {
-                this._items = value;
-
-                if (this._items != null) {
-                }
-
-                this.Invalidate();
-            }
-        }
-
-
-        public bool ShowAnswerAfterEveryQuestion { get; set; }
-
-
-        #region Events
 
         private int ItemIndex;
+        private int LastAnswerIndex;
         private bool ShowingAnswer;
 
-        private void Control_Paint(object sender, PaintEventArgs e) {
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+
             e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
 
             if (this.Items == null) { return; }
