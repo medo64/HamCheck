@@ -35,6 +35,7 @@ namespace HamCheck {
             }
         }
 
+
         public static bool DebugShowHitBoxes {
             get { return Medo.Configuration.Settings.Read("DebugShowHitBoxes", false); }
         }

@@ -257,16 +257,18 @@ namespace HamCheck {
             var width = emSize.Width * 36;
             var height = emSize.Width * 24;
 
-            var maxWidth = this.Width - SystemInformation.Border3DSize.Width - SystemInformation.VerticalScrollBarWidth;
-            var maxHeight = this.Height - SystemInformation.Border3DSize.Height * 2;
+            var margin = (SystemInformation.Border3DSize.Width + SystemInformation.Border3DSize.Height) / 2;
+
+            var maxWidth = this.Width - margin * 2 - SystemInformation.VerticalScrollBarWidth;
+            var maxHeight = this.Height - margin * 2;
             if (width > maxWidth) { width = maxWidth; }
             if (height > maxHeight) { height = maxHeight; }
 
-            var left = (this.Width - width) / 2;
+            var left = (this.Width - (width + SystemInformation.VerticalScrollBarWidth)) / 2;
             var right = left + width;
             var top = (this.Height - height) / 2 - emSize.Height;
             var bottom = top + height;
-            if (top < SystemInformation.Border3DSize.Width) { top = SystemInformation.Border3DSize.Height; }
+            if (top < margin) { top = margin; }
             if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Gray, left, top, width, height); }
 
 
@@ -333,6 +335,8 @@ namespace HamCheck {
                     }
                 }
 
+                statTop += margin;
+
                 var newSizeResults = new Size(width, statTop);
                 if (this.AutoScrollMinSize != newSizeResults) { this.AutoScrollMinSize = newSizeResults; }
                 return;
@@ -341,15 +345,18 @@ namespace HamCheck {
 
             var item = this.Items[this.ItemIndex];
 
-            var questionCodeRectange = new Rectangle(left, top, width, emSize.Height);
+            var questionCodeRectange = new Rectangle(left, top, emSize.Width * 3, emSize.Height);
+            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, questionCodeRectange); }
             e.Graphics.DrawString(item.Question.Code, this.Font, SystemBrushes.GrayText, questionCodeRectange, StringFormat.GenericTypographic);
 
-            var questionNumberRectange = new Rectangle(left, top, width - SystemInformation.VerticalScrollBarWidth - SystemInformation.Border3DSize.Width, emSize.Height);
+            var questionNumberRectange = new Rectangle(left + width - emSize.Width * 3, top, emSize.Width * 3, emSize.Height);
+            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, questionNumberRectange); }
             var questionNumberText = string.Format(CultureInfo.CurrentCulture, "{0}/{1}", this.ItemIndex + 1, this.Items.Count);
             e.Graphics.DrawString(questionNumberText, this.Font, SystemBrushes.GrayText, questionNumberRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Far });
 
             if (this.ShowingAnswer || this.ShowingResults) {
-                var titleRectange = new Rectangle(left + emSize.Width * 4, top, width - SystemInformation.VerticalScrollBarWidth - SystemInformation.Border3DSize.Width - emSize.Width * 8, emSize.Height);
+                var titleRectange = new Rectangle(left + emSize.Width * 4, top, width - emSize.Width * 8, emSize.Height);
+                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, titleRectange); }
                 string titleText;
                 if (item.SelectedAnswerIndex == null) {
                     titleText = "Not answered";
@@ -372,7 +379,7 @@ namespace HamCheck {
                     imageWidth = (int)(imageWidth * 0.75);
                     imageHeight = (int)(imageHeight * 0.75);
                 }
-                var imageLeft = left + width - imageWidth - SystemInformation.VerticalScrollBarWidth;
+                var imageLeft = left + width - imageWidth;
                 var imageTop = top;
                 var imageRectange = new Rectangle(imageLeft, imageTop, imageWidth, imageHeight);
 
@@ -384,7 +391,7 @@ namespace HamCheck {
             }
 
             var questionFont = new Font(this.Font.FontFamily, this.Font.Size * 1.2F);
-            int maxQuestionWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - SystemInformation.VerticalScrollBarWidth;
+            int maxQuestionWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0);
             var questionTextSize = e.Graphics.MeasureString(item.Question.Text, questionFont, maxQuestionWidth, StringFormat.GenericDefault).ToSize();
             var questionRectange = new Rectangle(left, top, questionTextSize.Width, questionTextSize.Height);
             e.Graphics.DrawString(item.Question.Text, questionFont, SystemBrushes.WindowText, questionRectange, StringFormat.GenericTypographic);
@@ -406,7 +413,7 @@ namespace HamCheck {
 
                     e.Graphics.DrawString(((char)('A' + i)).ToString(), letterFont, answerBrush, left, top, StringFormat.GenericTypographic);
 
-                    int maxAnswerWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - emSize.Width - SystemInformation.VerticalScrollBarWidth;
+                    int maxAnswerWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0) - emSize.Width;
                     var answerTextSize = e.Graphics.MeasureString(answer.Text, answerFont, maxAnswerWidth, StringFormat.GenericDefault).ToSize();
                     var answerRectangle = new Rectangle(left + emSize.Width, top, answerTextSize.Width, answerTextSize.Height);
                     e.Graphics.DrawString(answer.Text, answerFont, answerBrush, answerRectangle, StringFormat.GenericTypographic);
@@ -421,7 +428,7 @@ namespace HamCheck {
             }
 
             top -= emSize.Height;
-            top += SystemInformation.Border3DSize.Height;
+            top += margin;
 
             var newSize = new Size(width, top);
             if (this.AutoScrollMinSize != newSize) { this.AutoScrollMinSize = newSize; }
