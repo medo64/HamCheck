@@ -56,15 +56,23 @@ namespace HamCheck {
             }
         }
 
+        private bool wasEscape = false;
+
         protected override void OnKeyDown(KeyEventArgs e) {
             base.OnKeyDown(e);
 
-            switch (e.KeyData) {
-                case Keys.Escape:
+            if (e.KeyData == Keys.Escape) {
+                if (wasEscape) {
                     var eh = this.GoBack;
                     if (eh != null) { eh.Invoke(this, new EventArgs()); }
-                    break;
+                } else {
+                    wasEscape = true;
+                    return;
+                }
+            }
+            wasEscape = false;
 
+            switch (e.KeyData) {
                 case Keys.Right:
                 case Keys.Space:
                 case Keys.Enter:
@@ -225,6 +233,7 @@ namespace HamCheck {
                 }
             }
         }
+
 
         protected override void OnDoubleClick(EventArgs e) {
             base.OnDoubleClick(e);

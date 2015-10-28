@@ -8,12 +8,11 @@ namespace HamCheck {
         public ExamSetupMenuControl() {
             this.BackColor = SystemColors.Window;
             this.ForeColor = SystemColors.WindowText;
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
-            this.Paint += Control_Paint;
-            this.Resize += Control_Resize;
             this.KeyDown += Control_KeyDown;
 
-            this.Control_Resize(null, null);
+            this.OnResize(null);
         }
 
 
@@ -69,18 +68,19 @@ namespace HamCheck {
                     }
                 }
 
-                this.Control_Resize(null, null);
+                this.OnResize(null);
             }
         }
 
 
         #region Events
 
-        private void Control_Paint(object sender, PaintEventArgs e) {
-            Control_Resize(null, null);
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+            this.OnResize(null);
         }
 
-        private void Control_Resize(object sender, EventArgs e) {
+        protected override void OnResize(EventArgs e) {
             using (var g = this.CreateGraphics()) {
                 this.EmSize = g.MeasureString("M", this.Font).ToSize();
             }
@@ -102,11 +102,40 @@ namespace HamCheck {
         }
 
 
+        protected override bool IsInputKey(Keys keyData) {
+            switch (keyData) {
+                case Keys.Right:
+                case Keys.Left:
+                case Keys.Up:
+                case Keys.Down:
+                    return true;
+                default: return base.IsInputKey(keyData);
+            }
+        }
+
         private void Control_KeyDown(object sender, KeyEventArgs e) {
-            foreach (Button button in this.Controls) {
-                if ((button.Tag != null) && ((Keys)(button.Tag) == e.KeyData)) {
-                    button.PerformClick();
-                }
+            switch (e.KeyData) {
+                case Keys.Down:
+                    {
+                        var control = this.GetNextControl(this, true);
+                        if (control != null) { control.Select(); }
+                    }
+                    break;
+
+                case Keys.Up:
+                    {
+                        var control = this.GetNextControl(this, false);
+                        if (control != null) { control.Select(); }
+                    }
+                    break;
+
+                default:
+                    foreach (Button button in this.Controls) {
+                        if ((button.Tag != null) && ((Keys)(button.Tag) == e.KeyData)) {
+                            button.PerformClick();
+                        }
+                    }
+                    break;
             }
         }
 
