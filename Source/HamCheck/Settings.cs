@@ -7,10 +7,6 @@ namespace HamCheck {
 
     internal static class Settings {
 
-        public static bool IsInstalled {
-            get { return Medo.Configuration.Settings.Read("Installed", false); }
-        }
-
         public static bool NoRegistryWrites {
             get {
                 try {
@@ -39,6 +35,9 @@ namespace HamCheck {
             }
         }
 
-    }
+        public static bool DebugShowHitBoxes {
+            get { return Medo.Configuration.Settings.Read("DebugShowHitBoxes", false); }
+        }
 
+    }
 }

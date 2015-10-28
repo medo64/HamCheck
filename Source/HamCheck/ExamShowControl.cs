@@ -29,12 +29,11 @@ namespace HamCheck {
             get { return this._items; }
             set {
                 this._items = value;
+
                 this.ItemIndex = 0;
                 this.LastAnswerIndex = -1;
                 this.ShowingAnswer = false;
-
-                if (this._items != null) {
-                }
+                this.ShowingResults = false;
 
                 this.Invalidate();
             }
@@ -68,6 +67,7 @@ namespace HamCheck {
 
                 case Keys.Right:
                 case Keys.Space:
+                case Keys.Enter:
                     if (this.ShowAnswerAfterEveryQuestion && (this.LastAnswerIndex > this.ItemIndex)) { //show only answers once it has been shown
                         this.ShowingAnswer = true;
                         if (this.ItemIndex < this.Items.Count - 1) {
@@ -81,6 +81,11 @@ namespace HamCheck {
                     } else if (this.ItemIndex < this.Items.Count - 1) { //go to next question
                         this.ShowingAnswer = false;
                         this.ItemIndex += 1;
+                        this.Invalidate();
+                    } else if (!this.ShowAnswerAfterEveryQuestion && (this.ItemIndex == this.Items.Count - 1)) { //go to next question
+                        this.ShowingResults = true;
+                        this.ItemIndex = this.Items.Count;
+                        this.LastAnswerIndex = this.Items.Count;
                         this.Invalidate();
                     }
                     break;
@@ -222,18 +227,16 @@ namespace HamCheck {
         private int ItemIndex;
         private int LastAnswerIndex;
         private bool ShowingAnswer;
+        private bool ShowingResults;
         private List<Rectangle> AnswerRectangles = new List<Rectangle>();
 
 
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
-            this.AnswerRectangles.Clear();
-
-            e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
-
             if (this.Items == null) { return; }
 
-            var item = this.Items[this.ItemIndex];
+            this.AnswerRectangles.Clear();
+            e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
 
             var emSize = e.Graphics.MeasureString("M", this.Font).ToSize();
 
@@ -250,9 +253,79 @@ namespace HamCheck {
             var top = (this.Height - height) / 2 - emSize.Height;
             var bottom = top + height;
             if (top < SystemInformation.Border3DSize.Width) { top = SystemInformation.Border3DSize.Height; }
+            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Gray, left, top, width, height); }
 
-            top -= this.AutoScrollOffset.Y;
-            //e.Graphics.DrawRectangle(Pens.Gray, left, top, width, height);
+
+            if (this.ShowingResults && (this.ItemIndex == this.Items.Count)) { //to show results
+                top += emSize.Height;
+
+                int statTotal = this.Items.Count, statE = (int)Math.Ceiling(statTotal * 0.74), statD = (int)Math.Ceiling(statTotal * 0.8), statC = (int)Math.Ceiling(statTotal * 0.85), statB = (int)Math.Ceiling(statTotal * 0.9), statA = (int)Math.Ceiling(statTotal * 0.95);
+                int statCorrect = 0, statIncorrect = 0, statUnanswered = 0;
+
+                foreach (var itemStat in this.Items) {
+                    if (itemStat.SelectedAnswerIndex == null) {
+                        statUnanswered++;
+                    } else if (itemStat.Answers[itemStat.SelectedAnswerIndex.Value].IsCorrect) {
+                        statCorrect++;
+                    } else {
+                        statIncorrect++;
+                    }
+                }
+
+                var maxStatTitlesWidth = 0;
+                var statTop = top;
+                foreach (var statTitle in new string[] { "Total questions:", "Needed to pass:", "", "Correct:", "Incorrect:", "Unanswered:" }) {
+                    if (!string.IsNullOrEmpty(statTitle)) {
+                        int maxTitleWidth = width / 2;
+                        var statTitleSize = e.Graphics.MeasureString(statTitle, this.Font, maxTitleWidth, new StringFormat(StringFormat.GenericDefault) { Trimming = StringTrimming.EllipsisCharacter }).ToSize();
+                        var statTitleRectange = new Rectangle(left, statTop, statTitleSize.Width, emSize.Height);
+                        if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Magenta, statTitleRectange); }
+                        e.Graphics.DrawString(statTitle, this.Font, SystemBrushes.WindowText, statTitleRectange, new StringFormat(StringFormat.GenericTypographic) { Trimming = StringTrimming.EllipsisCharacter });
+                        if (maxStatTitlesWidth < statTitleRectange.Width) { maxStatTitlesWidth = statTitleRectange.Width; }
+                    }
+                    statTop += emSize.Height;
+                }
+
+                statTop = top;
+                using (var boldFont = new Font(this.Font, FontStyle.Bold)) {
+                    foreach (var statResult in new string[] { statTotal.ToString(CultureInfo.CurrentCulture), statE.ToString(CultureInfo.CurrentCulture), "", statCorrect.ToString(CultureInfo.CurrentCulture), statIncorrect.ToString(CultureInfo.CurrentCulture), statUnanswered.ToString(CultureInfo.CurrentCulture) }) {
+                        if (!string.IsNullOrEmpty(statResult)) {
+                            int maxTitleWidth = width / 2;
+                            var statResultRectangle = new Rectangle(left + maxStatTitlesWidth, statTop, emSize.Width * 2, emSize.Height);
+                            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Cyan, statResultRectangle); }
+                            e.Graphics.DrawString(statResult, boldFont, SystemBrushes.WindowText, statResultRectangle, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Far });
+                        }
+                        statTop += emSize.Height;
+                    }
+                }
+
+                using (var verdictFont = new Font(this.Font.FontFamily, this.Font.Size * 5F, FontStyle.Bold)) {
+                    var verdictFormat = new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+                    var verdictRectangle = new Rectangle(left + maxStatTitlesWidth + emSize.Width * 2, top, width - maxStatTitlesWidth - emSize.Width * 2, statTop - top);
+                    if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Yellow, verdictRectangle); }
+
+                    if (statCorrect >= statA) {
+                        e.Graphics.DrawString("A", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                    } else if (statCorrect >= statB) {
+                        e.Graphics.DrawString("B", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                    } else if (statCorrect >= statC) {
+                        e.Graphics.DrawString("C", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                    } else if (statCorrect >= statD) {
+                        e.Graphics.DrawString("D", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                    } else if (statCorrect >= statE) {
+                        e.Graphics.DrawString("E", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                    } else {
+                        e.Graphics.DrawString("F", verdictFont, SystemBrushes.GrayText, verdictRectangle, verdictFormat);
+                    }
+                }
+
+                var newSizeResults = new Size(width, statTop);
+                if (this.AutoScrollMinSize != newSizeResults) { this.AutoScrollMinSize = newSizeResults; }
+                return;
+            }
+
+
+            var item = this.Items[this.ItemIndex];
 
             var questionCodeRectange = new Rectangle(left, top, width, emSize.Height);
             e.Graphics.DrawString(item.Question.Code, this.Font, SystemBrushes.GrayText, questionCodeRectange, StringFormat.GenericTypographic);
@@ -261,9 +334,18 @@ namespace HamCheck {
             var questionNumberText = string.Format(CultureInfo.CurrentCulture, "{0}/{1}", this.ItemIndex + 1, this.Items.Count);
             e.Graphics.DrawString(questionNumberText, this.Font, SystemBrushes.GrayText, questionNumberRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Far });
 
-            //var questionGroupRectange = new Rectangle(left + emSize.Width * 4, top, width - SystemInformation.VerticalScrollBarWidth - SystemInformation.Border3DSize.Width - emSize.Width * 8, emSize.Height);
-            //var questionGroupText = item.Group.Title;
-            //e.Graphics.DrawString(questionGroupText, this.Font, SystemBrushes.GrayText, questionGroupRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisWord });
+            if (this.ShowingAnswer || this.ShowingResults) {
+                var titleRectange = new Rectangle(left + emSize.Width * 4, top, width - SystemInformation.VerticalScrollBarWidth - SystemInformation.Border3DSize.Width - emSize.Width * 8, emSize.Height);
+                string titleText;
+                if (item.SelectedAnswerIndex == null) {
+                    titleText = "Not answered";
+                } else if (item.Answers[item.SelectedAnswerIndex.Value].IsCorrect) {
+                    titleText = "Correct answer";
+                } else {
+                    titleText = "Incorrect answer";
+                }
+                e.Graphics.DrawString(titleText, this.Font, SystemBrushes.GrayText, titleRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisWord });
+            }
 
             top += emSize.Height * 2;
 
@@ -281,7 +363,7 @@ namespace HamCheck {
                 var imageRectange = new Rectangle(imageLeft, imageTop, imageWidth, imageHeight);
 
                 e.Graphics.DrawImage(item.Question.Illustration.Picture, imageRectange);
-                //e.Graphics.DrawRectangle(Pens.Red, imageRectange);
+                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Red, imageRectange); }
 
                 illustrationBottom = imageRectange.Bottom + emSize.Height / 4;
                 illustrationWidth = imageRectange.Width + emSize.Height / 4;
@@ -292,7 +374,7 @@ namespace HamCheck {
             var questionTextSize = e.Graphics.MeasureString(item.Question.Text, questionFont, maxQuestionWidth, StringFormat.GenericDefault).ToSize();
             var questionRectange = new Rectangle(left, top, questionTextSize.Width, questionTextSize.Height);
             e.Graphics.DrawString(item.Question.Text, questionFont, SystemBrushes.WindowText, questionRectange, StringFormat.GenericTypographic);
-            //e.Graphics.DrawRectangle(Pens.Blue, questionRectange);
+            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Blue, questionRectange); }
 
             top += questionTextSize.Height + emSize.Height;
 
@@ -301,9 +383,9 @@ namespace HamCheck {
                     var answer = item.Answers[i];
 
                     var letterFont = boldFont;
-                    var answerFont = (item.SelectedAnswerIndex == i) || (this.ShowingAnswer && answer.IsCorrect) ? boldFont : this.Font;
+                    var answerFont = (item.SelectedAnswerIndex == i) || ((this.ShowingAnswer || this.ShowingResults) && answer.IsCorrect) ? boldFont : this.Font;
                     Brush answerBrush = SystemBrushes.WindowText;
-                    if (this.ShowingAnswer) {
+                    if (this.ShowingAnswer || this.ShowingResults) {
                         letterFont = (answer.IsCorrect) ? boldFont : this.Font;
                         answerBrush = (answer.IsCorrect) ? SystemBrushes.WindowText : SystemBrushes.GrayText;
                     }
@@ -314,8 +396,8 @@ namespace HamCheck {
                     var answerTextSize = e.Graphics.MeasureString(answer.Text, answerFont, maxAnswerWidth, StringFormat.GenericDefault).ToSize();
                     var answerRectangle = new Rectangle(left + emSize.Width, top, answerTextSize.Width, answerTextSize.Height);
                     e.Graphics.DrawString(answer.Text, answerFont, answerBrush, answerRectangle, StringFormat.GenericTypographic);
-                    //e.Graphics.DrawRectangle(Pens.Green, answerRectangle);
-                    if (!this.ShowingAnswer) {
+                    if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Green, answerRectangle); }
+                    if (!this.ShowingAnswer && !this.ShowingResults) {
                         this.AnswerRectangles.Add(answerRectangle);
                     }
 
