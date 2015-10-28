@@ -261,6 +261,9 @@ namespace HamCheck {
             var questionNumberText = string.Format(CultureInfo.CurrentCulture, "{0}/{1}", this.ItemIndex + 1, this.Items.Count);
             e.Graphics.DrawString(questionNumberText, this.Font, SystemBrushes.GrayText, questionNumberRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Far });
 
+            //var questionGroupRectange = new Rectangle(left + emSize.Width * 4, top, width - SystemInformation.VerticalScrollBarWidth - SystemInformation.Border3DSize.Width - emSize.Width * 8, emSize.Height);
+            //var questionGroupText = item.Group.Title;
+            //e.Graphics.DrawString(questionGroupText, this.Font, SystemBrushes.GrayText, questionGroupRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisWord });
 
             top += emSize.Height * 2;
 
