@@ -9,9 +9,9 @@ namespace HamCheck {
         public MainForm() {
             InitializeComponent();
             this.Font = SystemFonts.MessageBoxFont;
-            hamSelect.Font = new Font(this.Font.FontFamily, this.Font.Size * 1.5F);
-            hamSetup.Font = new Font(this.Font.FontFamily, this.Font.Size * 1.5F);
-            hamShow.Font = new Font(this.Font.FontFamily, this.Font.Size * 1.5F);
+            hamSelect.Font = this.Font;
+            hamSetup.Font = this.Font;
+            hamShow.Font = this.Font;
         }
 
 

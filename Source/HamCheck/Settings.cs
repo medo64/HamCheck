@@ -40,5 +40,19 @@ namespace HamCheck {
             get { return Medo.Configuration.Settings.Read("DebugShowHitBoxes", false); }
         }
 
+
+        public static float DefaultFontScale {
+            get { return 1.5F; }
+        }
+
+        public static float FontScale {
+            get { return (float)Medo.Configuration.Settings.Read("FontScale", Settings.DefaultFontScale); }
+            set {
+                if (value < 1) { value = 1; }
+                if (value > 3) { value = 3; }
+                Medo.Configuration.Settings.Write("FontScale", value);
+            }
+        }
+
     }
 }

@@ -19,9 +19,6 @@ namespace HamCheck {
         }
 
 
-        private Size EmSize { get; set; }
-
-
         private IEnumerable<ExamElement> _elements;
         public IEnumerable<ExamElement> Elements {
             get { return this._elements; }
@@ -61,21 +58,23 @@ namespace HamCheck {
         }
 
         protected override void OnResize(EventArgs e) {
+            using (var scaledFont = new Font(this.Font.FontFamily, this.Font.Size * Settings.FontScale))
             using (var g = this.CreateGraphics()) {
-                this.EmSize = g.MeasureString("M", this.Font).ToSize();
-            }
+                var emSize = g.MeasureString("M", scaledFont).ToSize();
 
-            if (this.Controls.Count > 0) {
-                var width = this.EmSize.Width * 18;
-                var height = this.EmSize.Width * 3;
+                if (this.Controls.Count > 0) {
+                    var width = emSize.Width * 18;
+                    var height = (int)(emSize.Height * 2.5);
 
-                var left = (this.Width - width) / 2;
-                var top = (this.Height - this.Controls.Count * height - (this.Controls.Count - 1) * height / 4) / 2;
+                    var left = (this.Width - width) / 2;
+                    var top = (this.Height - this.Controls.Count * height - (this.Controls.Count - 1) * height / 4) / 2;
 
-                for (int i = 0; i < this.Controls.Count; i++) {
-                    this.Controls[i].Location = new Point(left, top);
-                    this.Controls[i].Size = new Size(width, height);
-                    top += height + height / 4;
+                    for (int i = 0; i < this.Controls.Count; i++) {
+                        this.Controls[i].Font = scaledFont;
+                        this.Controls[i].Location = new Point(left, top);
+                        this.Controls[i].Size = new Size(width, height);
+                        top += height + height / 4;
+                    }
                 }
             }
         }
@@ -126,9 +125,36 @@ namespace HamCheck {
                     PerformClick(4);
                     break;
 
-                default: Debug.WriteLine(e.KeyData); break;
+
+                case Keys.Control | Keys.D0:
+                    Settings.FontScale = Settings.DefaultFontScale;
+                    this.OnResize(null);
+                    break;
+
+                case Keys.Control | Keys.Add:
+                case Keys.Control | Keys.Oemplus:
+                    Settings.FontScale += 0.1F;
+                    this.OnResize(null);
+                    break;
+
+                case Keys.Control | Keys.Subtract:
+                case Keys.Control | Keys.OemMinus:
+                    Settings.FontScale -= 0.1F;
+                    this.OnResize(null);
+                    break;
             }
         }
+
+        protected override void OnMouseWheel(MouseEventArgs e) {
+            if (Control.ModifierKeys == Keys.Control) {
+                var detents = e.Delta / SystemInformation.MouseWheelScrollDelta;
+                Settings.FontScale += detents / 10.0F;
+                this.OnResize(null);
+            } else {
+                base.OnMouseWheel(e);
+            }
+        }
+
 
         private void PerformClick(int elementNumber) {
             foreach (Button button in this.Controls) {

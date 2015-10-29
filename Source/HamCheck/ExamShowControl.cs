@@ -212,6 +212,23 @@ namespace HamCheck {
                     }
                     break;
 
+
+                case Keys.Control | Keys.D0:
+                    Settings.FontScale = Settings.DefaultFontScale;
+                    this.Invalidate();
+                    break;
+
+                case Keys.Control | Keys.Add:
+                case Keys.Control | Keys.Oemplus:
+                    Settings.FontScale += 0.1F;
+                    this.OnResize(null);
+                    break;
+
+                case Keys.Control | Keys.Subtract:
+                case Keys.Control | Keys.OemMinus:
+                    Settings.FontScale -= 0.1F;
+                    this.OnResize(null);
+                    break;
             }
         }
 
@@ -231,6 +248,16 @@ namespace HamCheck {
                         break;
                     }
                 }
+            }
+        }
+
+        protected override void OnMouseWheel(MouseEventArgs e) {
+            if (Control.ModifierKeys == Keys.Control) {
+                var detents = e.Delta / SystemInformation.MouseWheelScrollDelta;
+                Settings.FontScale += detents / 10.0F;
+                this.Invalidate();
+            } else {
+                base.OnMouseWheel(e);
             }
         }
 
@@ -258,61 +285,60 @@ namespace HamCheck {
             base.OnPaint(e);
             if (this.Items == null) { return; }
 
-            this.AnswerHitRectangles.Clear();
-            e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
+            using (var scaledFont = new Font(this.Font.FontFamily, this.Font.Size * Settings.FontScale))
+            using (var boldFont = new Font(scaledFont, FontStyle.Bold)) {
+                this.AnswerHitRectangles.Clear();
+                e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
 
-            var emSize = e.Graphics.MeasureString("M", this.Font).ToSize();
+                var emSize = e.Graphics.MeasureString("M", scaledFont).ToSize();
 
-            var width = emSize.Width * 36;
-            var height = emSize.Width * 24;
+                var width = emSize.Width * 36;
+                var height = emSize.Height * 20;
 
-            var margin = (SystemInformation.Border3DSize.Width + SystemInformation.Border3DSize.Height) / 2;
+                var margin = Math.Max((SystemInformation.Border3DSize.Width + SystemInformation.Border3DSize.Height) / 2, emSize.Width / 4);
 
-            var maxWidth = this.Width - margin * 2 - SystemInformation.VerticalScrollBarWidth;
-            var maxHeight = this.Height - margin * 2;
-            if (width > maxWidth) { width = maxWidth; }
-            if (height > maxHeight) { height = maxHeight; }
+                var maxWidth = this.Width - margin * 2 - SystemInformation.VerticalScrollBarWidth;
+                var maxHeight = this.Height - margin * 2;
+                if (width > maxWidth) { width = maxWidth; }
+                if (height > maxHeight) { height = maxHeight; }
 
-            var left = (this.Width - (width + SystemInformation.VerticalScrollBarWidth)) / 2;
-            var right = left + width;
-            var top = (this.Height - height) / 2 - emSize.Height;
-            var bottom = top + height;
-            if (top < margin) { top = margin; }
-            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Gray, left, top, width, height); }
+                var left = (this.Width - (width + SystemInformation.VerticalScrollBarWidth)) / 2;
+                var right = left + width;
+                var top = (this.Height - height) / 2;
+                var bottom = top + height;
+                if (top < margin) { top = margin; }
+                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Gray, left, top, width, height); }
 
 
-            if (this.ShowingResults && (this.ItemIndex == this.Items.Count)) { //to show results
-                top += emSize.Height;
+                if (this.ShowingResults && (this.ItemIndex == this.Items.Count)) { //to show results
+                    int statTotal = this.Items.Count, statE = (int)Math.Ceiling(statTotal * 0.74), statD = (int)Math.Ceiling(statTotal * 0.8), statC = (int)Math.Ceiling(statTotal * 0.85), statB = (int)Math.Ceiling(statTotal * 0.9), statA = (int)Math.Ceiling(statTotal * 0.95);
+                    int statCorrect = 0, statIncorrect = 0, statUnanswered = 0;
 
-                int statTotal = this.Items.Count, statE = (int)Math.Ceiling(statTotal * 0.74), statD = (int)Math.Ceiling(statTotal * 0.8), statC = (int)Math.Ceiling(statTotal * 0.85), statB = (int)Math.Ceiling(statTotal * 0.9), statA = (int)Math.Ceiling(statTotal * 0.95);
-                int statCorrect = 0, statIncorrect = 0, statUnanswered = 0;
-
-                foreach (var itemStat in this.Items) {
-                    if (itemStat.SelectedAnswerIndex == null) {
-                        statUnanswered++;
-                    } else if (itemStat.Answers[itemStat.SelectedAnswerIndex.Value].IsCorrect) {
-                        statCorrect++;
-                    } else {
-                        statIncorrect++;
+                    foreach (var itemStat in this.Items) {
+                        if (itemStat.SelectedAnswerIndex == null) {
+                            statUnanswered++;
+                        } else if (itemStat.Answers[itemStat.SelectedAnswerIndex.Value].IsCorrect) {
+                            statCorrect++;
+                        } else {
+                            statIncorrect++;
+                        }
                     }
-                }
 
-                var maxStatTitlesWidth = 0;
-                var statTop = top;
-                foreach (var statTitle in new string[] { "Total questions:", "Needed to pass:", "", "Correct:", "Incorrect:", "Unanswered:" }) {
-                    if (!string.IsNullOrEmpty(statTitle)) {
-                        int maxTitleWidth = width / 2;
-                        var statTitleSize = e.Graphics.MeasureString(statTitle, this.Font, maxTitleWidth, new StringFormat(StringFormat.GenericDefault) { Trimming = StringTrimming.EllipsisCharacter }).ToSize();
-                        var statTitleRectange = new Rectangle(left, statTop, statTitleSize.Width, emSize.Height);
-                        if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Magenta, statTitleRectange); }
-                        e.Graphics.DrawString(statTitle, this.Font, SystemBrushes.WindowText, statTitleRectange, new StringFormat(StringFormat.GenericTypographic) { Trimming = StringTrimming.EllipsisCharacter });
-                        if (maxStatTitlesWidth < statTitleRectange.Width) { maxStatTitlesWidth = statTitleRectange.Width; }
+                    var maxStatTitlesWidth = 0;
+                    var statTop = top;
+                    foreach (var statTitle in new string[] { "Total questions:", "Needed to pass:", "", "Correct:", "Incorrect:", "Unanswered:" }) {
+                        if (!string.IsNullOrEmpty(statTitle)) {
+                            int maxTitleWidth = width / 2;
+                            var statTitleSize = e.Graphics.MeasureString(statTitle, scaledFont, maxTitleWidth, new StringFormat(StringFormat.GenericDefault) { Trimming = StringTrimming.EllipsisCharacter }).ToSize();
+                            var statTitleRectange = new Rectangle(left, statTop, statTitleSize.Width, emSize.Height);
+                            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Magenta, statTitleRectange); }
+                            e.Graphics.DrawString(statTitle, scaledFont, SystemBrushes.WindowText, statTitleRectange, new StringFormat(StringFormat.GenericTypographic) { Trimming = StringTrimming.EllipsisCharacter });
+                            if (maxStatTitlesWidth < statTitleRectange.Width) { maxStatTitlesWidth = statTitleRectange.Width; }
+                        }
+                        statTop += emSize.Height;
                     }
-                    statTop += emSize.Height;
-                }
 
-                statTop = top;
-                using (var boldFont = new Font(this.Font, FontStyle.Bold)) {
+                    statTop = top;
                     foreach (var statResult in new string[] { statTotal.ToString(CultureInfo.CurrentCulture), statE.ToString(CultureInfo.CurrentCulture), "", statCorrect.ToString(CultureInfo.CurrentCulture), statIncorrect.ToString(CultureInfo.CurrentCulture), statUnanswered.ToString(CultureInfo.CurrentCulture) }) {
                         if (!string.IsNullOrEmpty(statResult)) {
                             int maxTitleWidth = width / 2;
@@ -322,101 +348,99 @@ namespace HamCheck {
                         }
                         statTop += emSize.Height;
                     }
-                }
 
-                using (var verdictFont = new Font(this.Font.FontFamily, this.Font.Size * 5F, FontStyle.Bold)) {
-                    var verdictFormat = new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
-                    var verdictRectangle = new Rectangle(left + maxStatTitlesWidth + emSize.Width * 2, top, width - maxStatTitlesWidth - emSize.Width * 2, statTop - top);
-                    if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Yellow, verdictRectangle); }
+                    using (var verdictFont = new Font(scaledFont.FontFamily, scaledFont.Size * 5F, FontStyle.Bold)) {
+                        var verdictFormat = new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+                        var verdictRectangle = new Rectangle(left + maxStatTitlesWidth + emSize.Width * 2, top, width - maxStatTitlesWidth - emSize.Width * 2, statTop - top);
+                        if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Yellow, verdictRectangle); }
 
-                    if (statCorrect >= statA) {
-                        e.Graphics.DrawString("A", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                    } else if (statCorrect >= statB) {
-                        e.Graphics.DrawString("B", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                    } else if (statCorrect >= statC) {
-                        e.Graphics.DrawString("C", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                    } else if (statCorrect >= statD) {
-                        e.Graphics.DrawString("D", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                    } else if (statCorrect >= statE) {
-                        e.Graphics.DrawString("E", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                    } else {
-                        e.Graphics.DrawString("F", verdictFont, SystemBrushes.GrayText, verdictRectangle, verdictFormat);
+                        if (statCorrect >= statA) {
+                            e.Graphics.DrawString("A", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                        } else if (statCorrect >= statB) {
+                            e.Graphics.DrawString("B", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                        } else if (statCorrect >= statC) {
+                            e.Graphics.DrawString("C", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                        } else if (statCorrect >= statD) {
+                            e.Graphics.DrawString("D", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                        } else if (statCorrect >= statE) {
+                            e.Graphics.DrawString("E", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                        } else {
+                            e.Graphics.DrawString("F", verdictFont, SystemBrushes.GrayText, verdictRectangle, verdictFormat);
+                        }
                     }
+
+                    statTop += margin;
+
+                    var newSizeResults = new Size(width, statTop);
+                    if (this.AutoScrollMinSize != newSizeResults) { this.AutoScrollMinSize = newSizeResults; }
+                    return;
                 }
 
-                statTop += margin;
 
-                var newSizeResults = new Size(width, statTop);
-                if (this.AutoScrollMinSize != newSizeResults) { this.AutoScrollMinSize = newSizeResults; }
-                return;
-            }
+                var item = this.Items[this.ItemIndex];
 
+                var questionCodeRectange = new Rectangle(left, top, emSize.Width * 3, emSize.Height);
+                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, questionCodeRectange); }
+                e.Graphics.DrawString(item.Question.Code, scaledFont, SystemBrushes.GrayText, questionCodeRectange, StringFormat.GenericTypographic);
 
-            var item = this.Items[this.ItemIndex];
+                var questionNumberRectange = new Rectangle(left + width - emSize.Width * 3, top, emSize.Width * 3, emSize.Height);
+                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, questionNumberRectange); }
+                var questionNumberText = string.Format(CultureInfo.CurrentCulture, "{0}/{1}", this.ItemIndex + 1, this.Items.Count);
+                e.Graphics.DrawString(questionNumberText, scaledFont, SystemBrushes.GrayText, questionNumberRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Far });
 
-            var questionCodeRectange = new Rectangle(left, top, emSize.Width * 3, emSize.Height);
-            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, questionCodeRectange); }
-            e.Graphics.DrawString(item.Question.Code, this.Font, SystemBrushes.GrayText, questionCodeRectange, StringFormat.GenericTypographic);
-
-            var questionNumberRectange = new Rectangle(left + width - emSize.Width * 3, top, emSize.Width * 3, emSize.Height);
-            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, questionNumberRectange); }
-            var questionNumberText = string.Format(CultureInfo.CurrentCulture, "{0}/{1}", this.ItemIndex + 1, this.Items.Count);
-            e.Graphics.DrawString(questionNumberText, this.Font, SystemBrushes.GrayText, questionNumberRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Far });
-
-            if (this.ShowingAnswer || this.ShowingResults) {
-                var titleRectange = new Rectangle(left + emSize.Width * 4, top, width - emSize.Width * 8, emSize.Height);
-                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, titleRectange); }
-                string titleText;
-                if (item.SelectedAnswerIndex == null) {
-                    titleText = "Not answered";
-                } else if (item.Answers[item.SelectedAnswerIndex.Value].IsCorrect) {
-                    titleText = "Correct answer";
-                } else {
-                    titleText = "Incorrect answer";
+                if (this.ShowingAnswer || this.ShowingResults) {
+                    var titleRectange = new Rectangle(left + emSize.Width * 4, top, width - emSize.Width * 8, emSize.Height);
+                    if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Pink, titleRectange); }
+                    string titleText;
+                    if (item.SelectedAnswerIndex == null) {
+                        titleText = "Not answered";
+                    } else if (item.Answers[item.SelectedAnswerIndex.Value].IsCorrect) {
+                        titleText = "Correct answer";
+                    } else {
+                        titleText = "Incorrect answer";
+                    }
+                    e.Graphics.DrawString(titleText, scaledFont, SystemBrushes.GrayText, titleRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisWord });
                 }
-                e.Graphics.DrawString(titleText, this.Font, SystemBrushes.GrayText, titleRectange, new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisWord });
-            }
 
-            top += emSize.Height * 2;
+                top += emSize.Height * 2;
 
-            int illustrationBottom = 0;
-            int illustrationWidth = 0;
-            if (item.Question.Illustration != null) {
-                var imageWidth = item.Question.Illustration.Picture.Width;
-                var imageHeight = item.Question.Illustration.Picture.Height;
-                while (imageWidth > width / 2) {
-                    imageWidth = (int)(imageWidth * 0.75);
-                    imageHeight = (int)(imageHeight * 0.75);
+                int illustrationBottom = 0;
+                int illustrationWidth = 0;
+                if (item.Question.Illustration != null) {
+                    var imageWidth = item.Question.Illustration.Picture.Width;
+                    var imageHeight = item.Question.Illustration.Picture.Height;
+                    while (imageWidth > width / 2) {
+                        imageWidth = (int)(imageWidth * 0.75);
+                        imageHeight = (int)(imageHeight * 0.75);
+                    }
+                    var imageLeft = left + width - imageWidth;
+                    var imageTop = top;
+                    var imageRectange = new Rectangle(imageLeft, imageTop, imageWidth, imageHeight);
+
+                    e.Graphics.DrawImage(item.Question.Illustration.Picture, imageRectange);
+                    if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Red, imageRectange); }
+
+                    illustrationBottom = imageRectange.Bottom + emSize.Height / 4;
+                    illustrationWidth = imageRectange.Width + emSize.Height / 4;
                 }
-                var imageLeft = left + width - imageWidth;
-                var imageTop = top;
-                var imageRectange = new Rectangle(imageLeft, imageTop, imageWidth, imageHeight);
 
-                e.Graphics.DrawImage(item.Question.Illustration.Picture, imageRectange);
-                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Red, imageRectange); }
+                var questionFont = new Font(scaledFont.FontFamily, scaledFont.Size * 1.2F);
+                int maxQuestionWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0);
+                var questionTextSize = e.Graphics.MeasureString(item.Question.Text, questionFont, maxQuestionWidth, StringFormat.GenericDefault).ToSize();
+                var questionRectange = new Rectangle(left, top, questionTextSize.Width, questionTextSize.Height);
+                e.Graphics.DrawString(item.Question.Text, questionFont, SystemBrushes.WindowText, questionRectange, StringFormat.GenericTypographic);
+                if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Blue, questionRectange); }
 
-                illustrationBottom = imageRectange.Bottom + emSize.Height / 4;
-                illustrationWidth = imageRectange.Width + emSize.Height / 4;
-            }
+                top += questionTextSize.Height + emSize.Height;
 
-            var questionFont = new Font(this.Font.FontFamily, this.Font.Size * 1.2F);
-            int maxQuestionWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0);
-            var questionTextSize = e.Graphics.MeasureString(item.Question.Text, questionFont, maxQuestionWidth, StringFormat.GenericDefault).ToSize();
-            var questionRectange = new Rectangle(left, top, questionTextSize.Width, questionTextSize.Height);
-            e.Graphics.DrawString(item.Question.Text, questionFont, SystemBrushes.WindowText, questionRectange, StringFormat.GenericTypographic);
-            if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Blue, questionRectange); }
-
-            top += questionTextSize.Height + emSize.Height;
-
-            using (var boldFont = new Font(this.Font, FontStyle.Bold)) {
                 for (int i = 0; i < item.Answers.Count; i++) {
                     var answer = item.Answers[i];
 
                     var letterFont = boldFont;
-                    var answerFont = (item.SelectedAnswerIndex == i) || ((this.ShowingAnswer || this.ShowingResults) && answer.IsCorrect) ? boldFont : this.Font;
+                    var answerFont = (item.SelectedAnswerIndex == i) || ((this.ShowingAnswer || this.ShowingResults) && answer.IsCorrect) ? boldFont : scaledFont;
                     Brush answerBrush = SystemBrushes.WindowText;
                     if (this.ShowingAnswer || this.ShowingResults) {
-                        letterFont = (answer.IsCorrect) ? boldFont : this.Font;
+                        letterFont = (answer.IsCorrect) ? boldFont : scaledFont;
                         answerBrush = (answer.IsCorrect) ? SystemBrushes.WindowText : SystemBrushes.GrayText;
                     }
 
@@ -434,13 +458,13 @@ namespace HamCheck {
 
                     top += answerTextSize.Height + emSize.Height;
                 }
+
+                top -= emSize.Height;
+                top += margin;
+
+                var newSize = new Size(width, top);
+                if (this.AutoScrollMinSize != newSize) { this.AutoScrollMinSize = newSize; }
             }
-
-            top -= emSize.Height;
-            top += margin;
-
-            var newSize = new Size(width, top);
-            if (this.AutoScrollMinSize != newSize) { this.AutoScrollMinSize = newSize; }
         }
 
         #endregion
