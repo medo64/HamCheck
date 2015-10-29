@@ -15,7 +15,7 @@ namespace HamCheck {
         }
 
 
-        private void Form_Load(object sender, System.EventArgs e) {
+        private void Form_Shown(object sender, EventArgs e) {
             bwEnumerateExams.RunWorkerAsync();
         }
 

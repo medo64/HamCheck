@@ -76,12 +76,14 @@
             // 
             // hamShow
             // 
+            this.hamShow.AutoScroll = true;
             this.hamShow.BackColor = System.Drawing.SystemColors.Window;
             this.hamShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hamShow.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.hamShow.Items = null;
             this.hamShow.Location = new System.Drawing.Point(0, 0);
             this.hamShow.Name = "hamShow";
-            this.hamShow.Items = null;
+            this.hamShow.ShowAnswerAfterEveryQuestion = false;
             this.hamShow.Size = new System.Drawing.Size(582, 353);
             this.hamShow.TabIndex = 2;
             this.hamShow.Visible = false;
@@ -102,7 +104,7 @@
             this.Text = "Ham check";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_FormClosing);
-            this.Load += new System.EventHandler(this.Form_Load);
+            this.Shown += new System.EventHandler(this.Form_Shown);
             this.ResumeLayout(false);
 
         }
