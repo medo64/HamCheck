@@ -106,6 +106,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\App.manifest" />
     <None Include="Properties\App.snk" />
   </ItemGroup>

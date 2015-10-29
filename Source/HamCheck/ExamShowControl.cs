@@ -373,23 +373,29 @@ namespace HamCheck {
                         statTop += emSize.Height;
                     }
 
-                    using (var verdictFont = new Font(scaledFont.FontFamily, scaledFont.Size * 5F, FontStyle.Bold)) {
+                    using (var verdictFont = new Font(scaledFont.FontFamily, scaledFont.Size * 4F, FontStyle.Bold)) {
                         var verdictFormat = new StringFormat(StringFormat.GenericTypographic) { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
                         var verdictRectangle = new Rectangle(left + maxStatTitlesWidth + emSize.Width * 2, top, width - maxStatTitlesWidth - emSize.Width * 2, statTop - top);
                         if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Yellow, verdictRectangle); }
 
-                        if (statCorrect >= statA) {
-                            e.Graphics.DrawString("A", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                        } else if (statCorrect >= statB) {
-                            e.Graphics.DrawString("B", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                        } else if (statCorrect >= statC) {
-                            e.Graphics.DrawString("C", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
-                        } else if (statCorrect >= statD) {
-                            e.Graphics.DrawString("D", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                        if (Settings.ShowGrade) {
+                            if (statCorrect >= statA) {
+                                e.Graphics.DrawString("A", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                            } else if (statCorrect >= statB) {
+                                e.Graphics.DrawString("B", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                            } else if (statCorrect >= statC) {
+                                e.Graphics.DrawString("C", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                            } else if (statCorrect >= statD) {
+                                e.Graphics.DrawString("D", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                            } else if (statCorrect >= statE) {
+                                e.Graphics.DrawString("E", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                            } else {
+                                e.Graphics.DrawString("F", verdictFont, SystemBrushes.GrayText, verdictRectangle, verdictFormat);
+                            }
                         } else if (statCorrect >= statE) {
-                            e.Graphics.DrawString("E", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
+                            e.Graphics.DrawString("Pass", verdictFont, SystemBrushes.WindowText, verdictRectangle, verdictFormat);
                         } else {
-                            e.Graphics.DrawString("F", verdictFont, SystemBrushes.GrayText, verdictRectangle, verdictFormat);
+                            e.Graphics.DrawString("Fail", verdictFont, SystemBrushes.GrayText, verdictRectangle, verdictFormat);
                         }
                     }
 
