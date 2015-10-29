@@ -130,6 +130,10 @@ namespace HamCheck {
                     if (this.ShowingResults) { //go to result page but only in exam mode and if questions have been answered
                         this.ItemIndex = this.Items.Count;
                         this.Invalidate();
+                    } else if (this.ShowAnswerAfterEveryQuestion && (this.LastAnswerIndex >= 0)) {
+                        this.ItemIndex = this.LastAnswerIndex + 1;
+                        this.ShowingAnswer = false;
+                        this.Invalidate();
                     }
                     break;
 
