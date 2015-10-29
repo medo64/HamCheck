@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
@@ -33,8 +35,27 @@ namespace HamCheck {
                     NativeMethods.SetCurrentProcessExplicitAppUserModelID(appId);
                 }
 
-                Application.Run(new MainForm());
+                var mainForm = new MainForm();
 
+                //single instance
+                Medo.Application.SingleInstance.NewInstanceDetected += delegate (object sender, Medo.Application.NewInstanceEventArgs e) {
+                    mainForm.Show();
+                    mainForm.Activate();
+                };
+                if (Medo.Application.SingleInstance.IsOtherInstanceRunning) {
+                    var currProcess = Process.GetCurrentProcess();
+                    foreach (var iProcess in Process.GetProcessesByName(currProcess.ProcessName)) {
+                        try {
+                            if (iProcess.Id != currProcess.Id) {
+                                NativeMethods.AllowSetForegroundWindow(iProcess.Id);
+                                break;
+                            }
+                        } catch (Win32Exception) { }
+                    }
+                }
+                Medo.Application.SingleInstance.Attach();
+
+                Application.Run(mainForm);
             }
         }
 
@@ -50,6 +71,10 @@ namespace HamCheck {
 
 
         private static class NativeMethods {
+
+            [DllImportAttribute("user32.dll", EntryPoint = "AllowSetForegroundWindow")]
+            [return: MarshalAsAttribute(UnmanagedType.Bool)]
+            public static extern bool AllowSetForegroundWindow(int dwProcessId);
 
             [DllImport("Shell32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
             public static extern UInt32 SetCurrentProcessExplicitAppUserModelID(String AppID);
