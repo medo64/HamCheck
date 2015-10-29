@@ -246,8 +246,6 @@ namespace HamCheck {
                     break;
 
                 case Keys.Back:
-                case Keys.D0:
-                case Keys.NumPad0:
                     if (this.ShowingAnswer || (this.ItemIndex <= this.LastAnswerIndex)) { break; }
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
@@ -258,18 +256,25 @@ namespace HamCheck {
 
 
                 case Keys.Control | Keys.D0:
+                case Keys.Control | Keys.NumPad0:
+                case Keys.D0:
+                case Keys.NumPad0:
                     Settings.FontScale = Settings.DefaultFontScale;
                     this.Invalidate();
                     break;
 
                 case Keys.Control | Keys.Add:
                 case Keys.Control | Keys.Oemplus:
+                case Keys.Add:
+                case Keys.Oemplus:
                     Settings.FontScale += 0.1F;
                     this.OnResize(null);
                     break;
 
                 case Keys.Control | Keys.Subtract:
                 case Keys.Control | Keys.OemMinus:
+                case Keys.Subtract:
+                case Keys.OemMinus:
                     Settings.FontScale -= 0.1F;
                     this.OnResize(null);
                     break;
