@@ -182,6 +182,9 @@ namespace HamCheck {
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 0;
+                        if (this.ShowAnswerAfterEveryQuestion && Settings.InstantAnswer) {
+                            this.ShowingAnswer = true;
+                        }
                         this.Invalidate();
                     }
                     break;
@@ -193,6 +196,9 @@ namespace HamCheck {
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 1;
+                        if (this.ShowAnswerAfterEveryQuestion && Settings.InstantAnswer) {
+                            this.ShowingAnswer = true;
+                        }
                         this.Invalidate();
                     }
                     break;
@@ -204,6 +210,9 @@ namespace HamCheck {
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 2;
+                        if (this.ShowAnswerAfterEveryQuestion && Settings.InstantAnswer) {
+                            this.ShowingAnswer = true;
+                        }
                         this.Invalidate();
                     }
                     break;
@@ -215,6 +224,9 @@ namespace HamCheck {
                     if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
                         var item = this.Items[this.ItemIndex];
                         item.SelectedAnswerIndex = 3;
+                        if (this.ShowAnswerAfterEveryQuestion && Settings.InstantAnswer) {
+                            this.ShowingAnswer = true;
+                        }
                         this.Invalidate();
                     }
                     break;

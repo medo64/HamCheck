@@ -58,5 +58,9 @@ namespace HamCheck {
             get { return Medo.Configuration.Settings.Read("ShowGrade", false); }
         }
 
+        public static bool InstantAnswer {
+            get { return Medo.Configuration.Settings.Read("InstantAnswer", true); }
+        }
+
     }
 }
