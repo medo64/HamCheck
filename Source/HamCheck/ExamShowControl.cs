@@ -84,6 +84,8 @@ namespace HamCheck {
                             this.Invalidate();
                         }
                     } else if (this.ShowAnswerAfterEveryQuestion && !this.ShowingAnswer) { //after question switch to showing its answer
+                        var item = this.Items[this.ItemIndex];
+                        if ((item.SelectedAnswerIndex == null) && (e.KeyData == Keys.Right)) { break; } //don't advance with Right key if question is not answered
                         this.LastAnswerIndex = Math.Max(this.LastAnswerIndex, this.ItemIndex);
                         this.ShowingAnswer = true;
                         this.Invalidate();
