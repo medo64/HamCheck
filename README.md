@@ -18,7 +18,8 @@ zooming into the text. Ideal for presenting the content to others.
   * `D`                 Select answer D.
   * `Backspace`         Remove answer selection.
   * `Home`              Move to first question (or answer).
-  * `End`               Go to results page (only if all questions are answered).
+  * `End`               Go to results page (if all questions are answered).
+  * `Tab`               Go to next wrong answer (if all questions are answered).
   * `Ctrl``+`           Increase zoom level.
   * `Ctrl``-`           Decrease zoom level.
   * `Ctrl``0`           Reset zoom level.

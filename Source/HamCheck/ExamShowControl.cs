@@ -51,6 +51,7 @@ namespace HamCheck {
                 case Keys.Left:
                 case Keys.Up:
                 case Keys.Down:
+                case Keys.Tab:
                     return true;
                 default: return base.IsInputKey(keyData);
             }
@@ -128,6 +129,23 @@ namespace HamCheck {
                 case Keys.End:
                     if (this.ShowingResults) { //go to result page but only in exam mode and if questions have been answered
                         this.ItemIndex = this.Items.Count;
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.Tab:
+                    if (this.ShowingResults) { //go to next failed question; only in exam mode and if questions have been answered
+                        var foundWrongAnswer = false;
+                        var startAt = (this.ItemIndex == this.Items.Count) ? 0 : this.ItemIndex + 1;
+                        for (int i = startAt; i < this.Items.Count; i++) {
+                            var item = this.Items[i];
+                            if ((item.SelectedAnswerIndex == null) || (!item.Answers[item.SelectedAnswerIndex.Value].IsCorrect)) {
+                                this.ItemIndex = i;
+                                foundWrongAnswer = true;
+                                break;
+                            }
+                        }
+                        if (!foundWrongAnswer) { this.ItemIndex = this.Items.Count; }
                         this.Invalidate();
                     }
                     break;
