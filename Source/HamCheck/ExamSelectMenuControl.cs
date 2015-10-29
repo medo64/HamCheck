@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.Text;
 using System.Windows.Forms;
 
 namespace HamCheck {
@@ -18,6 +19,8 @@ namespace HamCheck {
             this.OnResize(null);
         }
 
+
+        private readonly ToolTip tip = new ToolTip();
 
         private IEnumerable<ExamElement> _elements;
         public IEnumerable<ExamElement> Elements {
@@ -42,6 +45,16 @@ namespace HamCheck {
                         };
 
                         this.Controls.Add(btn);
+                        var sbTip = new StringBuilder();
+                        sbTip.AppendFormat(CultureInfo.CurrentCulture, "Element {0}: {1}", element.Number, element.Title);
+                        if (DateTime.Now.Date < element.ValidFrom) {
+                            sbTip.AppendFormat(CultureInfo.CurrentCulture, "\nValid from {0:d}", element.ValidFrom.Date);
+                        } else if (DateTime.Now.Date <= element.ValidTo) {
+                            sbTip.AppendFormat(CultureInfo.CurrentCulture, "\nValid to {0:d}", element.ValidTo.Date);
+                        } else {
+                            sbTip.AppendFormat(CultureInfo.CurrentCulture, "\nInvalid since {0:d}", element.ValidTo.Date);
+                        }
+                        tip.SetToolTip(btn, sbTip.ToString());
                     }
                 }
 

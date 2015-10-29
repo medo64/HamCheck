@@ -16,6 +16,8 @@ namespace HamCheck {
         }
 
 
+        private readonly ToolTip tip = new ToolTip();
+
         private ExamElement _element;
         public ExamElement Element {
             get { return this._element; }
@@ -34,6 +36,7 @@ namespace HamCheck {
                             if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.Practice)); }
                         };
                         this.Controls.Add(btn);
+                        tip.SetToolTip(btn, "Answer questions using the same selection process as for the real exam:\n• Randomly select one question from each group.\n• Randomize the answers.\n• Show answers only after all questions are answered.\n• Score the result.");
                     }
                     {
                         var btn = new Button() { Text = "Randomize", BackColor = buttonColor, FlatStyle = FlatStyle.Flat, Tag = Keys.R };
@@ -43,6 +46,7 @@ namespace HamCheck {
                             if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.Randomize)); }
                         };
                         this.Controls.Add(btn);
+                        tip.SetToolTip(btn, "Answer questions in random order:\n• Randomize all questions.\n• Randomize the answers.\n• Show correct answer immediately after question.");
                     }
                     {
                         var btn = new Button() { Text = "All", BackColor = buttonColor, FlatStyle = FlatStyle.Flat, Tag = Keys.A };
@@ -52,6 +56,7 @@ namespace HamCheck {
                             if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.All)); }
                         };
                         this.Controls.Add(btn);
+                        tip.SetToolTip(btn, "Go through whole question pool:\n• Questions are not randomized.\n• Answers are not randomized.\n• Show correct answer immediately after question.");
                     }
 
                     {
