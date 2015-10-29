@@ -95,6 +95,11 @@ namespace HamCheck {
                         this.ItemIndex = this.Items.Count;
                         this.LastAnswerIndex = this.Items.Count;
                         this.Invalidate();
+                    } else if (!this.ShowAnswerAfterEveryQuestion && (this.ItemIndex == this.Items.Count)) { //go to first answer
+                        if (e.KeyData != Keys.Right) { //but only if not using key Right (e.g. by using Space)
+                            this.ItemIndex = 0;
+                            this.Invalidate();
+                        }
                     }
                     break;
 
@@ -108,6 +113,21 @@ namespace HamCheck {
                     } else if (this.ItemIndex > 0) { //go to previous question
                         this.ShowingAnswer = false;
                         this.ItemIndex -= 1;
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.Home:
+                    if (this.ItemIndex > 0) {
+                        if (this.ShowAnswerAfterEveryQuestion) { this.ShowingAnswer = true; }
+                        this.ItemIndex = 0;
+                        this.Invalidate();
+                    }
+                    break;
+
+                case Keys.End:
+                    if (this.ShowingResults) { //go to result page but only in exam mode and if questions have been answered
+                        this.ItemIndex = this.Items.Count;
                         this.Invalidate();
                     }
                     break;
@@ -265,10 +285,14 @@ namespace HamCheck {
         protected override void OnDoubleClick(EventArgs e) {
             base.OnDoubleClick(e);
 
-            if ((this.Items != null) && (this.ItemIndex < this.Items.Count)) {
-                var item = this.Items[this.ItemIndex];
-                if (item.SelectedAnswerIndex != null) { //move to next page if anything is selected
+            if (this.Items != null) {
+                if (this.ShowingResults || this.ShowingAnswer) { //always move if there is no need to answer question
                     OnKeyDown(new KeyEventArgs(Keys.Enter));
+                } else if (this.ItemIndex < this.Items.Count) {
+                    var item = this.Items[this.ItemIndex];
+                    if (item.SelectedAnswerIndex != null) { //move to next page if anything is selected
+                        OnKeyDown(new KeyEventArgs(Keys.Enter));
+                    }
                 }
             }
         }
