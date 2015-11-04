@@ -83,7 +83,7 @@ namespace HamCheck {
         }
 
         protected override void OnResize(EventArgs e) {
-            using (var scaledFont = new Font(this.Font.FontFamily, this.Font.Size * Settings.FontScale))
+            using (var scaledFont = new Font(this.Font.FontFamily, this.Font.Size * Settings.MenuFontScale))
             using (var g = this.CreateGraphics()) {
                 var emSize = g.MeasureString("M", scaledFont).ToSize();
 
@@ -138,7 +138,7 @@ namespace HamCheck {
                 case Keys.Control | Keys.NumPad0:
                 case Keys.D0:
                 case Keys.NumPad0:
-                    Settings.FontScale = Settings.DefaultFontScale;
+                    Settings.MenuFontScale = Settings.DefaultFontScale;
                     this.OnResize(null);
                     break;
 
@@ -146,7 +146,7 @@ namespace HamCheck {
                 case Keys.Control | Keys.Oemplus:
                 case Keys.Add:
                 case Keys.Oemplus:
-                    Settings.FontScale += 0.1F;
+                    Settings.MenuFontScale += 0.1F;
                     this.OnResize(null);
                     break;
 
@@ -154,7 +154,7 @@ namespace HamCheck {
                 case Keys.Control | Keys.OemMinus:
                 case Keys.Subtract:
                 case Keys.OemMinus:
-                    Settings.FontScale -= 0.1F;
+                    Settings.MenuFontScale -= 0.1F;
                     this.OnResize(null);
                     break;
 
@@ -172,7 +172,7 @@ namespace HamCheck {
         protected override void OnMouseWheel(MouseEventArgs e) {
             if (Control.ModifierKeys == Keys.Control) {
                 var detents = e.Delta / SystemInformation.MouseWheelScrollDelta;
-                Settings.FontScale += detents / 10.0F;
+                Settings.MenuFontScale += detents / 10.0F;
                 this.OnResize(null);
             } else {
                 base.OnMouseWheel(e);

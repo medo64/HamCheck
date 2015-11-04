@@ -45,11 +45,30 @@ namespace HamCheck {
             get { return 1.5F; }
         }
 
-        public static float FontScale {
+        public static float MenuFontScale {
+            get {
+                if (Settings.IndependentMenuFontScale) {
+                    return (float)Medo.Configuration.Settings.Read("MenuFontScale", Settings.DefaultFontScale);
+                } else {
+                    return Settings.ExamFontScale;
+                }
+            }
+            set {
+                if (!Settings.IndependentMenuFontScale) {
+                    Settings.ExamFontScale = value;
+                    value = Settings.ExamFontScale;
+                }
+                if (value < 1) { value = 1; }
+                if (value > 4) { value = 4; }
+                Medo.Configuration.Settings.Write("MenuFontScale", value);
+            }
+        }
+
+        public static float ExamFontScale {
             get { return (float)Medo.Configuration.Settings.Read("FontScale", Settings.DefaultFontScale); }
             set {
                 if (value < 1) { value = 1; }
-                if (value > 3) { value = 3; }
+                if (value > 4) { value = 4; }
                 Medo.Configuration.Settings.Write("FontScale", value);
             }
         }
@@ -60,6 +79,10 @@ namespace HamCheck {
 
         public static bool InstantAnswer {
             get { return Medo.Configuration.Settings.Read("InstantAnswer", true); }
+        }
+
+        public static bool IndependentMenuFontScale {
+            get { return Medo.Configuration.Settings.Read("IndependentMenuFontScale", false); }
         }
 
     }

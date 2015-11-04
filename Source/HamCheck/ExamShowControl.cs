@@ -271,7 +271,7 @@ namespace HamCheck {
                 case Keys.Control | Keys.NumPad0:
                 case Keys.D0:
                 case Keys.NumPad0:
-                    Settings.FontScale = Settings.DefaultFontScale;
+                    Settings.ExamFontScale = Settings.DefaultFontScale;
                     this.Invalidate();
                     break;
 
@@ -279,7 +279,7 @@ namespace HamCheck {
                 case Keys.Control | Keys.Oemplus:
                 case Keys.Add:
                 case Keys.Oemplus:
-                    Settings.FontScale += 0.1F;
+                    Settings.ExamFontScale += 0.1F;
                     this.OnResize(null);
                     break;
 
@@ -287,7 +287,7 @@ namespace HamCheck {
                 case Keys.Control | Keys.OemMinus:
                 case Keys.Subtract:
                 case Keys.OemMinus:
-                    Settings.FontScale -= 0.1F;
+                    Settings.ExamFontScale -= 0.1F;
                     this.OnResize(null);
                     break;
             }
@@ -315,7 +315,7 @@ namespace HamCheck {
         protected override void OnMouseWheel(MouseEventArgs e) {
             if (Control.ModifierKeys == Keys.Control) {
                 var detents = e.Delta / SystemInformation.MouseWheelScrollDelta;
-                Settings.FontScale += detents / 10.0F;
+                Settings.ExamFontScale += detents / 10.0F;
                 this.Invalidate();
             } else {
                 base.OnMouseWheel(e);
@@ -350,7 +350,7 @@ namespace HamCheck {
             base.OnPaint(e);
             if (this.Items == null) { return; }
 
-            using (var scaledFont = new Font(this.Font.FontFamily, this.Font.Size * Settings.FontScale))
+            using (var scaledFont = new Font(this.Font.FontFamily, this.Font.Size * Settings.ExamFontScale))
             using (var boldFont = new Font(scaledFont, FontStyle.Bold)) {
                 this.AnswerHitRectangles.Clear();
                 e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
