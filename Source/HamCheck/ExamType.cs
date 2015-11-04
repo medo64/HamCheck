@@ -3,7 +3,8 @@
 namespace HamCheck {
     internal enum ExamType {
         None,
-        Practice,
+        Exam,
+        FlashExam,
         Randomize,
         All
     }

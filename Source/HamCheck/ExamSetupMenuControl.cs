@@ -33,10 +33,20 @@ namespace HamCheck {
                         btn.KeyDown += Control_KeyDown;
                         btn.Click += delegate (object sender, EventArgs e) {
                             var eh = this.Selected;
-                            if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.Practice)); }
+                            if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.Exam)); }
                         };
                         this.Controls.Add(btn);
                         tip.SetToolTip(btn, "Answer questions using the same selection process as for the real exam:\n• Randomly select one question from each group.\n• Randomize the answers.\n• Show answers only after all questions are answered.\n• Score the result.");
+                    }
+                    {
+                        var btn = new Button() { Text = "Flash exam", BackColor = buttonColor, FlatStyle = FlatStyle.Flat, Tag = Keys.F };
+                        btn.KeyDown += Control_KeyDown;
+                        btn.Click += delegate (object sender, EventArgs e) {
+                            var eh = this.Selected;
+                            if (eh != null) { eh.Invoke(sender, new ExamElementEventArgs(value, ExamType.FlashExam)); }
+                        };
+                        this.Controls.Add(btn);
+                        tip.SetToolTip(btn, "Answer questions using the same selection process as for the real exam:\n• Randomly select one question from each group.\n• Randomize the answers.\n• Show answers after each question.\n• Score the result.");
                     }
                     {
                         var btn = new Button() { Text = "Randomize", BackColor = buttonColor, FlatStyle = FlatStyle.Flat, Tag = Keys.R };

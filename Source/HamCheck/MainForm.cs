@@ -72,18 +72,27 @@ namespace HamCheck {
 
         private void hamSetup_Selected(object sender, ExamElementEventArgs e) {
             switch (e.Type) {
-                case ExamType.Practice:
+                case ExamType.Exam:
                     hamShow.ShowAnswerAfterEveryQuestion = false;
+                    hamShow.ShowResultsAfterQuestions = true;
+                    hamShow.Items = hamSetup.Element.GetExamQuestions();
+                    break;
+
+                case ExamType.FlashExam:
+                    hamShow.ShowAnswerAfterEveryQuestion = true;
+                    hamShow.ShowResultsAfterQuestions = true;
                     hamShow.Items = hamSetup.Element.GetExamQuestions();
                     break;
 
                 case ExamType.Randomize:
                     hamShow.ShowAnswerAfterEveryQuestion = true;
+                    hamShow.ShowResultsAfterQuestions = false;
                     hamShow.Items = hamSetup.Element.GetRandomizedQuestions();
                     break;
 
                 case ExamType.All:
                     hamShow.ShowAnswerAfterEveryQuestion = true;
+                    hamShow.ShowResultsAfterQuestions = false;
                     hamShow.Items = hamSetup.Element.GetAllQuestions();
                     break;
             }

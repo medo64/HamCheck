@@ -41,6 +41,7 @@ namespace HamCheck {
 
 
         public bool ShowAnswerAfterEveryQuestion { get; set; }
+        public bool ShowResultsAfterQuestions { get; set; }
 
 
         #region Events
@@ -82,6 +83,10 @@ namespace HamCheck {
                         if (this.ItemIndex < this.Items.Count - 1) {
                             this.ItemIndex += 1;
                             this.Invalidate();
+                        } else if (this.ShowResultsAfterQuestions) { //show results
+                            this.ShowingResults = true;
+                            this.ItemIndex = this.Items.Count;
+                            this.Invalidate();
                         }
                     } else if (this.ShowAnswerAfterEveryQuestion && !this.ShowingAnswer) { //after question switch to showing its answer
                         var item = this.Items[this.ItemIndex];
@@ -93,16 +98,16 @@ namespace HamCheck {
                         this.ShowingAnswer = false;
                         this.ItemIndex += 1;
                         this.Invalidate();
-                    } else if (!this.ShowAnswerAfterEveryQuestion && (this.ItemIndex == this.Items.Count - 1)) { //go to next question
+                    } else if (!this.ShowAnswerAfterEveryQuestion && (this.ItemIndex == this.Items.Count - 1)) { //show results
                         this.ShowingResults = true;
                         this.ItemIndex = this.Items.Count;
                         this.LastAnswerIndex = this.Items.Count;
                         this.Invalidate();
-                    } else if (!this.ShowAnswerAfterEveryQuestion && (this.ItemIndex == this.Items.Count)) { //go to first answer
-                        if (e.KeyData != Keys.Right) { //but only if not using key Right (e.g. by using Space)
-                            this.ItemIndex = 0;
-                            this.Invalidate();
-                        }
+                    } else if (this.ShowAnswerAfterEveryQuestion && this.ShowResultsAfterQuestions && this.ShowingAnswer && (this.ItemIndex == this.Items.Count - 1)) { //show results
+                        this.ShowingResults = true;
+                        this.ItemIndex = this.Items.Count;
+                        this.LastAnswerIndex = this.Items.Count;
+                        this.Invalidate();
                     }
                     break;
 
