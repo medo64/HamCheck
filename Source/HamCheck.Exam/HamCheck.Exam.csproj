@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.snk" />
+    <None Include="Resources\HamExam.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\HamCheck\Properties\SolutionInfo.cs">

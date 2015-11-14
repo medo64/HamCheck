@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="HamExam">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="Illustrations" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element ref="Subelement" minOccurs="1" maxOccurs="unbounded" />
+            </xs:choice>
+            <xs:attribute name="elementNumber" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="3"/>
+                        <xs:enumeration value="4"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="title" type="xs:string" use="required" />
+            <xs:attribute name="validFrom" type="xs:date" use="required" />
+            <xs:attribute name="validTo" type="xs:date" use="required" />
+        </xs:complexType>
+        <xs:unique name="UniqueIllustrationName">
+            <xs:selector xpath="Illustrations/Illustration" />
+            <xs:field xpath="@name" />
+        </xs:unique>
+        <xs:unique name="UniqueSubelementCode">
+            <xs:selector xpath="Subelement" />
+            <xs:field xpath="@code" />
+        </xs:unique>
+        <xs:unique name="UniqueSubelementGroupCode">
+            <xs:selector xpath="Subelement/Group" />
+            <xs:field xpath="@code" />
+        </xs:unique>
+        <xs:unique name="UniqueSubelementGroupQuestionCode">
+            <xs:selector xpath="Subelement/Group/Question" />
+            <xs:field xpath="@code" />
+        </xs:unique>
+        <xs:keyref name="QuestionIllustration" refer="UniqueIllustrationName">
+            <xs:selector xpath=".//Subelement/Group/Question"/>
+            <xs:field xpath="@illustration"/>
+        </xs:keyref>
+    </xs:element>
+
+
+    <xs:element name="Illustrations">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="Illustration" minOccurs="0" maxOccurs="unbounded" />
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Illustration">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="picture" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="Subelement">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="Group" minOccurs="1" maxOccurs="unbounded" />
+            </xs:choice>
+            <xs:attribute name="code" type="xs:string" use="required" />
+            <xs:attribute name="title" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Group">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="Question" minOccurs="1" maxOccurs="unbounded" />
+            </xs:choice>
+            <xs:attribute name="code" type="xs:string" use="required" />
+            <xs:attribute name="title" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Question">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="Answer" minOccurs="4" maxOccurs="4" />
+            </xs:choice>
+            <xs:attribute name="code" type="xs:string" use="required" />
+            <xs:attribute name="text" type="xs:string" use="required" />
+            <xs:attribute name="fccReference" type="xs:string" use="optional" />
+            <xs:attribute name="illustration" type="xs:string" use="optional" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Answer">
+        <xs:complexType>
+            <xs:attribute name="text" type="xs:string" use="required" />
+            <xs:attribute name="isCorrect" type="xs:boolean" use="optional" />
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
