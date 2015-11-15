@@ -257,7 +257,7 @@ namespace HamCheck {
         /// </summary>
         /// <param name="stream">Stream.</param>
         public void Save(Stream stream) {
-            using (var xml = new XmlTextWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false)) { Formatting = Formatting.Indented }) {
+            using (var xml = new XmlTextWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false)) { Formatting = Formatting.Indented, Indentation = 4 }) {
                 xml.WriteStartDocument();
                 xml.WriteStartElement("HamExam");
                 xml.WriteAttributeString("elementNumber", this.Number.ToString(CultureInfo.InvariantCulture));
