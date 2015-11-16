@@ -81,6 +81,10 @@ namespace HamCheck {
             get { return Medo.Configuration.Settings.Read("InstantAnswer", true); }
         }
 
+        public static bool ShowExplanation {
+            get { return Medo.Configuration.Settings.Read("ShowExplanation", false); }
+        }
+
         public static bool IndependentMenuFontScale {
             get { return Medo.Configuration.Settings.Read("IndependentMenuFontScale", false); }
         }

@@ -500,11 +500,11 @@ namespace HamCheck {
                     illustrationWidth = imageRectange.Width + emSize.Height / 4;
                 }
 
-                var questionFont = new Font(scaledFont.FontFamily, scaledFont.Size * 1.2F);
+                var explanationFont = new Font(scaledFont.FontFamily, scaledFont.Size * 1.2F);
                 int maxQuestionWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0);
-                var questionTextSize = e.Graphics.MeasureString(item.Question.Text, questionFont, maxQuestionWidth, StringFormat.GenericDefault).ToSize();
+                var questionTextSize = e.Graphics.MeasureString(item.Question.Text, explanationFont, maxQuestionWidth, StringFormat.GenericDefault).ToSize();
                 var questionRectange = new Rectangle(left, top, questionTextSize.Width, questionTextSize.Height);
-                e.Graphics.DrawString(item.Question.Text, questionFont, SystemBrushes.WindowText, questionRectange, StringFormat.GenericTypographic);
+                e.Graphics.DrawString(item.Question.Text, explanationFont, SystemBrushes.WindowText, questionRectange, StringFormat.GenericTypographic);
                 if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Blue, questionRectange); }
 
                 top += questionTextSize.Height + emSize.Height;
@@ -533,6 +533,18 @@ namespace HamCheck {
                     }
 
                     top += answerTextSize.Height + emSize.Height;
+                }
+
+                var explanationText = item.Question.Explanation?.Text;
+                if (this.ShowingAnswer || this.ShowingResults) {
+                    using (explanationFont = new Font(scaledFont.FontFamily, scaledFont.Size * 1.2F, FontStyle.Italic)) {
+                        int maxExplanationWidth = width - ((top < illustrationBottom) ? illustrationWidth : 0);
+                        var explanationTextSize = e.Graphics.MeasureString(explanationText, explanationFont, maxExplanationWidth, StringFormat.GenericDefault).ToSize();
+                        var explanationRectangle = new Rectangle(left, top, explanationTextSize.Width, explanationTextSize.Height);
+                        e.Graphics.DrawString(explanationText, explanationFont, SystemBrushes.WindowText, explanationRectangle, StringFormat.GenericTypographic);
+                        if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Beige, explanationRectangle); }
+                        top += explanationTextSize.Height + emSize.Height;
+                    }
                 }
 
                 top -= emSize.Height;

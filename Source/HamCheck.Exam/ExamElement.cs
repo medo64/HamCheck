@@ -229,7 +229,9 @@ namespace HamCheck {
                         var questionText = GetValue(xmlQuestion.Attributes["text"]);
                         var questionFccReference = GetValue(xmlQuestion.Attributes["fccReference"]);
                         var questionIllustration = exam.Illustrations[GetValue(xmlQuestion.Attributes["illustration"])];
-                        var question = new ExamQuestion(questionCode, questionText, questionIllustration, null, questionFccReference, null);
+                        var explanationText = xmlQuestion.SelectSingleNode("Explanation")?.InnerText;
+                        var explanation = (explanationText != null) ? new ExamExplanation(explanationText, null) : null;
+                        var question = new ExamQuestion(questionCode, questionText, questionIllustration, null, questionFccReference, explanation);
                         group.Questions.Add(question);
 
                         foreach (XmlElement xmlAnswer in xmlQuestion.SelectNodes("Answer")) {

@@ -82,6 +82,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded">
                 <xs:element ref="Answer" minOccurs="4" maxOccurs="4" />
+                <xs:element ref="Explanation" minOccurs="0" maxOccurs="1" />
             </xs:choice>
             <xs:attribute name="code" type="xs:string" use="required" />
             <xs:attribute name="text" type="xs:string" use="required" />
@@ -96,5 +97,7 @@
             <xs:attribute name="isCorrect" type="xs:boolean" use="optional" />
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="Explanation" type="xs:string" />
 
 </xs:schema>

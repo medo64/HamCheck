@@ -12,84 +12,98 @@
                 <Answer text="Providing communications for international non-profit organizations" />
                 <Answer text="Advancing skills in the technical and communication phases of the radio art" isCorrect="true" />
                 <Answer text="All of these choices are correct" />
+                <Explanation>There are multiple purposes to the Amateur Radio Service but advancing skills in the technical and communication phases of the radio art is the most important one.</Explanation>
             </Question>
             <Question code="T1A02" text="Which agency regulates and enforces the rules for the Amateur Radio Service in the United States?" fccReference="97.1">
                 <Answer text="FEMA" />
                 <Answer text="The ITU" />
                 <Answer text="The FCC" isCorrect="true" />
                 <Answer text="Homeland Security" />
+                <Explanation>FCC regulates Amateur Radio Service in the United States.</Explanation>
             </Question>
             <Question code="T1A03" text="Which part of the FCC regulations contains the rules governing the Amateur Radio Service?">
                 <Answer text="Part 73" />
                 <Answer text="Part 95" />
                 <Answer text="Part 90" />
                 <Answer text="Part 97" isCorrect="true" />
+                <Explanation>Part 97 contains almost all FCC regulations dealing with the Amateur Radio Service.</Explanation>
             </Question>
             <Question code="T1A04" text="Which of the following meets the FCC definition of harmful interference?" fccReference="97.3(a)(23)">
                 <Answer text="Radio transmissions that annoy users of a repeater" />
                 <Answer text="Unwanted radio transmissions that cause costly harm to radio station apparatus" />
                 <Answer text="That which seriously degrades, obstructs, or repeatedly interrupts a radio communication service operating in accordance with the Radio Regulations" isCorrect="true" />
                 <Answer text="Static from lightning storms" />
+                <Explanation>Anything that negatively impacts a radio communication service of other legal users is a harmful interference.</Explanation>
             </Question>
             <Question code="T1A05" text="Which of the following is a purpose of the Amateur Radio Service rules and regulations as defined by the FCC?" fccReference="97.1 (e)">
                 <Answer text="Enhancing international goodwill" isCorrect="true" />
                 <Answer text="Providing inexpensive communication for local emergency organizations" />
                 <Answer text="Training of operators in military radio operating procedures" />
                 <Answer text="All of these choices are correct" />
+                <Explanation>One of purposes of the Amateur Radio Service as defined in FCC 97.1 is to enhance interational goodwill.</Explanation>
             </Question>
             <Question code="T1A06" text="Which of the following services are protected from interference by amateur signals under all circumstances?" fccReference="97.101 (d), 97.303 (o)(2)">
                 <Answer text="Citizens Radio Service" />
                 <Answer text="Broadcast Service" />
                 <Answer text="Land Mobile Radio Service" />
                 <Answer text="Radionavigation Service" isCorrect="true" />
+                <Explanation>Due to its importance and critical nature, radionavigation service gets a special treatment in relation to interference by the Radio Amateur Service.</Explanation>
             </Question>
             <Question code="T1A07" text="What is the FCC Part 97 definition of telemetry?" fccReference="97.3(a)(46)">
                 <Answer text="An information bulletin issued by the FCC" />
                 <Answer text="A one-way transmission to initiate, modify or terminate functions of a device at a distance" />
                 <Answer text="A one-way transmission of measurements at a distance from the measuring instrument" isCorrect="true" />
                 <Answer text="An information bulletin from a VEC" />
+                <Explanation>Any one-way transmission of a measurement by an instrument is considered a telemetry data.</Explanation>
             </Question>
             <Question code="T1A08" text="Which of the following entities recommends transmit/receive channels and other parameters for auxiliary and repeater stations?" fccReference="97.3(a)(22)">
                 <Answer text="Frequency Spectrum Manager" />
                 <Answer text="Frequency Coordinator" isCorrect="true" />
                 <Answer text="FCC Regional Field Office" />
                 <Answer text="International Telecommunications Union" />
+                <Explanation>Frequency coordinator is an entity that recommends channels and other parameters so that interference can be minimized or avoided.</Explanation>
             </Question>
             <Question code="T1A09" text="Who selects a Frequency Coordinator?" fccReference="97.3(a)(22)">
                 <Answer text="The FCC Office of Spectrum Management and Coordination Policy" />
                 <Answer text="The local chapter of the Office of National Council of Independent Frequency Coordinators" />
                 <Answer text="Amateur operators in a local or regional area whose stations are eligible to be auxiliary or repeater stations" isCorrect="true" />
                 <Answer text="FCC Regional Field Office" />
+                <Explanation>Frequency coordinator is selected by Amateur operators themselves.</Explanation>
             </Question>
             <Question code="T1A10" text="What is the FCC Part 97 definition of an amateur station?" fccReference="97.3(a)(5)">
                 <Answer text="A station in the Amateur Radio Service consisting of the apparatus necessary for carrying on radio communications" isCorrect="true" />
                 <Answer text="A building where Amateur Radio receivers, transmitters, and RF power amplifiers are installed" />
                 <Answer text="Any radio station operated by a non-professional" />
                 <Answer text="Any radio station for hobby use" />
+                <Explanation>Anything that has possiblity of carrying on the radio communication under control of an amateur operator is a amateur station.</Explanation>
             </Question>
             <Question code="T1A11" text="When is willful interference to other amateur radio stations permitted?" fccReference="97.101 (d)">
                 <Answer text="Only if the station being interfered with is expressing extreme religious or political views" />
                 <Answer text="At no time" isCorrect="true" />
                 <Answer text="Only during a contest" />
                 <Answer text="At any time, amateurs are not protected from willful interference" />
+                <Explanation>Willful interference is not allowed at any time.</Explanation>
             </Question>
             <Question code="T1A12" text="Which of the following is a permissible use of the Amateur Radio Service?">
                 <Answer text="Broadcasting music and videos to friends" />
                 <Answer text="Providing a way for amateur radio operators to earn additional income by using their stations to pass messages" />
                 <Answer text="Providing low-cost communications for start-up businesses" />
                 <Answer text="Allowing a person to conduct radio experiments and to communicate with other licensed hams around the world" isCorrect="true" />
+                <Explanation>Communication and radio experiments are one of purposes of the Amateur Radio Service.</Explanation>
             </Question>
             <Question code="T1A13" text="What is the FCC Part 97 definition of telecommand?" fccReference="97.3(a)(45)">
                 <Answer text="An instruction bulletin issued by the FCC" />
                 <Answer text="A one-way radio transmission of measurements at a distance from the measuring instrument" />
                 <Answer text="A one-way transmission to initiate, modify or terminate functions of a device at a distance" isCorrect="true" />
                 <Answer text="An instruction from a VEC" />
+                <Explanation>Tele-command is a radio instruction toward a device.</Explanation>
             </Question>
             <Question code="T1A14" text="What must you do if you are operating on the 23 cm band and learn that you are interfering with a radiolocation station outside the United States?" fccReference="97.303(d)">
                 <Answer text="Stop operating or take steps to eliminate the harmful interference" isCorrect="true" />
                 <Answer text="Nothing, because this band is allocated exclusively to the amateur service" />
                 <Answer text="Establish contact with the radiolocation station and ask them to change frequency" />
                 <Answer text="Change to CW mode, because this would not likely cause interference" />
+                <Explanation>If you are interfering with any radiolocation, stop the interference yourself.</Explanation>
             </Question>
         </Group>
         <Group code="T1B" title="Authorized frequencies: frequency allocations; ITU regions; emission modes; restricted sub-bands; spectrum sharing; transmissions near band edges">
