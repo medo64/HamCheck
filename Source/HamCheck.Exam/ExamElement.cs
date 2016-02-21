@@ -266,6 +266,8 @@ namespace HamCheck {
                 xml.WriteAttributeString("title", this.Title.ToString(CultureInfo.InvariantCulture));
                 xml.WriteAttributeString("validFrom", this.ValidFrom.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
                 xml.WriteAttributeString("validTo", this.ValidTo.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+                xml.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
+                xml.WriteAttributeString("xsi", "noNamespaceSchemaLocation", null, "https://medo64.com/schema/hamexam.xsd");
 
                 xml.WriteStartElement("Illustrations");
                 foreach (var illustration in this.Illustrations) {
@@ -395,8 +397,7 @@ namespace HamCheck {
                 if (string.IsNullOrEmpty(line)) { continue; }
 
                 switch (state) {
-                    case State.Default:
-                        {
+                    case State.Default: {
                             if (line.StartsWith("SUBELEMENT ", StringComparison.OrdinalIgnoreCase)) {
                                 var parsedCode = line.Substring(11, 2);
                                 var parsedTitle = ExtractTitle(line);
@@ -420,16 +421,14 @@ namespace HamCheck {
                         }
                         break;
 
-                    case State.Question:
-                        {
+                    case State.Question: {
                             parsedQuestionText = line;
                             parsedAnswers = new ExamAnswers();
                             state = State.Answers;
                         }
                         break;
 
-                    case State.Answers:
-                        {
+                    case State.Answers: {
                             if (AnswerRegex.IsMatch(line)) {
                                 var parsedText = line.Substring(3);
                                 var parsedIsCorrect = line.Substring(0, 1).Equals(parsedQuestionCorrectAnswer, StringComparison.OrdinalIgnoreCase);
