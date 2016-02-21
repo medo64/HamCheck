@@ -8,8 +8,9 @@ SET  FILES_EXECUTABLE="..\Binaries\HamCheck.exe" "..\Binaries\HamCheckExam.dll"
 SET       FILES_OTHER="..\Binaries\ReadMe.txt" "..\Binaries\License.txt"
 
 SET    COMPILE_TOOL_1="%PROGRAMFILES(X86)%\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe"
-SET    COMPILE_TOOL_2="%PROGRAMFILES(X86)%\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe"
-SET    COMPILE_TOOL_3="%PROGRAMFILES(X86)%\Microsoft Visual Studio 12.0\Common7\IDE\WDExpress.exe"
+SET    COMPILE_TOOL_2="%PROGRAMFILES(X86)%\Microsoft Visual Studio 14.0\Common7\IDE\WDExpress.exe"
+SET    COMPILE_TOOL_3="%PROGRAMFILES(X86)%\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe"
+SET    COMPILE_TOOL_4="%PROGRAMFILES(X86)%\Microsoft Visual Studio 12.0\Common7\IDE\WDExpress.exe"
 SET        SETUP_TOOL="%PROGRAMFILES(x86)%\Inno Setup 5\iscc.exe"
 SET        MERGE_TOOL="%PROGRAMFILES(x86)%\Microsoft\ILMerge\ILMerge.exe"
 
@@ -17,6 +18,8 @@ SET       SIGN_TOOL_1="%PROGRAMFILES(X86)%\Windows Kits\8.1\bin\x86\signtool.exe
 SET       SIGN_TOOL_2="%PROGRAMFILES(X86)%\Windows Kits\8.0\bin\x86\signtool.exe"
 SET         SIGN_HASH="C02FF227D5EE9F555C13D4C622697DF15C6FF871"
 SET SIGN_TIMESTAMPURL="http://timestamp.comodoca.com/rfc3161"
+
+SET        GIT_TOOL_1="%PROGRAMFILES%\Git\mingw64\bin\git.exe"
 
 
 ECHO --- DISCOVER TOOLS
@@ -27,15 +30,20 @@ IF EXIST %COMPILE_TOOL_1% (
     SET COMPILE_TOOL=%COMPILE_TOOL_1%
 ) ELSE (
     IF EXIST %COMPILE_TOOL_2% (
-        ECHO Visual Studio 2013
+        ECHO Visual Studio 2015 Express
         SET COMPILE_TOOL=%COMPILE_TOOL_2%
     ) ELSE (
         IF EXIST %COMPILE_TOOL_3% (
-            ECHO Visual Studio Express 2013
+            ECHO Visual Studio 2013
             SET COMPILE_TOOL=%COMPILE_TOOL_3%
         ) ELSE (
-            ECHO Cannot find Visual Studio^^!
-            PAUSE && EXIT /B 255
+            IF EXIST %COMPILE_TOOL_4% (
+                ECHO Visual Studio Express 2013
+                SET COMPILE_TOOL=%COMPILE_TOOL_4%
+            ) ELSE (
+                ECHO Cannot find Visual Studio^^!
+                PAUSE && EXIT /B 255
+            )
         )
     )
 )
@@ -67,6 +75,13 @@ IF EXIST %SIGN_TOOL_1% (
     )
 )
 
+IF EXIST %GIT_TOOL_1% (
+    ECHO Git
+    SET GIT_TOOL=%GIT_TOOL_1%
+) ELSE (
+    GIT_TOOL="git"
+)
+
 ECHO.
 ECHO.
 
@@ -74,13 +89,13 @@ ECHO.
 ECHO --- DISCOVER VERSION
 ECHO.
 
-FOR /F "delims=" %%N IN ('git log -n 1 --format^=%%h') DO @SET VERSION_HASH=%%N%
+FOR /F "delims=" %%N IN ('%GIT_TOOL% log -n 1 --format^=%%h') DO @SET VERSION_HASH=%%N%
 
 IF NOT [%VERSION_HASH%]==[] (
-    FOR /F "delims=" %%N IN ('git rev-list --count HEAD') DO @SET VERSION_NUMBER=%%N%
-    git diff --exit-code --quiet
+    FOR /F "delims=" %%N IN ('%GIT_TOOL% rev-list --count HEAD') DO @SET VERSION_NUMBER=%%N%
+    %GIT_TOOL% diff --exit-code --quiet
     IF ERRORLEVEL 1 SET VERSION_HASH=%VERSION_HASH%+
-    ECHO %VERSION_HASH%
+    ECHO Revision: %VERSION_HASH%
 )
 
 ECHO.
