@@ -19,8 +19,8 @@ namespace HamCheck.Import {
                                                      @"..\Reference\3 General [2015-2019] {20150211}"));
 
                 exams.Add(ExamElement.ImportFromText(4, "Extra Class Question Pool",
-                                                     new DateTime(2012, 7, 1), new DateTime(2016, 6, 30),
-                                                     @"..\Reference\4 Extra [2012-2015] {20120131}"));
+                                                     new DateTime(2016, 7, 1), new DateTime(2020, 6, 30),
+                                                     @"..\Reference\4 Extra [2016-2020] {20160305}"));
 
                 foreach (var exam in exams) {
                     using (var stream = File.OpenWrite(@"Element" + exam.Number.ToString(CultureInfo.InvariantCulture) + "-" + exam.ValidFrom.Date.Year.ToString(CultureInfo.InvariantCulture) +  ".xml")) {

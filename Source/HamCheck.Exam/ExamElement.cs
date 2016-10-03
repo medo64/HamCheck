@@ -393,7 +393,7 @@ namespace HamCheck {
             var rawLines = File.ReadAllLines(txtFiles[0], Encoding.Default);
             for (int i = 0; i < rawLines.Length; i++) {
                 var rawLine = rawLines[i];
-                var line = rawLine.Replace(" ", " ").Replace("–", "-").Trim();
+                var line = rawLine.Replace(" ", " ").Replace("\t", " ").Replace("–", "-").Trim();
                 if (string.IsNullOrEmpty(line)) { continue; }
 
                 switch (state) {
@@ -402,11 +402,17 @@ namespace HamCheck {
                                 var parsedCode = line.Substring(11, 2);
                                 var parsedTitle = ExtractTitle(line);
                                 element.Subelements.Add(new ExamSubelement(parsedCode, parsedTitle));
-                            } else if (GroupRegex.IsMatch(line)) {
+                            } else if (GroupRegex1.IsMatch(line)) {
                                 if (element.Subelements.Count == 0) { throw new FormatException("Cannot find subelement for group near \"" + line + "\" (line " + (i + 1) + ")."); }
                                 var subelement = element.Subelements[element.Subelements.Count - 1];
                                 var parsedCode = line.Substring(0, 3);
                                 var parsedTitle = line.Substring(6);
+                                subelement.Groups.Add(new ExamGroup(parsedCode, parsedTitle));
+                            } else if (GroupRegex2.IsMatch(line)) {
+                                if (element.Subelements.Count == 0) { throw new FormatException("Cannot find subelement for group near \"" + line + "\" (line " + (i + 1) + ")."); }
+                                var subelement = element.Subelements[element.Subelements.Count - 1];
+                                var parsedCode = line.Substring(0, 3);
+                                var parsedTitle = line.Substring(4);
                                 subelement.Groups.Add(new ExamGroup(parsedCode, parsedTitle));
                             } else if (QuestionRegex.IsMatch(line)) {
                                 parsedQuestionCode = line.Substring(0, 5);
@@ -415,6 +421,8 @@ namespace HamCheck {
                                 if (parsedQuestionFccReference.Length == 0) { parsedQuestionFccReference = null; }
                                 parsedQuestionText = null;
                                 state = State.Question;
+                            } else if ((line.IndexOf("DELETED", StringComparison.Ordinal) >= 0) || (line.StartsWith("~", StringComparison.Ordinal))) {
+                                //ignore deleted lines
                             } else {
                                 throw new FormatException("Unknown line format near \"" + line + "\" (line " + (i + 1) + ").");
                             }
@@ -469,7 +477,8 @@ namespace HamCheck {
         }
 
 
-        private static Regex GroupRegex = new Regex(@"^[A-Z][0-9][A-Z] - ", RegexOptions.Compiled);
+        private static Regex GroupRegex1 = new Regex(@"^[A-Z][0-9][A-Z] - ", RegexOptions.Compiled);
+        private static Regex GroupRegex2 = new Regex(@"^[A-Z][0-9][A-Z] ", RegexOptions.Compiled);
         private static Regex QuestionRegex = new Regex(@"^[A-Z][0-9][A-Z][0-9][0-9] \([A-D]\)", RegexOptions.Compiled);
         private static Regex AnswerRegex = new Regex(@"^[A-D]\. ", RegexOptions.Compiled);
 
