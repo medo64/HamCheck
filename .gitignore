@@ -5,9 +5,9 @@
 **/TestResults
 **/ApiPortabilityAnalysis.htm
 **/.vs
+**/.*
 
 Binaries/**
-Reference/**
 Releases/**
 Backup/**
 Temporary/**
