@@ -204,10 +204,7 @@ IF EXIST %MERGE_TOOL% (
     ECHO --- MERGE ASSEMBLIES
     ECHO.
     
-    %MERGE_TOOL% /keyfile:..\Source\HamCheck\Properties\App.snk /out:..\Binaries\Merged.exe %FILES_EXECUTABLE%
-    IF ERRORLEVEL 1 PAUSE && EXIT /B %ERRORLEVEL%
-
-    MOVE ..\Binaries\Merged.exe %FILE_EXECUTABLE% > NUL
+    %MERGE_TOOL% /targetplatform:v4 /keyfile:..\Source\HamCheck\Properties\App.snk /out:..\Binaries\HamCheckPortable.exe %FILES_EXECUTABLE%
     IF ERRORLEVEL 1 PAUSE && EXIT /B %ERRORLEVEL%
 
     ECHO Completed.
@@ -222,9 +219,9 @@ IF EXIST %MERGE_TOOL% (
         ECHO.
         
         IF [%SIGN_TIMESTAMPURL%]==[] (
-            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /v %FILE_EXECUTABLE%
+            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /v ..\Binaries\HamCheckPortable.exe
         ) ELSE (
-            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /tr %SIGN_TIMESTAMPURL% /v %FILE_EXECUTABLE%
+            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /tr %SIGN_TIMESTAMPURL% /v ..\Binaries\HamCheckPortable.exe
         )
         IF ERRORLEVEL 1 PAUSE && EXIT /B %ERRORLEVEL%
         ECHO.
@@ -236,7 +233,7 @@ IF EXIST %MERGE_TOOL% (
 
     IF EXIST %RAR_TOOL% (
         ECHO Zipping into %_SETUPEXE:.exe=.zip%
-        "%PROGRAMFILES%\WinRAR\WinRAR.exe" a -afzip -ep -m5 ".\Temp\%_SETUPEXE:.exe=.zip%" %FILE_EXECUTABLE% %FILES_OTHER%
+        "%PROGRAMFILES%\WinRAR\WinRAR.exe" a -afzip -ep -m5 ".\Temp\%_SETUPEXE:.exe=.zip%" ..\Binaries\HamCheckPortable.exe %FILES_OTHER%
         IF ERRORLEVEL 1 PAUSE && EXIT /B %ERRORLEVEL%
     ) ELSE (
         ECHO No WinRAR
