@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -30,7 +30,8 @@ namespace HamCheck {
         internal ExamElement(int number, string title, DateTime validFrom, DateTime validTo) {
             if ((number < 2) || (number > 4)) { throw new ArgumentOutOfRangeException("number", "Element number must be between 2 and 4."); }
             if (title == null) { throw new ArgumentNullException("title", "Title cannot be null."); }
-            title = title.Trim(); if (string.IsNullOrEmpty(title)) { throw new ArgumentNullException("title", "Title cannot be empty."); }
+            title = title.Trim();
+            if (string.IsNullOrEmpty(title)) { throw new ArgumentNullException("title", "Title cannot be empty."); }
             if (this.ValidFrom.Date > this.ValidTo.Date) { throw new ArgumentOutOfRangeException("validFrom", "Exam must be valid for at least a day."); }
 
             this.Number = number;
@@ -236,7 +237,8 @@ namespace HamCheck {
 
                         foreach (XmlElement xmlAnswer in xmlQuestion.SelectNodes("Answer")) {
                             var answerText = GetValue(xmlAnswer.Attributes["text"]);
-                            bool answerIsCorrect = false; bool.TryParse(GetValue(xmlAnswer.Attributes["isCorrect"]), out answerIsCorrect);
+                            bool answerIsCorrect = false;
+                            bool.TryParse(GetValue(xmlAnswer.Attributes["isCorrect"]), out answerIsCorrect);
                             var answer = new ExamAnswer(answerText, answerIsCorrect);
                             question.Answers.Add(answer);
                         }
@@ -389,12 +391,22 @@ namespace HamCheck {
             string parsedQuestionFccReference = null;
             string parsedQuestionText = null;
             ExamAnswers parsedAnswers = null;
+            bool filterHeader = true;
 
             var rawLines = File.ReadAllLines(txtFiles[0], Encoding.Default);
             for (int i = 0; i < rawLines.Length; i++) {
                 var rawLine = rawLines[i];
                 var line = rawLine.Replace(" ", " ").Replace("\t", " ").Replace("–", "-").Trim();
                 if (string.IsNullOrEmpty(line)) { continue; }
+
+                //skip until the first subelement
+                if (filterHeader) {
+                    if (!line.StartsWith("SUBELEMENT ")) {
+                        continue;
+                    } else {
+                        filterHeader = false;
+                    }
+                }
 
                 switch (state) {
                     case State.Default: {
@@ -423,6 +435,8 @@ namespace HamCheck {
                                 state = State.Question;
                             } else if ((line.IndexOf("DELETED", StringComparison.Ordinal) >= 0) || (line.StartsWith("~", StringComparison.Ordinal))) {
                                 //ignore deleted lines
+                            } else if (line.Equals("END", StringComparison.InvariantCulture)) {
+                                goto Done; //nothing else to do
                             } else {
                                 throw new FormatException("Unknown line format near \"" + line + "\" (line " + (i + 1) + ").");
                             }
@@ -472,6 +486,7 @@ namespace HamCheck {
                 }
             }
 
+Done:
 
             return element;
         }

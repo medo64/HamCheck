@@ -11,8 +11,8 @@ namespace HamCheck.Import {
                 var exams = new List<ExamElement>();
 
                 exams.Add(ExamElement.ImportFromText(2, "Technician Class Question Pool",
-                                                     new DateTime(2014, 7, 1), new DateTime(2018, 6, 30),
-                                                     @"..\Reference\2 Technician [2014-2018] {20131212}"));
+                                                     new DateTime(2018, 7, 1), new DateTime(2022, 6, 30),
+                                                     @"..\Reference\2 Technician [2018-2022] {20181014}"));
 
                 exams.Add(ExamElement.ImportFromText(3, "General Class Question Pool",
                                                      new DateTime(2015, 7, 1), new DateTime(2019, 6, 30),
