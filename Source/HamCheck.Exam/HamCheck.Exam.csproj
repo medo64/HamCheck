@@ -72,9 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Element2-2014.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Element2-2018.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\Element3-2015.xml" />
   </ItemGroup>
   <ItemGroup>
