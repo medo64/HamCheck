@@ -7,9 +7,8 @@ SET   FILE_EXECUTABLE="..\Binaries\HamCheck.exe"
 SET  FILES_EXECUTABLE="..\Binaries\HamCheck.exe" "..\Binaries\HamCheckExam.dll"
 SET       FILES_OTHER="..\Binaries\ReadMe.txt" "..\Binaries\License.txt"
 
-SET   COMPILE_TOOL_15="%PROGRAMFILES(X86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
-SET   COMPILE_TOOL_14="%PROGRAMFILES(X86)%\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe"
-SET  COMPILE_TOOL_14E="%PROGRAMFILES(X86)%\Microsoft Visual Studio 14.0\Common7\IDE\WDExpress.exe"
+SET   COMPILE_TOOL_17="%PROGRAMFILES(X86)%\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
+SET   COMPILE_TOOL_16="%PROGRAMFILES(X86)%\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"
 
 SET        SETUP_TOOL="%PROGRAMFILES(x86)%\Inno Setup 5\iscc.exe"
 SET        MERGE_TOOL="%PROGRAMFILES(x86)%\Microsoft\ILMerge\ILMerge.exe"
@@ -17,8 +16,8 @@ SET        MERGE_TOOL="%PROGRAMFILES(x86)%\Microsoft\ILMerge\ILMerge.exe"
 SET       SIGN_TOOL_1="%PROGRAMFILES(X86)%\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
 SET       SIGN_TOOL_2="%PROGRAMFILES(X86)%\Windows Kits\10\App Certification Kit\signtool.exe"
 SET       SIGN_TOOL_3="%PROGRAMFILES(X86)%\Windows Kits\10\bin\x86\signtool.exe"
-SET   SIGN_THUMBPRINT="026184de8dbf52fdcbae75fd6b1a7d9ce4310e5d"
-SET SIGN_TIMESTAMPURL="http://timestamp.comodoca.com/rfc3161"
+SET   SIGN_THUMBPRINT="e9b444fffb1375ece027e40d8637b6da3fdaaf0e"
+SET SIGN_TIMESTAMPURL="http://timestamp.sectigo.com"
 
 SET        GIT_TOOL_1="%PROGRAMFILES%\Git\mingw64\bin\git.exe"
 
@@ -28,21 +27,16 @@ SET          RAR_TOOL="%PROGRAMFILES%\WinRAR\WinRAR.exe"
 ECHO --- DISCOVER TOOLS
 ECHO.
 
-IF EXIST %COMPILE_TOOL_15% (
-    ECHO Visual Studio 2017
-    SET COMPILE_TOOL=%COMPILE_TOOL_15%
+IF EXIST %COMPILE_TOOL_17% (
+    ECHO Visual Studio 2022
+    SET COMPILE_TOOL=%COMPILE_TOOL_17%
 ) ELSE (
-    IF EXIST %COMPILE_TOOL_14% (
-        ECHO Visual Studio 2015
-        SET COMPILE_TOOL=%COMPILE_TOOL_14%
+    IF EXIST %COMPILE_TOOL_16% (
+        ECHO Visual Studio 2019
+        SET COMPILE_TOOL=%COMPILE_TOOL_16%
     ) ELSE (
-        IF EXIST %COMPILE_TOOL_14E% (
-            ECHO Visual Studio Express 2015
-            SET COMPILE_TOOL=%COMPILE_TOOL_14E%
-        ) ELSE (
-            ECHO Cannot find Visual Studio^^!
-            PAUSE && EXIT /B 255
-        )
+        ECHO Cannot find Visual Studio^^!
+        PAUSE && EXIT /B 255
     )
 )
 
@@ -134,9 +128,9 @@ IF %ERRORLEVEL%==0 (
     ECHO.
     
     IF [%SIGN_TIMESTAMPURL%]==[] (
-        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /v %FILES_EXECUTABLE%
+        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /td sha256 /v %FILES_EXECUTABLE%
     ) ELSE (
-        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /tr %SIGN_TIMESTAMPURL% /v %FILES_EXECUTABLE%
+        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /td sha256 /tr %SIGN_TIMESTAMPURL% /v %FILES_EXECUTABLE%
     )
     IF ERRORLEVEL 1 PAUSE && EXIT /B %ERRORLEVEL%
 ) ELSE (
@@ -188,9 +182,9 @@ IF %ERRORLEVEL%==0 (
     ECHO.
     
     IF [%SIGN_TIMESTAMPURL%]==[] (
-        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /v ".\Temp\%_SETUPEXE%"
+        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /td sha256 /v ".\Temp\%_SETUPEXE%"
     ) ELSE (
-        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /tr %SIGN_TIMESTAMPURL% /v ".\Temp\%_SETUPEXE%"
+        %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /td sha256 /tr %SIGN_TIMESTAMPURL% /v ".\Temp\%_SETUPEXE%"
     )
     IF ERRORLEVEL 1 PAUSE && EXIT /B %ERRORLEVEL%
 ) ELSE (
@@ -219,9 +213,9 @@ IF EXIST %MERGE_TOOL% (
         ECHO.
         
         IF [%SIGN_TIMESTAMPURL%]==[] (
-            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /v ..\Binaries\HamCheckPortable.exe
+            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /td sha256 /v ..\Binaries\HamCheckPortable.exe
         ) ELSE (
-            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /tr %SIGN_TIMESTAMPURL% /v ..\Binaries\HamCheckPortable.exe
+            %SIGN_TOOL% sign /s "My" /sha1 %SIGN_THUMBPRINT% /td sha256 /tr %SIGN_TIMESTAMPURL% /v ..\Binaries\HamCheckPortable.exe
         )
         IF ERRORLEVEL 1 PAUSE && EXIT /B %ERRORLEVEL%
         ECHO.
