@@ -37,13 +37,13 @@
                 <Answer text="The control operator's operator/primary station license must appear in the FCC ULS consolidated licensee database" isCorrect="true" />
                 <Answer text="All of these choices are correct" />
             </Question>
-            <Question code="T1A06" text="What is the FCC Part 97 definition of a &quot;beacon&quot;?" fccReference="97.3(a)(9)">
+            <Question code="T1A06" text="What is the FCC Part 97 definition of a beacon?" fccReference="97.3(a)(9)">
                 <Answer text="A government transmitter marking the amateur radio band edges" />
                 <Answer text="A bulletin sent by the FCC to announce a national emergency" />
                 <Answer text="An amateur station transmitting communications for the purposes of observing propagation or related experimental activities" isCorrect="true" />
                 <Answer text="A continuous transmission of weather information authorized in the amateur bands by the National Weather Service" />
             </Question>
-            <Question code="T1A07" text="What is the FCC Part 97 definition of a &quot;space station&quot;?" fccReference="97.3(a)(41)">
+            <Question code="T1A07" text="What is the FCC Part 97 definition of a space station?" fccReference="97.3(a)(41)">
                 <Answer text="Any satellite orbiting the earth" />
                 <Answer text="A manned satellite orbiting the earth" />
                 <Answer text="An amateur station located more than 50 km above the Earth's surface" isCorrect="true" />
@@ -107,11 +107,11 @@
             </Question>
             <Question code="T1B06" text="On which HF bands does a Technician class operator have phone privileges?" fccReference="97.301(e), 97.305">
                 <Answer text="None" />
-                <Answer text="10 meters only" isCorrect="true" />
-                <Answer text="80 meters, 40 meters, 15 meters and 10 meters" />
-                <Answer text="30 meters only" />
+                <Answer text="10 meter band only" isCorrect="true" />
+                <Answer text="80 meter, 40 meter, 15 meter and 10 meter bands" />
+                <Answer text="30 meter band only" />
             </Question>
-            <Question code="T1B07" text="Which of the following VHF/UHF frequencies ranges are limited to CW only?" fccReference="97.305(a), (c)">
+            <Question code="T1B07" text="Which of the following VHF/UHF frequency ranges are limited to CW only?" fccReference="97.305(a), (c)">
                 <Answer text="50.0 MHz to 50.1 MHz and 144.0 MHz to 144.1 MHz" isCorrect="true" />
                 <Answer text="219 MHz to 220 MHz and 420.0 MHz to 420.1 MHz" />
                 <Answer text="902.0 MHz to 902.1 MHZ" />
@@ -130,10 +130,10 @@
                 <Answer text="All of these choices are correct" isCorrect="true" />
             </Question>
             <Question code="T1B10" text="Which of the following HF bands have frequencies available to the Technician class operator for RTTY and data transmissions?" fccReference="97.301(e), 97.305(c)">
-                <Answer text="10 meters, 12 meters, 17 meters, and 40 meters" />
-                <Answer text="10 meters, 15 meters, 40 meters, 80 meters" />
-                <Answer text="30 meters only" />
-                <Answer text="10 meters only" isCorrect="true" />
+                <Answer text="10 meter, 12 meter, 17 meter, and 40 meter bands" />
+                <Answer text="10 meter, 15 meter, 40 meter, and 80 meter bands" />
+                <Answer text="30 meter band only" />
+                <Answer text="10 meter band only" isCorrect="true" />
             </Question>
             <Question code="T1B11" text="What is the maximum peak envelope power output for Technician class operators using their assigned portions of the HF bands?" fccReference="97.313">
                 <Answer text="200 watts" isCorrect="true" />
@@ -144,7 +144,7 @@
             <Question code="T1B12" text="Except for some specific restrictions, what is the maximum peak envelope power output for Technician class operators using frequencies above 30 MHz?" fccReference="97.313(b)">
                 <Answer text="50 watts" />
                 <Answer text="100 watts" />
-                <Answer text="500 watt" />
+                <Answer text="500 watts" />
                 <Answer text="1500 watts" isCorrect="true" />
             </Question>
         </Group>
@@ -271,7 +271,7 @@
                 <Answer text="Only where noncommercial programming is gathered and supplied exclusively to the National Public Radio network" />
                 <Answer text="Only when using amateur repeaters linked to the internet" />
             </Question>
-            <Question code="T1D10" text="What is the meaning of the term “broadcasting” in the FCC rules for the Amateur Radio Service?" fccReference="97.3(a)(10)">
+            <Question code="T1D10" text="What is the meaning of the term broadcasting in the FCC rules for the Amateur Radio Service?" fccReference="97.3(a)(10)">
                 <Answer text="Two-way transmissions by amateur stations" />
                 <Answer text="Transmission of music" />
                 <Answer text="Transmission of messages directed only to amateur operators" />
@@ -292,9 +292,9 @@
                 <Answer text="Never" isCorrect="true" />
             </Question>
             <Question code="T1E02" text="Who may be the control operator of a station communicating through an amateur satellite or space station?" fccReference="97.301, 97.207(c)">
-                <Answer text="Only an Amateur Extra class operator" />
+                <Answer text="Only an Amateur Extra Class operator" />
                 <Answer text="A General class or higher licensee who has a satellite operator certification" />
-                <Answer text="Only an Amateur Extra class operator who is also an AMSAT member" />
+                <Answer text="Only an Amateur Extra Class operator who is also an AMSAT member" />
                 <Answer text="Any amateur whose license privileges allow them to transmit on the satellite uplink frequency" isCorrect="true" />
             </Question>
             <Question code="T1E03" text="Who must designate the station control operator?" fccReference="97.103(b)">
@@ -337,7 +337,7 @@
                 <Answer text="The control operator must be at the control point" />
                 <Answer text="A control operator is required at all times" />
                 <Answer text="The control operator indirectly manipulates the controls" />
-                <Answer text="All these choices are correct" isCorrect="true" />
+                <Answer text="All of these choices are correct" isCorrect="true" />
             </Question>
             <Question code="T1E10" text="Which of the following is an example of remote control as defined in Part 97?" fccReference="97.3(a)(39)">
                 <Answer text="Repeater operation" />
@@ -395,7 +395,7 @@
                 <Answer text="The licensed control operator must do the station identification" />
                 <Answer text="All of these choices are correct" />
             </Question>
-            <Question code="T1F08" text="What is meant by the term &quot;Third Party Communications&quot;?" fccReference="97.3(a)(47)">
+            <Question code="T1F08" text="What is meant by the term Third Party Communications?" fccReference="97.3(a)(47)">
                 <Answer text="A message from a control operator to another amateur station control operator on behalf of another person" isCorrect="true" />
                 <Answer text="Amateur radio communications where three stations are in communications with one another" />
                 <Answer text="Operation when the transmitting equipment is licensed to a person other than the control operator" />
@@ -424,10 +424,10 @@
     <Subelement code="T2" title="Operating Procedures">
         <Group code="T2A" title="Station operation: choosing an operating frequency; calling another station; test transmissions; procedural signs; use of minimum power; choosing an operating frequency; band plans; calling frequencies; repeater offsets">
             <Question code="T2A01" text="Which of the following is a common repeater frequency offset in the 2 meter band?">
-                <Answer text="Plus or minus 5 Mhz" />
+                <Answer text="Plus or minus 5 MHz" />
                 <Answer text="Plus or minus 600 kHz" isCorrect="true" />
                 <Answer text="Plus or minus 500 kHz" />
-                <Answer text="Plus or minus 1 Mhz" />
+                <Answer text="Plus or minus 1 MHz" />
             </Question>
             <Question code="T2A02" text="What is the national calling frequency for FM simplex operations in the 2 meter band?">
                 <Answer text="146.520 MHz" isCorrect="true" />
@@ -436,10 +436,10 @@
                 <Answer text="446.000 MHz" />
             </Question>
             <Question code="T2A03" text="What is a common repeater frequency offset in the 70 cm band?">
-                <Answer text="Plus or minus 5 Mhz" isCorrect="true" />
+                <Answer text="Plus or minus 5 MHz" isCorrect="true" />
                 <Answer text="Plus or minus 600 kHz" />
                 <Answer text="Plus or minus 500 kHz" />
-                <Answer text="Plus or minus 1 Mhz" />
+                <Answer text="Plus or minus 1 MHz" />
             </Question>
             <Question code="T2A04" text="What is an appropriate way to call another station on a repeater if you know the other station's call sign?">
                 <Answer text="Say &quot;break, break,&quot; then say the station's call sign" />
@@ -483,7 +483,7 @@
                 <Answer text="A list of scheduled net frequencies" />
                 <Answer text="A plan devised by a club to indicate frequency band usage" />
             </Question>
-            <Question code="T2A11" text="What kind of communication is taking place when an amateur station is transmitting and receiving on the same frequency?">
+            <Question code="T2A11" text="What term describes an amateur station that is transmitting and receiving on the same frequency?">
                 <Answer text="Full duplex" />
                 <Answer text="Diplex" />
                 <Answer text="Simplex" isCorrect="true" />
@@ -530,7 +530,7 @@
             <Question code="T2B06" text="What type of tones are used to control repeaters linked by the Internet Relay Linking Project (IRLP) protocol?">
                 <Answer text="DTMF" isCorrect="true" />
                 <Answer text="CTCSS" />
-                <Answer text="Echolink" />
+                <Answer text="EchoLink" />
                 <Answer text="Sub-audible" />
             </Question>
             <Question code="T2B07" text="How can you join a digital repeater’s “talk group”?">
@@ -623,7 +623,7 @@
                 <Answer text="Provided that the frequency is quiet, announce the station call sign and location every 5 minutes" />
                 <Answer text="Move 5 kHz away from the net's frequency and use high power to ask other hams to keep clear of the net frequency" />
                 <Answer text="Remain on frequency without transmitting until asked to do so by the net control station" isCorrect="true" />
-                <Answer text="All of the choices are correct" />
+                <Answer text="All of these choices are correct" />
             </Question>
             <Question code="T2C08" text="Which of the following is a characteristic of good traffic handling?">
                 <Answer text="Passing messages exactly as received" isCorrect="true" />
@@ -699,7 +699,7 @@
                 <Answer text="Electromagnetic" isCorrect="true" />
                 <Answer text="Electrostatic" />
                 <Answer text="Surface acoustic" />
-                <Answer text="Magnetostrictive" />
+                <Answer text="Ferromagnetic" />
             </Question>
             <Question code="T3A08" text="Which of the following is a likely cause of irregular fading of signals received by ionospheric reflection?">
                 <Answer text="Frequency shift due to Faraday rotation" />
@@ -725,11 +725,11 @@
                 <Answer text="The ionosphere" isCorrect="true" />
                 <Answer text="The magnetosphere" />
             </Question>
-            <Question code="T3A12" text="How might fog and light rain affect radio range on 10 meters and 6 meters?">
+            <Question code="T3A12" text="How might fog and light rain affect radio range on the 10 meter and 6 meter bands?">
                 <Answer text="Fog and rain absorb these wavelength bands" />
                 <Answer text="Fog and light rain will have little effect on these bands" isCorrect="true" />
                 <Answer text="Fog and rain will deflect these signals" />
-                <Answer text="For and rain will increase radio range" />
+                <Answer text="Fog and rain will increase radio range" />
             </Question>
             <Question code="T3A13" text="What weather condition would decrease range at microwave frequencies?">
                 <Answer text="High winds" />
@@ -838,16 +838,16 @@
                 <Answer text="Doppler shift" />
             </Question>
             <Question code="T3C06" text="What mode is responsible for allowing over-the-horizon VHF and UHF communications to ranges of approximately 300 miles on a regular basis?">
-                <Answer text="Tropospheric scatter" isCorrect="true" />
-                <Answer text="D-layer refraction" />
-                <Answer text="F2-layer refraction" />
+                <Answer text="Tropospheric ducting" isCorrect="true" />
+                <Answer text="D layer refraction" />
+                <Answer text="F2 layer refraction" />
                 <Answer text="Faraday rotation" />
             </Question>
             <Question code="T3C07" text="What band is best suited for communicating via meteor scatter?">
-                <Answer text="10 meters" />
-                <Answer text="6 meters" isCorrect="true" />
-                <Answer text="2 meters" />
-                <Answer text="70 centimeters" />
+                <Answer text="10 meter band" />
+                <Answer text="6 meter band" isCorrect="true" />
+                <Answer text="2 meter band" />
+                <Answer text="70 centimeter band" />
             </Question>
             <Question code="T3C08" text="What causes tropospheric ducting?">
                 <Answer text="Discharges of lightning during electrical storms" />
@@ -862,9 +862,9 @@
                 <Answer text="From shortly after sunset to dawn during periods of low sunspot activity" />
             </Question>
             <Question code="T3C10" text="Which of the following bands may provide long distance communications during the peak of the sunspot cycle?">
-                <Answer text="Six or ten meters" isCorrect="true" />
-                <Answer text="23 centimeters" />
-                <Answer text="70 centimeters or 1.25 meters" />
+                <Answer text="6 or 10 meter bands" isCorrect="true" />
+                <Answer text="23 centimeter band" />
+                <Answer text="70 centimeter or 1.25 meter bands" />
                 <Answer text="All of these choices are correct" />
             </Question>
             <Question code="T3C11" text="Why do VHF and UHF radio signals usually travel somewhat farther than the visual line of sight distance between two stations?">
@@ -877,11 +877,11 @@
     </Subelement>
     <Subelement code="T4" title="Amateur radio practices and station set-up">
         <Group code="T4A" title="Station setup: connecting microphones; reducing unwanted emissions; power source; connecting a computer; RF grounding; connecting digital equipment; connecting an SWR meter">
-            <Question code="T4A01" text="What must be considered to determine the minimum current capacity needed for a transceiver's power supply?">
+            <Question code="T4A01" text="What must be considered to determine the minimum current capacity needed for a transceiver power supply?">
                 <Answer text="Efficiency of the transmitter at full power output" />
                 <Answer text="Receiver and control circuit power" />
                 <Answer text="Power supply regulation and heat dissipation" />
-                <Answer text="All of these are correct" isCorrect="true" />
+                <Answer text="All of these choices are correct" isCorrect="true" />
             </Question>
             <Question code="T4A02" text="How might a computer be used as part of an amateur radio station?">
                 <Answer text="For logging contacts and contact information" />
@@ -911,7 +911,7 @@
                 <Answer text="Receive and transmit mode, status, and location" />
                 <Answer text="Antenna and RF power" />
                 <Answer text="Receive audio, transmit audio, and push-to-talk (PTT)" isCorrect="true" />
-                <Answer text="NMEA GPS location and dc power" />
+                <Answer text="NMEA GPS location and DC power" />
             </Question>
             <Question code="T4A07" text="How is a computer’s sound card used when conducting digital communications?">
                 <Answer text="The sound card communicates between the computer CPU and the video display" />
@@ -944,7 +944,7 @@
                 <Answer text="Through the transceiver’s mounting bracket" />
             </Question>
         </Group>
-        <Group code="T4B" title="Operating controls: tuning; use of filters; squelch function; AGC; repeater offset; memory channels">
+        <Group code="T4B" title="Operating controls: tuning; use of filters; squelch function; AGC; transceiver operation; memory channels">
             <Question code="T4B01" text="What may happen if a transmitter is operated with the microphone gain set too high?">
                 <Answer text="The output power might be too high" />
                 <Answer text="The output signal might become distorted" isCorrect="true" />
@@ -1005,25 +1005,19 @@
                 <Answer text="2400 Hz" />
                 <Answer text="5000 Hz" />
             </Question>
-            <Question code="T4B11" text="What is the common meaning of the term &quot;repeater offset&quot;?">
-                <Answer text="The distance between the repeater’s transmit and receive antennas" />
-                <Answer text="The time delay before the repeater timer resets" />
-                <Answer text="The difference between the repeater’s transmit and receive frequencies" isCorrect="true" />
-                <Answer text="Matching the antenna impedance to the feed line impedance" />
-            </Question>
-            <Question code="T4B12" text="What is the function of automatic gain control, or AGC?">
+            <Question code="T4B11" text="What is the function of automatic gain control, or AGC?">
                 <Answer text="To keep received audio relatively constant" isCorrect="true" />
                 <Answer text="To protect an antenna from lightning" />
                 <Answer text="To eliminate RF on the station cabling" />
                 <Answer text="An asymmetric goniometer control used for antenna matching" />
             </Question>
-            <Question code="T4B13" text="Which of the following could be used to remove power line noise or ignition noise?">
+            <Question code="T4B12" text="Which of the following could be used to remove power line noise or ignition noise?">
                 <Answer text="Squelch" />
                 <Answer text="Noise blanker" isCorrect="true" />
                 <Answer text="Notch filter" />
                 <Answer text="All of these choices are correct" />
             </Question>
-            <Question code="T4B14" text="Which of the following is a use for the scanning function of an FM transceiver?">
+            <Question code="T4B13" text="Which of the following is a use for the scanning function of an FM transceiver?">
                 <Answer text="To check incoming signal deviation" />
                 <Answer text="To prevent interference to nearby repeaters" />
                 <Answer text="To scan through a range of frequencies to check for activity" isCorrect="true" />
@@ -1271,7 +1265,7 @@
                 <Answer text="The Q or Quality Factor of a component" />
                 <Answer text="The power handling capability of a component" />
             </Question>
-            <Question code="T5C13" text="What are the units of impedance?">
+            <Question code="T5C13" text="What is a unit of impedance?">
                 <Answer text="Volts" />
                 <Answer text="Amperes" />
                 <Answer text="Coulombs" />
@@ -1319,7 +1313,7 @@
                 <Answer text="3 ohms" isCorrect="true" />
                 <Answer text="16 ohms" />
                 <Answer text="48 ohms" />
-                <Answer text="8 Ohms" />
+                <Answer text="8 ohms" />
             </Question>
             <Question code="T5D07" text="What is the current in a circuit with an applied voltage of 120 volts and a resistance of 80 ohms?">
                 <Answer text="9600 amperes" />
@@ -2055,10 +2049,10 @@
                 <Answer text="The apparent frequency of the satellite transmission, including effects of Doppler shift" />
                 <Answer text="All of these choices are correct" isCorrect="true" />
             </Question>
-            <Question code="T8B04" text="What mode of transmission is used for satellite beacons?">
-                <Answer text="RTTY" />
-                <Answer text="CW" />
-                <Answer text="Packet" />
+            <Question code="T8B04" text="What mode of transmission is commonly used by amateur radio satellites?">
+                <Answer text="SSB" />
+                <Answer text="FM" />
+                <Answer text="CW/data" />
                 <Answer text="All of these choices are correct" isCorrect="true" />
             </Question>
             <Question code="T8B05" text="What is a satellite beacon?">
@@ -2165,10 +2159,10 @@
                 <Answer text="From a repeater directory" />
                 <Answer text="All of these choices are correct" isCorrect="true" />
             </Question>
-            <Question code="T8C10" text="What must be done before you may use the Echolink system to communicate using a repeater?">
-                <Answer text="You must complete the required Echolink training" />
-                <Answer text="You must have purchased a license to use the Echolink software" />
-                <Answer text="You must be sponsored by a current Echolink user" />
+            <Question code="T8C10" text="What must be done before you may use the EchoLink system to communicate using a repeater?">
+                <Answer text="You must complete the required EchoLink training" />
+                <Answer text="You must have purchased a license to use the EchoLink software" />
+                <Answer text="You must be sponsored by a current EchoLink user" />
                 <Answer text="You must register your call sign and provide proof of license" isCorrect="true" />
             </Question>
             <Question code="T8C11" text="What name is given to an amateur radio station that is used to connect other amateur stations to the internet?">
@@ -2215,7 +2209,7 @@
                 <Answer text="Packet Short Keying" />
                 <Answer text="Phased Slide Keying" />
             </Question>
-            <Question code="T8D07" text="Which of the following best describes DMR (Digital Mobile Radio or Digital Migration Radio)?">
+            <Question code="T8D07" text="Which of the following best describes DMR (Digital Mobile Radio)?">
                 <Answer text="A technique for time-multiplexing two digital voice signals on a single 12.5 kHz repeater channel" isCorrect="true" />
                 <Answer text="An automatic position tracking mode for FM mobiles communicating through repeaters" />
                 <Answer text="An automatic computer logging technique for hands-off logging when communicating while operating a vehicle" />
@@ -2488,8 +2482,8 @@
             <Question code="T0B02" text="What is a good precaution to observe before climbing an antenna tower?">
                 <Answer text="Make sure that you wear a grounded wrist strap" />
                 <Answer text="Remove all tower grounding connections" />
-                <Answer text="Put on a carefully inspected climbing harness (fall arrester) and safety glasses" isCorrect="true" />
-                <Answer text="All of the these choices are correct" />
+                <Answer text="Put on a carefully inspected climbing harness(fall arrester)and safety glasses" isCorrect="true" />
+                <Answer text="All of these choices are correct" />
             </Question>
             <Question code="T0B03" text="Under what circumstances is it safe to climb a tower without a helper or observer?">
                 <Answer text="When no electrical work is being performed" />

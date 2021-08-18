@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -12,15 +12,15 @@ namespace HamCheck.Import {
 
                 exams.Add(ExamElement.ImportFromText(2, "Technician Class Question Pool",
                                                      new DateTime(2018, 7, 1), new DateTime(2022, 6, 30),
-                                                     @"..\Reference\2 Technician [2018-2022] {20181014}"));
+                                                     @"..\Reference\2 Technician [2018-2022] {20210817}"));
 
                 exams.Add(ExamElement.ImportFromText(3, "General Class Question Pool",
-                                                     new DateTime(2015, 7, 1), new DateTime(2019, 6, 30),
-                                                     @"..\Reference\3 General [2015-2019] {20150211}"));
+                                                     new DateTime(2019, 7, 1), new DateTime(2023, 6, 30),
+                                                     @"..\Reference\3 General [2019-2023] {20210817}"));
 
                 exams.Add(ExamElement.ImportFromText(4, "Extra Class Question Pool",
-                                                     new DateTime(2016, 7, 1), new DateTime(2020, 6, 30),
-                                                     @"..\Reference\4 Extra [2016-2020] {20160305}"));
+                                                     new DateTime(2020, 7, 1), new DateTime(2024, 6, 30),
+                                                     @"..\Reference\4 Extra [2020-2024] {20210817}"));
 
                 foreach (var exam in exams) {
                     using (var stream = File.OpenWrite(@"Element" + exam.Number.ToString(CultureInfo.InvariantCulture) + "-" + exam.ValidFrom.Date.Year.ToString(CultureInfo.InvariantCulture) +  ".xml")) {

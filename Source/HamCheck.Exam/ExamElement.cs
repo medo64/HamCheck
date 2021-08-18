@@ -435,10 +435,16 @@ namespace HamCheck {
                                 state = State.Question;
                             } else if ((line.IndexOf("DELETED", StringComparison.Ordinal) >= 0) || (line.StartsWith("~", StringComparison.Ordinal))) {
                                 //ignore deleted lines
-                            } else if (line.Equals("END", StringComparison.InvariantCulture)) {
+                            } else if (line.StartsWith("NOTE:", StringComparison.Ordinal)) {
+                                //skip
+                            } else if (line.StartsWith("END", StringComparison.InvariantCulture)) {
+                                goto Done; //nothing else to do
+                            } else if (line.StartsWith("~~~end", StringComparison.InvariantCultureIgnoreCase)) {
+                                goto Done; //nothing else to do
+                            } else if (line.StartsWith("~~~~end", StringComparison.InvariantCultureIgnoreCase)) {
                                 goto Done; //nothing else to do
                             } else {
-                                throw new FormatException("Unknown line format near \"" + line + "\" (line " + (i + 1) + ").");
+                                throw new FormatException("Unknown line format near \"" + line + "\" (line " + (i + 1) +", file " + txtFiles[0] +  ").");
                             }
                         }
                         break;
@@ -483,6 +489,12 @@ namespace HamCheck {
 
                     default:
                         throw new FormatException("Unknown state " + state.ToString() + " near \"" + line + "\" (line " + (i + 1) + ").");
+                }
+            }
+
+            foreach (var question in element.GetExamQuestions()) {
+                if (question.Answers.Count != 4) {
+                    throw new FormatException("Wrong number of answers (" + question.Answers.Count.ToString() + ") near question " + question.Question.FccReference + ").");
                 }
             }
 
