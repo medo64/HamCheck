@@ -554,15 +554,15 @@ Done:
             for (int x = left.Value; x <= right.Value; x++) {
                 for (int y = top.Value; y <= bottom.Value; y++) {
                     var color = bitmap.GetPixel(x, y);
-                    if (color.GetHue() == 0) {
-                        var brightness = color.GetBrightness();
-                        if (brightness <= 0.98) {
-                            var alpha = (int)(255 - Math.Floor(brightness * 255));
-                            newBitmap.SetPixel(x - left.Value, y - top.Value, Color.FromArgb(alpha, Color.Black));
-                        }
+                    var brightness = color.GetBrightness();
+                    if (brightness <= 0.98) {
+                        var alpha = (int)(255 - Math.Floor(brightness * 255));
+                        if (alpha < 0) { alpha = 0; }
+                        newBitmap.SetPixel(x - left.Value, y - top.Value, Color.FromArgb(alpha, Color.Black));
                     }
                 }
             }
+            //newBitmap.Save(imageFiles[0].Substring(0, imageFiles[0].Length - 4) + ".tmp.png");
 
             var illustration = new ExamIllustration(figureName, newBitmap);
             lock (ImportBitmapCacheSync) {
