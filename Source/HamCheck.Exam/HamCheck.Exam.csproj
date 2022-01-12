@@ -74,7 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Element2-2018.xml" />
+    <EmbeddedResource Include="Resources\Element2-2022.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Element3-2019.xml" />

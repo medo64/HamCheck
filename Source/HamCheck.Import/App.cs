@@ -12,7 +12,7 @@ namespace HamCheck.Import {
 
                 exams.Add(ExamElement.ImportFromText(2, "Technician Class Question Pool",
                                                      new DateTime(2018, 7, 1), new DateTime(2022, 6, 30),
-                                                     @"..\Reference\2 Technician [2018-2022] {20210817}"));
+                                                     @"..\Reference\2 Technician [2022-2026] {20220111}"));
 
                 exams.Add(ExamElement.ImportFromText(3, "General Class Question Pool",
                                                      new DateTime(2019, 7, 1), new DateTime(2023, 6, 30),
