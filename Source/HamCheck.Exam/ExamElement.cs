@@ -393,10 +393,15 @@ namespace HamCheck {
             ExamAnswers parsedAnswers = null;
             bool filterHeader = true;
 
-            var rawLines = File.ReadAllLines(txtFiles[0], Encoding.Default);
+            var rawLines = File.ReadAllLines(txtFiles[0], Encoding.UTF8);
             for (int i = 0; i < rawLines.Length; i++) {
                 var rawLine = rawLines[i];
-                var line = rawLine.Replace(" ", " ").Replace("\t", " ").Replace("–", "-").Trim();
+                var line = rawLine
+                    .Replace(" ", " ")
+                    .Replace("\t", " ")
+                    .Replace("–", "-")
+                    .Replace("’", "'")
+                    .Trim();
                 if (string.IsNullOrEmpty(line)) { continue; }
 
                 //skip until the first subelement
