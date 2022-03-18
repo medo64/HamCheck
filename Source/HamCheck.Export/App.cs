@@ -24,10 +24,11 @@ namespace HamCheck.Export {
                             w.WriteLine();
 
                             foreach (var question in group.Questions) {
+                                w.WriteLine(@"<div class=""item"">");
                                 w.Write($"<h3 id=\"{question.Code.ToLowerInvariant()}\">");
                                 w.Write(question.Code);
                                 w.Write($"<br/>");
-                                w.Write(question.Text);
+                                w.Write(CleanupText(question.Text));
                                 w.WriteLine("</h3>");
 
                                 if (question.Illustration != null) {
@@ -36,23 +37,29 @@ namespace HamCheck.Export {
                                     question.Illustration.Picture.Save(imgName);
                                 }
 
-                                var ch = 'a';
+                                var ch = 'A';
                                 foreach (var answer in question.Answers) {
                                     if (answer.IsCorrect) {
-                                        w.Write($"<p class=\"{ch} x\">");
+                                        w.Write($"<p class=\"x\">");
                                     } else {
-                                        w.Write($"<p class=\"{ch}\">");
+                                        w.Write($"<p class=\"o\">");
                                     }
-                                    w.Write(answer.Text);
+                                    w.Write($"<span>{ch}: </span>");
+                                    w.Write(CleanupText(answer.Text));
                                     w.WriteLine("</p>");
                                     ch++;
                                 }
+
+                                w.WriteLine(@"<p>");
+                                w.WriteLine(@"</p>");
 
                                 if (!string.IsNullOrEmpty(question.FccReference)) {
                                     w.Write($"<p class=\"note\">");
                                     w.Write($"FCC Part {question.FccReference}");
                                     w.WriteLine("</p>");
                                 }
+
+                                w.WriteLine(@"</div>");
 
                                 w.WriteLine();
                             }
@@ -61,5 +68,10 @@ namespace HamCheck.Export {
                 }
             }
         }
+
+        private static string CleanupText(string text) {
+            return text.Replace("“", "\"").Replace("”", "\"").Replace("", "x");
+        }
+
     }
 }
