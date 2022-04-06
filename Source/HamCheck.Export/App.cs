@@ -5,9 +5,9 @@ namespace HamCheck.Export {
     class App {
         static void Main(string[] args) {
             foreach (var exam in ExamElements.All) {
-                using (var file = new FileStream(exam.Number.ToString() + ".html", FileMode.Create))
-                using (var w = new StreamWriter(file)) {
-                    foreach (var subelement in exam.Subelements) {
+                foreach (var subelement in exam.Subelements) {
+                    using (var file = new FileStream(subelement.Code.ToString() + ".html", FileMode.Create))
+                    using (var w = new StreamWriter(file)) {
                         w.Write($"<h1 id=\"{subelement.Code.ToLowerInvariant()}\">");
                         w.Write(subelement.Code);
                         w.Write($"<br/>");
