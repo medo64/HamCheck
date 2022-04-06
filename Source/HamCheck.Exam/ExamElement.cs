@@ -406,10 +406,10 @@ namespace HamCheck {
 
                 //skip until the first subelement
                 if (filterHeader) {
-                    if (!line.StartsWith("SUBELEMENT ")) {
-                        continue;
-                    } else {
+                    if (line.StartsWith("SUBELEMENT ") && line.EndsWith("]")) {
                         filterHeader = false;
+                    } else {
+                        continue;
                     }
                 }
 
@@ -440,6 +440,8 @@ namespace HamCheck {
                                 state = State.Question;
                             } else if ((line.IndexOf("DELETED", StringComparison.Ordinal) >= 0) || (line.StartsWith("~", StringComparison.Ordinal))) {
                                 //ignore deleted lines
+                            } else if ((line.IndexOf("Question Removed", StringComparison.Ordinal) >= 0) || (line.StartsWith("~", StringComparison.Ordinal))) {
+                                //ignore deleted lines
                             } else if (line.StartsWith("NOTE:", StringComparison.Ordinal)) {
                                 //skip
                             } else if (line.StartsWith("END", StringComparison.InvariantCulture)) {
@@ -449,7 +451,7 @@ namespace HamCheck {
                             } else if (line.StartsWith("~~~~end", StringComparison.InvariantCultureIgnoreCase)) {
                                 goto Done; //nothing else to do
                             } else {
-                                throw new FormatException("Unknown line format near \"" + line + "\" (line " + (i + 1) +", file " + txtFiles[0] +  ").");
+                                throw new FormatException("Unknown line format near \"" + line + "\" (line " + (i + 1) + ", file " + txtFiles[0] + ").");
                             }
                         }
                         break;

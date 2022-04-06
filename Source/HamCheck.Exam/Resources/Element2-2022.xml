@@ -472,7 +472,7 @@
                 <Answer text="Calling any station" isCorrect="true" />
             </Question>
             <Question code="T2A09" text="Which of the following indicates that a station is listening on a repeater and looking for a contact?">
-                <Answer text="“CQ CQ” followed by the station's call sign" />
+                <Answer text="“CQ CQ” followed by the repeater's call sign" />
                 <Answer text="The station's call sign followed by the word “monitoring”" isCorrect="true" />
                 <Answer text="The repeater call sign followed by the station's call sign" />
                 <Answer text="“QSY” followed by your call sign" />
@@ -564,7 +564,7 @@
                 <Answer text="QRZ" />
             </Question>
             <Question code="T2B12" text="What is the purpose of the color code used on DMR repeater systems?">
-                <Answer text="Establishes groups of users" isCorrect="true" />
+                <Answer text="Must match the repeater color code for access" isCorrect="true" />
                 <Answer text="Defines the frequency pair to use" />
                 <Answer text="Identifies the codec used" />
                 <Answer text="Defines the minimum signal level required for access" />
@@ -1206,10 +1206,10 @@
                 <Answer text="MHz" isCorrect="true" />
             </Question>
             <Question code="T5C08" text="What is the formula used to calculate electrical power (P) in a DC circuit?">
-                <Answer text="P = E  I" isCorrect="true" />
+                <Answer text="P = I × E" isCorrect="true" />
                 <Answer text="P = E / I" />
                 <Answer text="P = E - I" />
-                <Answer text="P = E + I" />
+                <Answer text="P = I + E" />
             </Question>
             <Question code="T5C09" text="How much power is delivered by a voltage of 13.8 volts DC and a current of 10 amperes?">
                 <Answer text="138 watts" isCorrect="true" />
@@ -1244,15 +1244,15 @@
         </Group>
         <Group code="T5D" title="Ohm's Law; Series and parallel circuits">
             <Question code="T5D01" text="What formula is used to calculate current in a circuit?">
-                <Answer text="I = E  R" />
+                <Answer text="I = E × R" />
                 <Answer text="I = E / R" isCorrect="true" />
                 <Answer text="I = E + R" />
                 <Answer text="I = E - R" />
             </Question>
             <Question code="T5D02" text="What formula is used to calculate voltage in a circuit?">
-                <Answer text="E= I x R" isCorrect="true" />
-                <Answer text="E= I / R" />
-                <Answer text="E= I + R" />
+                <Answer text="E = I x R" isCorrect="true" />
+                <Answer text="E = I / R" />
+                <Answer text="E = I + R" />
                 <Answer text="E = I - R" />
             </Question>
             <Question code="T5D03" text="What formula is used to calculate resistance in a circuit?">
@@ -1442,8 +1442,8 @@
                 <Answer text="With the letter K" />
             </Question>
             <Question code="T6B07" text="What causes a light-emitting diode (LED) to emit light?">
-                <Answer text="Forward DC current" isCorrect="true" />
-                <Answer text="Reverse DC current" />
+                <Answer text="Forward current" isCorrect="true" />
+                <Answer text="Reverse current" />
                 <Answer text="Capacitively-coupled RF signal" />
                 <Answer text="Inductively-coupled RF signal" />
             </Question>
@@ -1851,12 +1851,6 @@
                 <Answer text="A voltmeter" />
                 <Answer text="An ammeter" isCorrect="true" />
             </Question>
-            <Question code="T7D05" text="How is an ohmmeter connected to a component to measure its resistance?">
-                <Answer text="In parallel" isCorrect="true" />
-                <Answer text="In series" />
-                <Answer text="In cascade" />
-                <Answer text="All these choices are correct" />
-            </Question>
             <Question code="T7D06" text="Which of the following can damage a multimeter?">
                 <Answer text="Attempting to measure resistance using the voltage setting" />
                 <Answer text="Failing to connect one of the probes to ground" />
@@ -2119,7 +2113,7 @@
                 <Answer text="FT8" />
                 <Answer text="All these choices are correct" isCorrect="true" />
             </Question>
-            <Question code="T8D02" text="What is a “talkgroup” on a digital repeater?">
+            <Question code="T8D02" text="What is a “talkgroup” on a DMR repeater?">
                 <Answer text="A group of operators sharing common interests" />
                 <Answer text="A way for groups of users to share a channel at different times without hearing other users on the channel" isCorrect="true" />
                 <Answer text="A protocol that increases the signal-to-noise ratio when multiple repeaters are linked together" />

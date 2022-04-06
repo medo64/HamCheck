@@ -1,15 +1,152 @@
-Modification of NCVEC Public Release  January 6, 2022
-2022-2026 Technician Class FCC Element 2
-NCVEC Question Pool Syllabus  & Question Pool
-Effective 7/01/2022 – 6/30/2026 for Technician Class Examinations
+﻿Modification of Public Release issued on March 7, 2022
 
+4 Question Modifications:
+T2A09 –replaced station’s with repeater’s in answer A to read:
+A. “CQ CQ” followed by the repeater’s call sign
+T2B12 - replaced answer A to read:
+A. Must match the repeater color code for access
+T6B07 remove DC in answers A and B
+T8D02 replaced digital with DMR before repeater in the question to read:
+What is a Talkgroup on a DMR repeater?
+2022-2026 Technician Class Question Pool Errata
+
+The following changes have been made to the posted
 2022-2026 Technician Class FCC Element 2 Question Pool
-Effective 7/01/2022 – 6/30/2026 NCVEC
-Public Release January 3, 2022
+Released on January 17, 2022
 
-Contains 5 modifications of January 3  2022 Public Release:
-T4A07 Replaced : with . in distractors
- T5C08, T5D01, T5D02, T5DO3 Reverted  I = V ’ R to I = E ’ R
+
+
+
+Modification of Public Release issued on January 17, 2022
+
+1 Question Deletion:
+T7D05 withdrawn from use
+The remaining questions in T7D were not renumbered
+
+
+
+Modification of Public Release issued on January 6, 2022
+
+5 Question Modifications:
+T4A07 replaced : (semi-colon) with . (period) in distractors
+T5C08, T5D01, T5D02, T5DO3 reverted ‘V’ to ‘E’
+
+
+
+
+
+
+2022-2026 Technician Class
+FCC Element 2 Question Pool Syllabus
+Effective 7/01/2022 – 6/30/2026
+
+
+SUBELEMENT T1 – COMMISSION’S RULES - [6 Exam Questions - 6 Groups]  67 Questions
+
+T1A - Purpose and permissible use of the Amateur Radio Service; Operator/primary station license grant; Meanings of basic terms used in FCC rules; Interference; RACES rules; Phonetics; Frequency Coordinator
+
+T1B - Frequency allocations; Emission modes; Spectrum sharing; Transmissions near band edges; Contacting the International Space Station; Power output
+
+T1C - Licensing: classes, sequential and vanity call sign systems, places where the Amateur Radio Service is regulated by the FCC, name and address on FCC license database, term, renewal, grace period, maintaining mailing address; International communications
+
+T1D - Authorized and prohibited transmissions: communications with other countries, music, exchange of information with other services, indecent language, compensation for operating, retransmission of other amateur signals, encryption, sale of equipment, unidentified transmissions, one-way transmission
+
+T1E - Control operator: eligibility, designating, privileges, duties, location, required; Control point; Control types: automatic, remote
+
+T1F - Station identification; Repeaters; Third party communications; Club stations; FCC inspection
+
+
+SUBELEMENT T2 - OPERATING PROCEDURES - [3 Exam Questions - 3 Groups]  36 Questions
+
+T2A - Station operation: choosing an operating frequency, calling another station, test transmissions; Band plans: calling frequencies, repeater offsets
+
+T2B – VHF/UHF operating practices: FM repeater, simplex, reverse splits; Access tones: CTCSS, DTMF; DMR operation; Resolving operational problems; Q signals
+
+T2C – Public service: emergency operations, applicability of FCC rules, RACES and ARES, net and traffic procedures, operating restrictions during emergencies, use of phonetics in message handling
+
+
+SUBELEMENT T3 – RADIO WAVE PROPAGATION – [3 Exam Questions - 3 Groups]  34  Questions
+
+T3A - Radio wave characteristics: how a radio signal travels, fading, multipath, polarization, wavelength vs absorption; Antenna orientation
+
+T3B - Electromagnetic wave properties: wavelength vs frequency, nature and velocity of electromagnetic waves, relationship of wavelength and frequency; Electromagnetic spectrum definitions: UHF, VHF, HF
+
+T3C - Propagation modes: sporadic E, meteor scatter, auroral propagation, tropospheric ducting; F region skip; Line of sight and radio horizon
+
+
+SUBELEMENT T4 – AMATEUR RADIO PRACTICES – [2 Exam Questions - 2 Groups]  24 Questions
+
+T4A – Station setup: connecting a microphone, a power source, a computer, digital equipment, an SWR meter; bonding; Mobile radio installation
+
+T4B - Operating controls: frequency tuning, use of filters, squelch function, AGC, memory channels, noise blanker, microphone gain, receiver incremental tuning (RIT), bandwidth selection, digital transceiver configuration
+
+
+SUBELEMENT T5 – ELECTRICAL PRINCIPLES – [4 Exam Questions - 4 Groups]  52 Questions
+
+T5A – Current and voltage: terminology and units, conductors and insulators, alternating and direct current
+
+T5B - Math for electronics: conversion of electrical units, decibels
+
+T5C – Capacitance and inductance terminology and units; Radio frequency definition and units; Impedance definition and units; Calculating power
+
+T5D – Ohm’s Law; Series and parallel circuits
+
+
+SUBELEMENT T6 – ELECTRONIC AND ELECTRICAL COMPONENTS – [4 Exam Questions - 4 Groups]  47 Questions
+
+T6A - Fixed and variable resistors; Capacitors; Inductors; Fuses; Switches; Batteries
+
+T6B – Semiconductors: basic principles and applications of solid state devices, diodes and transistors
+
+T6C - Circuit diagrams: use of schematics, basic structure; Schematic symbols of basic components
+
+T6D - Component functions: rectifiers, relays, voltage regulators, meters, indicators, integrated circuits, transformers; Resonant circuit; Shielding
+
+
+SUBELEMENT T7 – PRACTICAL CIRCUITS – [4 Exam Questions - 4 Groups]  44 Questions
+
+T7A – Station equipment: receivers, transceivers, transmitter amplifiers, receive amplifiers, transverters; Basic radio circuit concepts and terminology: sensitivity, selectivity, mixers, oscillators, PTT, modulation
+
+T7B – Symptoms, causes, and cures of common transmitter and receiver problems: overload and overdrive, distortion, interference and consumer electronics, RF feedback
+
+T7C – Antenna and transmission line measurements and troubleshooting: measuring SWR, effects of high SWR, causes of feed line failures; Basic coaxial cable characteristics; Use of dummy loads when testing
+
+T7D – Using basic test instruments: voltmeter, ammeter, and ohmmeter; Soldering
+
+
+SUBELEMENT T8 – SIGNALS AND EMISSIONS – [4 Exam Questions - 4 Groups]  48 Questions
+
+T8A – Basic characteristics of FM and SSB; Bandwidth of various modulation modes: CW, SSB, FM, fast-scan TV; Choice of emission type: selection of USB vs LSB, use of SSB for weak signal work, use of FM for VHF packet and repeaters
+
+T8B - Amateur satellite operation: Doppler shift, basic orbits, operating protocols, modulation mode selection, transmitter power considerations, telemetry and telecommand, satellite tracking programs, beacons, uplink and downlink mode definitions, spin fading, definition of “LEO”, setting uplink power
+
+T8C – Operating activities: radio direction finding, contests, linking over the internet, exchanging grid locators
+
+T8D – Non-voice and digital communications: image signals and definition of NTSC, CW, packet radio, PSK, APRS, error detection and correction, amateur radio networking, Digital Mobile Radio, WSJT modes, Broadband-Hamnet
+
+
+SUBELEMENT T9 – ANTENNAS AND FEED LINES - [2 Exam Questions - 2 Groups]  24 Questions
+
+T9A – Antennas: vertical and horizontal polarization, concept of antenna gain, definition and types of beam antennas, antenna loading, common portable and mobile antennas, relationships between resonant length and frequency, dipole pattern
+
+T9B – Feed lines: types, attenuation vs frequency, selecting; SWR concepts; Antenna tuners (couplers); RF Connectors: selecting, weather protection
+
+
+SUBELEMENT T0 – SAFETY – [3 Exam Questions - 3 Groups]  36 Questions
+
+T0A – Power circuits and hazards: hazardous voltages, fuses and circuit breakers, grounding, electrical code compliance; Lightning protection; Battery safety
+
+T0B – Antenna safety: tower safety and grounding, installing antennas, antenna supports
+
+T0C - RF hazards: radiation exposure, proximity to antennas, recognized safe power levels, radiation types, duty cycle
+
+
+
+
+2022-2026 Technician Class
+FCC Element 2 Question Pool
+Effective 7/01/2022 – 6/30/2026
+
 
 
 SUBELEMENT T1 – COMMISSION’S RULES - [6 Exam Questions - 6 Groups]
@@ -638,7 +775,7 @@ D. Calling any station
 
 T2A09 (B)
 Which of the following indicates that a station is listening on a repeater and looking for a contact?
-A. “CQ CQ” followed by the station’s call sign
+A. “CQ CQ” followed by the repeater’s call sign
 B. The station’s call sign followed by the word “monitoring”
 C. The repeater call sign followed by the station’s call sign
 D. “QSY” followed by your call sign
@@ -761,7 +898,7 @@ D. QRZ
 
 T2B12 (A)
 What is the purpose of the color code used on DMR repeater systems?
-A. Establishes groups of users
+A. Must match the repeater color code for access
 B. Defines the frequency pair to use
 C. Identifies the codec used
 D. Defines the minimum signal level required for access
@@ -1618,10 +1755,10 @@ D. MHz
 
 T5C08 (A)
 What is the formula used to calculate electrical power (P) in a DC circuit?
-A. P = E  I
+A. P = I × E
 B. P = E / I
-C. P = E - I
-D. P = E + I
+C. P = E – I
+D. P = I + E
 ~~
 
 T5C09 (A)
@@ -1665,16 +1802,11 @@ D. kHz
 ~~
 
 
-
-
-
-
-
 T5D – Ohm’s Law; Series and parallel circuits
 
 T5D01 (B)
 What formula is used to calculate current in a circuit?
-A. I = E  R
+A. I = E × R
 B. I = E / R
 C. I = E + R
 D. I = E - R
@@ -1682,9 +1814,9 @@ D. I = E - R
 
 T5D02 (A)
 What formula is used to calculate voltage in a circuit?
-A. E= I x R
-B. E= I / R
-C. E= I + R
+A. E = I x R
+B. E = I / R
+C. E = I + R
 D. E = I - R
 ~~
 
@@ -1938,8 +2070,8 @@ D. With the letter K
 
 T6B07 (A)
 What causes a light-emitting diode (LED) to emit light?
-A. Forward DC current
-B. Reverse DC current
+A. Forward current
+B. Reverse current
 C. Capacitively-coupled RF signal
 D. Inductively-coupled RF signal
 ~~
@@ -2484,13 +2616,7 @@ C. A voltmeter
 D. An ammeter
 ~~
 
-T7D05 (A)
-How is an ohmmeter connected to a component to measure its resistance?
-A. In parallel
-B. In series
-C. In cascade
-D. All these choices are correct
-~~
+T7D05 Question Removed (section not renumbered)
 
 T7D06 (C)
 Which of the following can damage a multimeter?
@@ -2843,7 +2969,7 @@ D. All these choices are correct
 ~~
 
 T8D02 (B)
-What is a “talkgroup” on a digital repeater?
+What is a “talkgroup” on a DMR repeater?
 A. A group of operators sharing common interests
 B. A way for groups of users to share a channel at different times without hearing other users on the channel
 C. A protocol that increases the signal-to-noise ratio when multiple repeaters are linked together
