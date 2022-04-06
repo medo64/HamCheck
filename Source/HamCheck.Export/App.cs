@@ -28,7 +28,7 @@ namespace HamCheck.Export {
                                 w.Write($"<h3 id=\"{question.Code.ToLowerInvariant()}\">");
                                 w.Write(question.Code);
                                 w.Write($"<br/>");
-                                w.Write(CleanupText(question.Text));
+                                w.Write(question.Text);
                                 w.WriteLine("</h3>");
 
                                 if (question.Illustration != null) {
@@ -45,7 +45,7 @@ namespace HamCheck.Export {
                                         w.Write($"<p class=\"o\">");
                                     }
                                     w.Write($"<span>{ch}: </span>");
-                                    w.Write(CleanupText(answer.Text));
+                                    w.Write(answer.Text);
                                     w.WriteLine("</p>");
                                     ch++;
                                 }
@@ -67,10 +67,6 @@ namespace HamCheck.Export {
                     }
                 }
             }
-        }
-
-        private static string CleanupText(string text) {
-            return text.Replace("“", "\"").Replace("”", "\"").Replace("", "x");
         }
 
     }

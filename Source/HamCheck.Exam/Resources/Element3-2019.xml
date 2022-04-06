@@ -134,10 +134,10 @@
                 <Answer text="Amateur Service communications must be reasonably accommodated, and regulations must constitute the minimum practical to accommodate a legitimate purpose of the state or local entity" isCorrect="true" />
             </Question>
             <Question code="G1B07" text="What are the restrictions on the use of abbreviations or procedural signals in the Amateur Service?" fccReference="97.113(a)(4)">
-                <Answer text="Only “Q” signals are permitted" />
+                <Answer text="Only &quot;Q&quot; signals are permitted" />
                 <Answer text="They may be used if they do not obscure the meaning of a message" isCorrect="true" />
                 <Answer text="They are not permitted" />
-                <Answer text="Only “10 codes” are permitted" />
+                <Answer text="Only &quot;10 codes&quot; are permitted" />
             </Question>
             <Question code="G1B08" text="When choosing a transmitting frequency, what should you do to comply with good amateur practice?" fccReference="97.101(a)">
                 <Answer text="Ensure that the frequency and mode selected are within your license class privileges" />
@@ -157,7 +157,7 @@
                 <Answer text="100 watts PEP output" isCorrect="true" />
                 <Answer text="200 watts PEP output" />
             </Question>
-            <Question code="G1B11" text="Who or what determines “good engineering and good amateur practice,” as applied to the operation of an amateur station in all respects not covered by the Part 97 rules?" fccReference="97.101(a)">
+            <Question code="G1B11" text="Who or what determines &quot;good engineering and good amateur practice,&quot; as applied to the operation of an amateur station in all respects not covered by the Part 97 rules?" fccReference="97.101(a)">
                 <Answer text="The FCC" isCorrect="true" />
                 <Answer text="The control operator" />
                 <Answer text="The IEEE" />
@@ -444,10 +444,10 @@
                 <Answer text="SSB is the only voice mode that is authorized on the 160-meter, 75-meter, and 40-meter amateur bands" />
             </Question>
             <Question code="G2A08" text="What is the recommended way to break in to a phone contact?">
-                <Answer text="Say “QRZ” several times, followed by your call sign" />
+                <Answer text="Say &quot;QRZ&quot; several times, followed by your call sign" />
                 <Answer text="Say your call sign once" isCorrect="true" />
-                <Answer text="Say “Breaker Breaker”" />
-                <Answer text="Say “CQ” followed by the call sign of either station" />
+                <Answer text="Say &quot;Breaker Breaker&quot;" />
+                <Answer text="Say &quot;CQ&quot; followed by the call sign of either station" />
             </Question>
             <Question code="G2A09" text="Why do most amateur stations use lower sideband on the 160-meter, 75-meter, and 40-meter bands?">
                 <Answer text="Lower sideband is more efficient than upper sideband at these frequencies" />
@@ -457,11 +457,11 @@
             </Question>
             <Question code="G2A10" text="Which of the following statements is true of voice VOX operation versus PTT operation?">
                 <Answer text="The received signal is more natural sounding" />
-                <Answer text="It allows “hands free” operation" isCorrect="true" />
+                <Answer text="It allows &quot;hands free&quot; operation" isCorrect="true" />
                 <Answer text="It occupies less bandwidth" />
                 <Answer text="It provides more power output" />
             </Question>
-            <Question code="G2A11" text="Generally, who should respond to a station in the contiguous 48 states who calls “CQ DX”?">
+            <Question code="G2A11" text="Generally, who should respond to a station in the contiguous 48 states who calls &quot;CQ DX&quot;?">
                 <Answer text="Any caller is welcome to respond" />
                 <Answer text="Only stations in Germany" />
                 <Answer text="Any stations outside the lower 48 states" isCorrect="true" />
@@ -506,10 +506,10 @@
                 <Answer text="Approximately 6 kHz" />
             </Question>
             <Question code="G2B06" text="What is a practical way to avoid harmful interference on an apparently clear frequency before calling CQ on CW or phone?">
-                <Answer text="Send “QRL?” on CW, followed by your call sign; or, if using phone, ask if the frequency is in use, followed by your call sign" isCorrect="true" />
+                <Answer text="Send &quot;QRL?&quot; on CW, followed by your call sign; or, if using phone, ask if the frequency is in use, followed by your call sign" isCorrect="true" />
                 <Answer text="Listen for 2 minutes before calling CQ" />
-                <Answer text="Send the letter “V” in Morse code several times and listen for a response, or say “test” several times and listen for a response" />
-                <Answer text="Send “QSY” on CW or if using phone, announce “the frequency is in use,” then give your call sign and listen for a response" />
+                <Answer text="Send the letter &quot;V&quot; in Morse code several times and listen for a response, or say &quot;test&quot; several times and listen for a response" />
+                <Answer text="Send &quot;QSY&quot; on CW or if using phone, announce &quot;the frequency is in use,&quot; then give your call sign and listen for a response" />
             </Question>
             <Question code="G2B07" text="Which of the following complies with good amateur practice when choosing a frequency on which to initiate a call?">
                 <Answer text="Check to see if the channel is assigned to another station" />
@@ -544,28 +544,28 @@
         </Group>
         <Group code="G2C" title="CW operating procedures and procedural signals; Q signals and common abbreviations: full break-in">
             <Question code="G2C01" text="Which of the following describes full break-in telegraphy (QSK)?">
-                <Answer text="Breaking stations send the Morse code prosign “BK”" />
+                <Answer text="Breaking stations send the Morse code prosign &quot;BK&quot;" />
                 <Answer text="Automatic keyers, instead of hand keys, are used to send Morse code" />
                 <Answer text="An operator must activate a manual send/receive switch before and after every transmission" />
                 <Answer text="Transmitting stations can receive between code characters and elements" isCorrect="true" />
             </Question>
-            <Question code="G2C02" text="What should you do if a CW station sends “QRS?”">
+            <Question code="G2C02" text="What should you do if a CW station sends &quot;QRS?&quot;">
                 <Answer text="Send slower" isCorrect="true" />
                 <Answer text="Change frequency" />
                 <Answer text="Increase your power" />
                 <Answer text="Repeat everything twice" />
             </Question>
-            <Question code="G2C03" text="What does it mean when a CW operator sends “KN” at the end of a transmission?">
+            <Question code="G2C03" text="What does it mean when a CW operator sends &quot;KN&quot; at the end of a transmission?">
                 <Answer text="Listening for novice stations" />
                 <Answer text="Operating full break-in" />
                 <Answer text="Listening only for a specific station or stations" isCorrect="true" />
                 <Answer text="Closing station now" />
             </Question>
-            <Question code="G2C04" text="What does the Q signal “QRL?” mean?">
-                <Answer text="“Will you keep the frequency clear?”" />
-                <Answer text="“Are you operating full break-in?” or “Can you operate full break-in?”" />
-                <Answer text="“Are you listening only for a specific station?”" />
-                <Answer text="“Are you busy?” or “Is this frequency in use?”" isCorrect="true" />
+            <Question code="G2C04" text="What does the Q signal &quot;QRL?&quot; mean?">
+                <Answer text="&quot;Will you keep the frequency clear?&quot;" />
+                <Answer text="&quot;Are you operating full break-in?&quot; or &quot;Can you operate full break-in?&quot;" />
+                <Answer text="&quot;Are you listening only for a specific station?&quot;" />
+                <Answer text="&quot;Are you busy?&quot; or &quot;Is this frequency in use?&quot;" isCorrect="true" />
             </Question>
             <Question code="G2C05" text="What is the best speed to use when answering a CQ in Morse code?">
                 <Answer text="The fastest speed at which you are comfortable copying, but no slower than the CQ" />
@@ -573,13 +573,13 @@
                 <Answer text="At the standard calling speed of 10 wpm" />
                 <Answer text="At the standard calling speed of 5 wpm" />
             </Question>
-            <Question code="G2C06" text="What does the term “zero beat” mean in CW operation?">
+            <Question code="G2C06" text="What does the term &quot;zero beat&quot; mean in CW operation?">
                 <Answer text="Matching the speed of the transmitting station" />
                 <Answer text="Operating split to avoid interference on frequency" />
                 <Answer text="Sending without error" />
                 <Answer text="Matching the transmit frequency to the frequency of a received signal" isCorrect="true" />
             </Question>
-            <Question code="G2C07" text="When sending CW, what does a “C” mean when added to the RST report?">
+            <Question code="G2C07" text="When sending CW, what does a &quot;C&quot; mean when added to the RST report?">
                 <Answer text="Chirpy or unstable signal" isCorrect="true" />
                 <Answer text="Report was read from an S meter rather than estimated" />
                 <Answer text="100 percent copy" />
@@ -591,19 +591,19 @@
                 <Answer text="AR" isCorrect="true" />
                 <Answer text="KN" />
             </Question>
-            <Question code="G2C09" text="What does the Q signal “QSL” mean?">
+            <Question code="G2C09" text="What does the Q signal &quot;QSL&quot; mean?">
                 <Answer text="Send slower" />
                 <Answer text="We have already confirmed by card" />
                 <Answer text="I acknowledge receipt" isCorrect="true" />
                 <Answer text="We have worked before" />
             </Question>
-            <Question code="G2C10" text="What does the Q signal “QRN” mean?">
+            <Question code="G2C10" text="What does the Q signal &quot;QRN&quot; mean?">
                 <Answer text="Send more slowly" />
                 <Answer text="Stop sending" />
                 <Answer text="Zero beat my signal" />
                 <Answer text="I am troubled by static" isCorrect="true" />
             </Question>
-            <Question code="G2C11" text="What does the Q signal “QRV” mean?">
+            <Question code="G2C11" text="What does the Q signal &quot;QRV&quot; mean?">
                 <Answer text="You are sending too fast" />
                 <Answer text="There is interference on the frequency" />
                 <Answer text="I am quitting for the day" />
@@ -636,12 +636,12 @@
                 <Answer text="A map that shows the number of degrees longitude that an amateur satellite appears to move westward at the equator with each orbit" />
             </Question>
             <Question code="G2D05" text="Which of the following is a good way to indicate on a clear frequency in the HF phone bands that you are looking for a contact with any station?">
-                <Answer text="Sign your call sign once, followed by the words “listening for a call” -- if no answer, change frequency and repeat" />
-                <Answer text="Say “QTC” followed by “this is” and your call sign -- if no answer, change frequency and repeat" />
-                <Answer text="Repeat “CQ” a few times, followed by “this is,” then your call sign a few times, then pause to listen, repeat as necessary" isCorrect="true" />
-                <Answer text="Transmit an unmodulated carried for approximately 10 seconds, followed by “this is” and your call sign, and pause to listen -- repeat as necessary" />
+                <Answer text="Sign your call sign once, followed by the words &quot;listening for a call&quot; -- if no answer, change frequency and repeat" />
+                <Answer text="Say &quot;QTC&quot; followed by &quot;this is&quot; and your call sign -- if no answer, change frequency and repeat" />
+                <Answer text="Repeat &quot;CQ&quot; a few times, followed by &quot;this is,&quot; then your call sign a few times, then pause to listen, repeat as necessary" isCorrect="true" />
+                <Answer text="Transmit an unmodulated carried for approximately 10 seconds, followed by &quot;this is&quot; and your call sign, and pause to listen -- repeat as necessary" />
             </Question>
-            <Question code="G2D06" text="How is a directional antenna pointed when making a “long-path” contact with another station?">
+            <Question code="G2D06" text="How is a directional antenna pointed when making a &quot;long-path&quot; contact with another station?">
                 <Answer text="Toward the rising sun" />
                 <Answer text="Along the grayline" />
                 <Answer text="180 degrees from the station's short-path heading" isCorrect="true" />
@@ -675,7 +675,7 @@
                 <Answer text="Poor propagation at any time of day" />
                 <Answer text="World-wide propagation during the daylight hours" />
                 <Answer text="Heavy distortion on signals due to photon absorption" />
-                <Answer text="High levels of atmospheric noise or “static”" isCorrect="true" />
+                <Answer text="High levels of atmospheric noise or &quot;static&quot;" isCorrect="true" />
             </Question>
         </Group>
         <Group code="G2E" title="Digital operating procedures">
@@ -689,7 +689,7 @@
                 <Answer text="Unplug the data connector temporarily and see if the channel-busy indication is turned off" />
                 <Answer text="Put the modem or controller in a mode which allows monitoring communications without a connection" isCorrect="true" />
                 <Answer text="Transmit UI packets several times and wait to see if there is a response from another PACTOR station" />
-                <Answer text="Send the message, ”Is this frequency in use?”" />
+                <Answer text="Send the message, &quot;Is this frequency in use?&quot;" />
             </Question>
             <Question code="G2E03" text="What symptoms may result from other signals interfering with a PACTOR or WINMOR transmission?">
                 <Answer text="Frequent retries or timeouts" />
@@ -945,7 +945,7 @@
                 <Answer text="Because it is the highest ionospheric region" isCorrect="true" />
                 <Answer text="Because of meteor trails at that level" />
             </Question>
-            <Question code="G3C04" text="What does the term “critical angle” mean, as used in radio wave propagation?">
+            <Question code="G3C04" text="What does the term &quot;critical angle&quot; mean, as used in radio wave propagation?">
                 <Answer text="The long path azimuth of a distant station" />
                 <Answer text="The short path azimuth of a distant station" />
                 <Answer text="The lowest takeoff angle that will return a radio wave to Earth under specific ionospheric conditions" />
@@ -997,19 +997,19 @@
     </Subelement>
     <Subelement code="G4" title="AMATEUR RADIO PRACTICES [5 Exam Questions - 5 groups]">
         <Group code="G4A" title="Station operation and setup">
-            <Question code="G4A01" text="What is the purpose of the “notch filter” found on many HF transceivers?">
+            <Question code="G4A01" text="What is the purpose of the &quot;notch filter&quot; found on many HF transceivers?">
                 <Answer text="To restrict the transmitter voice bandwidth" />
                 <Answer text="To reduce interference from carriers in the receiver passband" isCorrect="true" />
                 <Answer text="To eliminate receiver interference from impulse noise sources" />
                 <Answer text="To enhance the reception of a specific frequency on a crowded band" />
             </Question>
-            <Question code="G4A02" text="What is one advantage of selecting the opposite, or “reverse,” sideband when receiving CW signals on a typical HF transceiver?">
+            <Question code="G4A02" text="What is one advantage of selecting the opposite, or &quot;reverse,&quot; sideband when receiving CW signals on a typical HF transceiver?">
                 <Answer text="Interference from impulse noise will be eliminated" />
                 <Answer text="More stations can be accommodated within a given signal passband" />
                 <Answer text="It may be possible to reduce or eliminate interference from other signals" isCorrect="true" />
                 <Answer text="Accidental out-of-band operation can be prevented" />
             </Question>
-            <Question code="G4A03" text="What is normally meant by operating a transceiver in “split” mode?">
+            <Question code="G4A03" text="What is normally meant by operating a transceiver in &quot;split&quot; mode?">
                 <Answer text="The radio is operating at half power" />
                 <Answer text="The transceiver is operating from an external power source" />
                 <Answer text="The transceiver is set to different transmit and receive frequencies" isCorrect="true" />
@@ -1248,12 +1248,12 @@
                 <Answer text="Connect all ground conductors to a single point" isCorrect="true" />
             </Question>
             <Question code="G4C10" text="What could be a symptom of a ground loop somewhere in your station?">
-                <Answer text="You receive reports of “hum” on your station's transmitted signal" isCorrect="true" />
+                <Answer text="You receive reports of &quot;hum&quot; on your station's transmitted signal" isCorrect="true" />
                 <Answer text="The SWR reading for one or more antennas is suddenly very high" />
                 <Answer text="An item of station equipment starts to draw excessive amounts of current" />
                 <Answer text="You receive reports of harmonic interference from your station" />
             </Question>
-            <Question code="G4C11" text="What technique helps to minimize RF “hot spots” in an amateur station?">
+            <Question code="G4C11" text="What technique helps to minimize RF &quot;hot spots&quot; in an amateur station?">
                 <Answer text="Building all equipment in a metal enclosure" />
                 <Answer text="Using surge suppressor power outlets" />
                 <Answer text="Bonding all equipment enclosures together" isCorrect="true" />
@@ -1349,7 +1349,7 @@
             </Question>
             <Question code="G4E02" text="What is the purpose of a corona ball on an HF mobile antenna?">
                 <Answer text="To narrow the operating bandwidth of the antenna" />
-                <Answer text="To increase the “Q” of the antenna" />
+                <Answer text="To increase the &quot;Q&quot; of the antenna" />
                 <Answer text="To reduce the chance of damage if the antenna should strike an object" />
                 <Answer text="To reduce RF voltage discharge from the tip of the antenna while transmitting" isCorrect="true" />
             </Question>
@@ -1366,7 +1366,7 @@
                 <Answer text="Drawing more than 50 watts from this socket could cause the engine to overheat" />
             </Question>
             <Question code="G4E05" text="Which of the following most limits an HF mobile installation?">
-                <Answer text="“Picket fencing”" />
+                <Answer text="&quot;Picket fencing&quot;" />
                 <Answer text="The wire gauge of the DC power line to the transceiver" />
                 <Answer text="Efficiency of the electrically short antenna" isCorrect="true" />
                 <Answer text="FCC rules limiting mobile output power on the 75-meter band" />
@@ -1766,7 +1766,7 @@
             <Question code="G6B01" text="What determines the performance of a ferrite core at different frequencies?">
                 <Answer text="Its conductivity" />
                 <Answer text="Its thickness" />
-                <Answer text="The composition, or “mix,” of materials used" isCorrect="true" />
+                <Answer text="The composition, or &quot;mix,&quot; of materials used" isCorrect="true" />
                 <Answer text="The ratio of outer diameter to inner diameter" />
             </Question>
             <Question code="G6B02" text="What is meant by the term MMIC?">
@@ -2053,7 +2053,7 @@
                 <Answer text="Minimum detectible signal level is reduced" />
                 <Answer text="Converting the signal from digital to analog creates mixing products" />
             </Question>
-            <Question code="G7C11" text="What is meant by the term “software-defined radio” (SDR)?">
+            <Question code="G7C11" text="What is meant by the term &quot;software-defined radio&quot; (SDR)?">
                 <Answer text="A radio in which most major signal processing functions are performed by software" isCorrect="true" />
                 <Answer text="A radio that provides computer interface for automatic logging of band and frequency" />
                 <Answer text="A radio that uses crystal filters designed using software" />
@@ -2147,7 +2147,7 @@
                 <Answer text="Amplitude compressed AM" />
                 <Answer text="Direct sequence spread spectrum" />
             </Question>
-            <Question code="G8A10" text="What is meant by the term “flat-topping,” when referring to a single sideband phone transmission?">
+            <Question code="G8A10" text="What is meant by the term &quot;flat-topping,&quot; when referring to a single sideband phone transmission?">
                 <Answer text="Signal distortion caused by insufficient collector current" />
                 <Answer text="The transmitter's automatic level control (ALC) is properly adjusted" />
                 <Answer text="Signal distortion caused by excessive drive" isCorrect="true" />
@@ -2289,7 +2289,7 @@
                 <Answer text="Error correction is used to ensure accurate message reception" />
                 <Answer text="Higher power is needed as compared to RTTY for similar error rates" />
             </Question>
-            <Question code="G8C09" text="What does the number 31 represent in “PSK31”?">
+            <Question code="G8C09" text="What does the number 31 represent in &quot;PSK31&quot;?">
                 <Answer text="The approximate transmitted symbol rate" isCorrect="true" />
                 <Answer text="The version of the PSK protocol" />
                 <Answer text="The year in which PSK31 was invented" />
@@ -2341,7 +2341,7 @@
                 <Answer text="80 and 100 ohms" />
                 <Answer text="500 and 750 ohms" />
             </Question>
-            <Question code="G9A03" text="What is the typical characteristic impedance of “window line” parallel transmission line?">
+            <Question code="G9A03" text="What is the typical characteristic impedance of &quot;window line&quot; parallel transmission line?">
                 <Answer text="50 ohms" />
                 <Answer text="75 ohms" />
                 <Answer text="100 ohms" />
@@ -2519,13 +2519,13 @@
                 <Answer text="The reflector element must be approximately 5 percent shorter than the driven element" />
                 <Answer text="The reflector element must be approximately 5 percent longer than the driven element" isCorrect="true" />
             </Question>
-            <Question code="G9C07" text="What does “front-to-back ratio” mean in reference to a Yagi antenna?">
+            <Question code="G9C07" text="What does &quot;front-to-back ratio&quot; mean in reference to a Yagi antenna?">
                 <Answer text="The number of directors versus the number of reflectors" />
                 <Answer text="The relative position of the driven element with respect to the reflectors and directors" />
                 <Answer text="The power radiated in the major radiation lobe compared to that in the opposite direction" isCorrect="true" />
                 <Answer text="The ratio of forward gain to dipole gain" />
             </Question>
-            <Question code="G9C08" text="What is meant by the “main lobe” of a directive antenna?">
+            <Question code="G9C08" text="What is meant by the &quot;main lobe&quot; of a directive antenna?">
                 <Answer text="The magnitude of the maximum vertical angle of radiation" />
                 <Answer text="The point of maximum current in a radiating antenna element" />
                 <Answer text="The maximum voltage standing wave point on a radiating element" />
@@ -2593,7 +2593,7 @@
                 <Answer text="Approximately 300 ohms" />
                 <Answer text="Very high" isCorrect="true" />
             </Question>
-            <Question code="G9D03" text="In which direction is the maximum radiation from a portable VHF/UHF “halo” antenna?">
+            <Question code="G9D03" text="In which direction is the maximum radiation from a portable VHF/UHF &quot;halo&quot; antenna?">
                 <Answer text="Broadside to the plane of the halo" />
                 <Answer text="Opposite the feed point" />
                 <Answer text="Omnidirectional in the plane of the halo" isCorrect="true" />
@@ -2623,7 +2623,7 @@
                 <Answer text="Gain varies logarithmically as a function of frequency" />
                 <Answer text="SWR varies periodically as a function of boom length" />
             </Question>
-            <Question code="G9D08" text="How does a “screwdriver” mobile antenna adjust its feed-point impedance?">
+            <Question code="G9D08" text="How does a &quot;screwdriver&quot; mobile antenna adjust its feed-point impedance?">
                 <Answer text="By varying its body capacitance" />
                 <Answer text="By varying the base loading inductance" isCorrect="true" />
                 <Answer text="By extending and retracting the whip" />
@@ -2681,7 +2681,7 @@
                 <Answer text="By measurement of field strength using calibrated equipment" />
                 <Answer text="All these choices are correct" isCorrect="true" />
             </Question>
-            <Question code="G0A04" text="What does “time averaging” mean in reference to RF radiation exposure?">
+            <Question code="G0A04" text="What does &quot;time averaging&quot; mean in reference to RF radiation exposure?">
                 <Answer text="The average amount of power developed by the transmitter over a specific 24-hour period" />
                 <Answer text="The average time it takes RF radiation to have any long-term effect on the body" />
                 <Answer text="The total time of the exposure" />
@@ -2788,7 +2788,7 @@
             <Question code="G0B10" text="Which of the following is a danger from lead-tin solder?">
                 <Answer text="Lead can contaminate food if hands are not washed carefully after handling the solder" isCorrect="true" />
                 <Answer text="High voltages can cause lead-tin solder to disintegrate suddenly" />
-                <Answer text="Tin in the solder can “cold flow,” causing shorts in the circuit" />
+                <Answer text="Tin in the solder can &quot;cold flow,&quot; causing shorts in the circuit" />
                 <Answer text="RF energy can convert the lead into a poisonous gas" />
             </Question>
             <Question code="G0B11" text="Which of the following is good practice for lightning protection grounds?">

@@ -496,7 +496,7 @@
                 <Answer text="The signal is reduced to I and Q components and the Q component is filtered out" />
                 <Answer text="The signal is passed through a mixer and the difference rather than the sum is transmitted" isCorrect="true" />
             </Question>
-            <Question code="E2A04" text="What is meant by the term “mode” as applied to an amateur radio satellite?">
+            <Question code="E2A04" text="What is meant by the term &quot;mode&quot; as applied to an amateur radio satellite?">
                 <Answer text="Whether the satellite is in a low earth or geostationary orbit" />
                 <Answer text="The satellite's uplink and downlink frequency bands" isCorrect="true" />
                 <Answer text="The satellite's orientation with respect to the Earth" />
@@ -526,7 +526,7 @@
                 <Answer text="To prevent the satellite from emitting out-of-band signals" />
                 <Answer text="To avoid interfering with terrestrial QSOs" />
             </Question>
-            <Question code="E2A09" text="What do the terms “L band” and “S band” specify regarding satellite communications?">
+            <Question code="E2A09" text="What do the terms &quot;L band&quot; and &quot;S band&quot; specify regarding satellite communications?">
                 <Answer text="The 23 centimeter and 13 centimeter bands" isCorrect="true" />
                 <Answer text="The 2 meter and 70 centimeter bands" />
                 <Answer text="FM and Digital Store-and-Forward systems" />
@@ -638,7 +638,7 @@
                 <Answer text="/ followed by the ARRL Section of the remote station" />
                 <Answer text="No additional indicator is required" isCorrect="true" />
             </Question>
-            <Question code="E2C02" text="Which of the following best describes the term “self-spotting” in connection with HF contest operating?">
+            <Question code="E2C02" text="Which of the following best describes the term &quot;self-spotting&quot; in connection with HF contest operating?">
                 <Answer text="The often-prohibited practice of posting one's own call sign and frequency on a spotting network" isCorrect="true" />
                 <Answer text="The acceptable practice of manually posting the call signs of stations on a spotting network" />
                 <Answer text="A manual technique for rapidly zero beating or tuning to a station's frequency before calling that station" />
@@ -696,7 +696,7 @@
                 <Answer text="Send your full call sign once or twice" isCorrect="true" />
                 <Answer text="Send only the last two letters of your call sign until you make contact" />
                 <Answer text="Send your full call sign and grid square" />
-                <Answer text="Send the call sign of the DX station three times, the words “this is,” then your call sign three times" />
+                <Answer text="Send the call sign of the DX station three times, the words &quot;this is,&quot; then your call sign three times" />
             </Question>
             <Question code="E2C12" text="What technique do individual nodes use to form a mesh network?">
                 <Answer text="Forward error correction and Viterbi codes" />
@@ -960,7 +960,7 @@
                 <Answer text="Afternoon or early evening" isCorrect="true" />
                 <Answer text="Late at night" />
             </Question>
-            <Question code="E3B04" text="What is meant by the terms “extraordinary” and “ordinary” waves?">
+            <Question code="E3B04" text="What is meant by the terms &quot;extraordinary&quot; and &quot;ordinary&quot; waves?">
                 <Answer text="Extraordinary waves describe rare long-skip propagation compared to ordinary waves, which travel shorter distances" />
                 <Answer text="Independent waves created in the ionosphere that are elliptically polarized" isCorrect="true" />
                 <Answer text="Long-path and short-path waves" />
@@ -1010,7 +1010,7 @@
             </Question>
         </Group>
         <Group code="E3C" title="Radio horizon; ground wave; propagation prediction techniques and modeling; effects of space weather parameters on propagation">
-            <Question code="E3C01" text="What does the radio communication term “ray tracing” describe?">
+            <Question code="E3C01" text="What does the radio communication term &quot;ray tracing&quot; describe?">
                 <Answer text="The process in which an electronic display presents a pattern" />
                 <Answer text="Modeling a radio wave's path through the ionosphere" isCorrect="true" />
                 <Answer text="Determining the radiation pattern from an array of antennas" />
@@ -1052,7 +1052,7 @@
                 <Answer text="Class M" />
                 <Answer text="Class X" isCorrect="true" />
             </Question>
-            <Question code="E3C08" text="What does the space weather term “G5” mean?">
+            <Question code="E3C08" text="What does the space weather term &quot;G5&quot; mean?">
                 <Answer text="An extreme geomagnetic storm" isCorrect="true" />
                 <Answer text="Very low solar activity" />
                 <Answer text="Moderate solar wind" />
@@ -2630,7 +2630,7 @@
                 <Answer text="For higher efficiency" />
                 <Answer text="To remove third-order distortion products" />
             </Question>
-            <Question code="E7E07" text="What is meant by the term “baseband” in radio communications?">
+            <Question code="E7E07" text="What is meant by the term &quot;baseband&quot; in radio communications?">
                 <Answer text="The lowest frequency band that the transmitter or receiver covers" />
                 <Answer text="The frequency range occupied by a message signal prior to modulation" isCorrect="true" />
                 <Answer text="The unmodulated bandwidth of the transmitted signal" />
@@ -2766,7 +2766,7 @@
                 <Answer text="Very low" />
                 <Answer text="Very high" isCorrect="true" />
             </Question>
-            <Question code="E7G04" text="What is meant by the term “op-amp input offset voltage”?">
+            <Question code="E7G04" text="What is meant by the term &quot;op-amp input offset voltage&quot;?">
                 <Answer text="The output voltage of the op-amp minus its input voltage" />
                 <Answer text="The difference between the output voltage of the op-amp and the input voltage required in the immediately following stage" />
                 <Answer text="The differential input voltage needed to bring the open loop output voltage to zero" isCorrect="true" />
@@ -2934,7 +2934,7 @@
                 <Answer text="A sine wave" />
                 <Answer text="A cosine wave" />
             </Question>
-            <Question code="E8A04" text="What is “dither” with respect to analog-to-digital converters?">
+            <Question code="E8A04" text="What is &quot;dither&quot; with respect to analog-to-digital converters?">
                 <Answer text="An abnormal condition where the converter cannot settle on a value to represent the signal" />
                 <Answer text="A small amount of noise added to the input signal to allow more precise representation of a signal over time" isCorrect="true" />
                 <Answer text="An error caused by irregular quantization step size" />

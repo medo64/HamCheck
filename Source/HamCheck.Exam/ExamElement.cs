@@ -401,6 +401,9 @@ namespace HamCheck {
                     .Replace("\t", " ")
                     .Replace("–", "-")
                     .Replace("’", "'")
+                    .Replace("“", "\"")
+                    .Replace("”", "\"")
+                    .Replace("", "x")
                     .Trim();
                 if (string.IsNullOrEmpty(line)) { continue; }
 

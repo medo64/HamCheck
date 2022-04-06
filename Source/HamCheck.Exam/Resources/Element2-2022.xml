@@ -359,7 +359,7 @@
                 <Answer text="At any time after written notification by the FCC of such inspection" />
                 <Answer text="Only when presented with a valid warrant by an FCC official or government agent" />
             </Question>
-            <Question code="T1F02" text="How often must you identify with your FCC-assigned call sign when using tactical call signs such as “Race Headquarters”?" fccReference="97.119 (a)">
+            <Question code="T1F02" text="How often must you identify with your FCC-assigned call sign when using tactical call signs such as &quot;Race Headquarters&quot;?" fccReference="97.119 (a)">
                 <Answer text="Never, the tactical call is sufficient" />
                 <Answer text="Once during every hour" />
                 <Answer text="At the end of each communication and every ten minutes during a communication" isCorrect="true" />
@@ -459,23 +459,23 @@
                 <Answer text="Notify the FCC of the transmissions" />
                 <Answer text="All these choices are correct" />
             </Question>
-            <Question code="T2A07" text="What is meant by &quot;repeater offset”?">
+            <Question code="T2A07" text="What is meant by &quot;repeater offset&quot;?">
                 <Answer text="The difference between a repeater's transmit and receive frequencies" isCorrect="true" />
                 <Answer text="The repeater has a time delay to prevent interference" />
                 <Answer text="The repeater station identification is done on a separate frequency" />
                 <Answer text="The number of simultaneous transmit frequencies used by a repeater" />
             </Question>
-            <Question code="T2A08" text="What is the meaning of the procedural signal “CQ”?">
+            <Question code="T2A08" text="What is the meaning of the procedural signal &quot;CQ&quot;?">
                 <Answer text="Call on the quarter hour" />
                 <Answer text="Test transmission, no reply expected" />
                 <Answer text="Only the called station should transmit" />
                 <Answer text="Calling any station" isCorrect="true" />
             </Question>
             <Question code="T2A09" text="Which of the following indicates that a station is listening on a repeater and looking for a contact?">
-                <Answer text="“CQ CQ” followed by the repeater's call sign" />
-                <Answer text="The station's call sign followed by the word “monitoring”" isCorrect="true" />
+                <Answer text="&quot;CQ CQ&quot; followed by the repeater's call sign" />
+                <Answer text="The station's call sign followed by the word &quot;monitoring&quot;" isCorrect="true" />
                 <Answer text="The repeater call sign followed by the station's call sign" />
-                <Answer text="“QSY” followed by your call sign" />
+                <Answer text="&quot;QSY&quot; followed by your call sign" />
             </Question>
             <Question code="T2A10" text="What is a band plan, beyond the privileges established by the FCC?">
                 <Answer text="A voluntary guideline for using different modes or activities within an amateur band" isCorrect="true" />
@@ -497,7 +497,7 @@
             </Question>
         </Group>
         <Group code="T2B" title="VHF/UHF operating practices: FM repeater, simplex, reverse splits; Access tones: CTCSS, DTMF; DMR operation; Resolving operational problems; Q signals">
-            <Question code="T2B01" text="How is a VHF/UHF transceiver's “reverse” function used?">
+            <Question code="T2B01" text="How is a VHF/UHF transceiver's &quot;reverse&quot; function used?">
                 <Answer text="To reduce power output" />
                 <Answer text="To increase power output" />
                 <Answer text="To listen on a repeater's input frequency" isCorrect="true" />
@@ -533,7 +533,7 @@
                 <Answer text="GPRS" />
                 <Answer text="D-STAR" />
             </Question>
-            <Question code="T2B07" text="How can you join a digital repeater's “talkgroup”?">
+            <Question code="T2B07" text="How can you join a digital repeater's &quot;talkgroup&quot;?">
                 <Answer text="Register your radio with the local FCC office" />
                 <Answer text="Join the repeater owner's club" />
                 <Answer text="Program your radio with the group's ID or code" isCorrect="true" />
@@ -598,10 +598,10 @@
             <Question code="T2C04" text="What is RACES?">
                 <Answer text="An emergency organization combining amateur radio and citizens band operators and frequencies" />
                 <Answer text="An international radio experimentation society" />
-                <Answer text="A radio contest held in a short period, sometimes called a “sprint”" />
+                <Answer text="A radio contest held in a short period, sometimes called a &quot;sprint&quot;" />
                 <Answer text="An FCC part 97 amateur radio service for civil defense communications during national emergencies" isCorrect="true" />
             </Question>
-            <Question code="T2C05" text="What does the term “traffic” refer to in net operation?">
+            <Question code="T2C05" text="What does the term &quot;traffic&quot; refer to in net operation?">
                 <Answer text="Messages exchanged by net stations" isCorrect="true" />
                 <Answer text="The number of stations checking in and out of a net" />
                 <Answer text="Operation by mobile or portable stations" />
@@ -637,7 +637,7 @@
                 <Answer text="The telephone number of the addressee" />
                 <Answer text="Information needed to track the message" isCorrect="true" />
             </Question>
-            <Question code="T2C11" text="What is meant by “check” in a radiogram header?">
+            <Question code="T2C11" text="What is meant by &quot;check&quot; in a radiogram header?">
                 <Answer text="The number of words or word equivalents in the text portion of the message" isCorrect="true" />
                 <Answer text="The call sign of the originating station" />
                 <Answer text="A list of stations that have relayed the message" />
@@ -677,7 +677,7 @@
                 <Answer text="Try the long path" />
                 <Answer text="Increase the antenna SWR" />
             </Question>
-            <Question code="T3A06" text="What is the meaning of the term “picket fencing”?">
+            <Question code="T3A06" text="What is the meaning of the term &quot;picket fencing&quot;?">
                 <Answer text="Alternating transmissions during a net operation" />
                 <Answer text="Rapid flutter on mobile signals due to multipath propagation" isCorrect="true" />
                 <Answer text="A type of ground system used with vertical antennas" />
@@ -896,10 +896,10 @@
                 <Answer text="NMEA GPS location and DC power" />
             </Question>
             <Question code="T4A07" text="Which of the following connections is made between a computer and a transceiver to use computer software when operating digital modes?">
-                <Answer text="Computer “line out” to transceiver push-to-talk" />
-                <Answer text="Computer “line in” to transceiver push-to-talk" />
-                <Answer text="Computer “line in” to transceiver speaker connector" isCorrect="true" />
-                <Answer text="Computer “line out” to transceiver speaker connector" />
+                <Answer text="Computer &quot;line out&quot; to transceiver push-to-talk" />
+                <Answer text="Computer &quot;line in&quot; to transceiver push-to-talk" />
+                <Answer text="Computer &quot;line in&quot; to transceiver speaker connector" isCorrect="true" />
+                <Answer text="Computer &quot;line out&quot; to transceiver speaker connector" />
             </Question>
             <Question code="T4A08" text="Which of the following conductors is preferred for bonding at RF?">
                 <Answer text="Copper braid removed from coaxial cable" />
@@ -969,7 +969,7 @@
                 <Answer text="The tone squelch" />
                 <Answer text="The RIT or Clarifier" isCorrect="true" />
             </Question>
-            <Question code="T4B07" text="What does a DMR “code plug” contain?">
+            <Question code="T4B07" text="What does a DMR &quot;code plug&quot; contain?">
                 <Answer text="Your call sign in CW for automatic identification" />
                 <Answer text="Access information for repeaters and talkgroups" isCorrect="true" />
                 <Answer text="The codec for digitizing audio" />
@@ -1193,7 +1193,7 @@
                 <Answer text="The coulomb" />
                 <Answer text="The ohm" isCorrect="true" />
             </Question>
-            <Question code="T5C06" text="What does the abbreviation “RF” mean?">
+            <Question code="T5C06" text="What does the abbreviation &quot;RF&quot; mean?">
                 <Answer text="Radio frequency signals of all types" isCorrect="true" />
                 <Answer text="The resonant frequency of a tuned circuit" />
                 <Answer text="The real frequency transmitted as opposed to the apparent frequency" />
@@ -1964,7 +1964,7 @@
                 <Answer text="All these choices are correct" />
             </Question>
         </Group>
-        <Group code="T8B" title="Amateur satellite operation: Doppler shift, basic orbits, operating protocols, modulation mode selection, transmitter power considerations, telemetry and telecommand, satellite tracking programs, beacons, uplink and downlink mode definitions, spin fading, definition of “LEO”, setting uplink power">
+        <Group code="T8B" title="Amateur satellite operation: Doppler shift, basic orbits, operating protocols, modulation mode selection, transmitter power considerations, telemetry and telecommand, satellite tracking programs, beacons, uplink and downlink mode definitions, spin fading, definition of &quot;LEO&quot;, setting uplink power">
             <Question code="T8B01" text="What telemetry information is typically transmitted by satellite beacons?">
                 <Answer text="The signal strength of received signals" />
                 <Answer text="Time of day accurate to plus or minus 1/10 second" />
@@ -2077,7 +2077,7 @@
             </Question>
             <Question code="T8C07" text="What is Voice Over Internet Protocol (VoIP)?">
                 <Answer text="A set of rules specifying how to identify your station when linked over the internet to another station" />
-                <Answer text="A technique employed to “spot” DX stations via the internet" />
+                <Answer text="A technique employed to &quot;spot&quot; DX stations via the internet" />
                 <Answer text="A technique for measuring the modulation quality of a transmitter using remote sites monitored via the internet" />
                 <Answer text="A method of delivering voice communications over the internet using digital techniques" isCorrect="true" />
             </Question>
@@ -2113,7 +2113,7 @@
                 <Answer text="FT8" />
                 <Answer text="All these choices are correct" isCorrect="true" />
             </Question>
-            <Question code="T8D02" text="What is a “talkgroup” on a DMR repeater?">
+            <Question code="T8D02" text="What is a &quot;talkgroup&quot; on a DMR repeater?">
                 <Answer text="A group of operators sharing common interests" />
                 <Answer text="A way for groups of users to share a channel at different times without hearing other users on the channel" isCorrect="true" />
                 <Answer text="A protocol that increases the signal-to-noise ratio when multiple repeaters are linked together" />
