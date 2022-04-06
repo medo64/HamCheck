@@ -48,7 +48,7 @@
                 <Answer text="At the lowest frequency of the channel" />
                 <Answer text="At the center frequency of the channel" isCorrect="true" />
                 <Answer text="At the highest frequency of the channel" />
-                <Answer text="On any frequency where the signal’s sidebands are within the channel" />
+                <Answer text="On any frequency where the signal's sidebands are within the channel" />
             </Question>
             <Question code="E1A07" text="What is the maximum power permitted on the 2200 meter band?" fccReference="97.313(k)">
                 <Answer text="50 watts PEP" />
@@ -65,7 +65,7 @@
             <Question code="E1A09" text="What action or actions should you take if your digital message forwarding station inadvertently forwards a communication that violates FCC rules?" fccReference="97.219">
                 <Answer text="Discontinue forwarding the communication as soon as you become aware of it" isCorrect="true" />
                 <Answer text="Notify the originating station that the communication does not comply with FCC rules" />
-                <Answer text="Notify the nearest FCC Field Engineer’s office" />
+                <Answer text="Notify the nearest FCC Field Engineer's office" />
                 <Answer text="All these choices are correct" />
             </Question>
             <Question code="E1A10" text="If an amateur station is installed aboard a ship or aircraft, what condition must be met before the station is operated?" fccReference="97.11">
@@ -104,7 +104,7 @@
                 <Answer text="An amateur station transmission made without the proper call sign identification" />
                 <Answer text="A signal transmitted to prevent its detection by any station other than the intended recipient" />
                 <Answer text="Any transmitted signal that unintentionally interferes with another licensed radio station" />
-                <Answer text="An emission outside the signal’s necessary bandwidth that can be reduced or eliminated without affecting the information transmitted" isCorrect="true" />
+                <Answer text="An emission outside the signal's necessary bandwidth that can be reduced or eliminated without affecting the information transmitted" isCorrect="true" />
             </Question>
             <Question code="E1B02" text="Which of the following is an acceptable bandwidth for Digital Radio Mondiale (DRM) based voice or SSTV digital transmissions made on the HF amateur bands?" fccReference="97.307(f)(2)">
                 <Answer text="3 kHz" isCorrect="true" />
@@ -216,7 +216,7 @@
                 <Answer text="23 dB" />
                 <Answer text="26 dB" isCorrect="true" />
             </Question>
-            <Question code="E1C08" text="What is the maximum permissible duration of a remotely controlled station’s transmissions if its control link malfunctions?" fccReference="97.213">
+            <Question code="E1C08" text="What is the maximum permissible duration of a remotely controlled station's transmissions if its control link malfunctions?" fccReference="97.213">
                 <Answer text="30 seconds" />
                 <Answer text="3 minutes" isCorrect="true" />
                 <Answer text="5 minutes" />
@@ -284,7 +284,7 @@
                 <Answer text="The station's six-character Maidenhead grid locator" />
                 <Answer text="All these choices are correct" />
             </Question>
-            <Question code="E1D05" text="What must be posted at the station location of a station being operated by telecommand on or within 50 km of the earth’s surface?" fccReference="97.213(d)">
+            <Question code="E1D05" text="What must be posted at the station location of a station being operated by telecommand on or within 50 km of the earth's surface?" fccReference="97.213(d)">
                 <Answer text="A photocopy of the station license" />
                 <Answer text="A label with the name, address, and telephone number of the station licensee" />
                 <Answer text="A label with the name, address, and telephone number of the control operator" />
@@ -321,7 +321,7 @@
                 <Answer text="All these choices are correct" />
             </Question>
             <Question code="E1D11" text="Which amateur stations are eligible to operate as Earth stations?" fccReference="97.209">
-                <Answer text="Any amateur station whose licensee has filed a pre-space notification with the FCC’s International Bureau" />
+                <Answer text="Any amateur station whose licensee has filed a pre-space notification with the FCC's International Bureau" />
                 <Answer text="Only those of General, Advanced or Amateur Extra Class operators" />
                 <Answer text="Only those of Amateur Extra Class operators" />
                 <Answer text="Any amateur station, subject to the privileges of the class of operator license held by the control operator" isCorrect="true" />
@@ -370,11 +370,11 @@
                 <Answer text="Each administering VE" isCorrect="true" />
                 <Answer text="The VE session manager" />
             </Question>
-            <Question code="E1E07" text="What should a VE do if a candidate fails to comply with the examiner’s instructions during an amateur operator license examination?" fccReference="97.509">
+            <Question code="E1E07" text="What should a VE do if a candidate fails to comply with the examiner's instructions during an amateur operator license examination?" fccReference="97.509">
                 <Answer text="Warn the candidate that continued failure to comply will result in termination of the examination" />
-                <Answer text="Immediately terminate the candidate’s examination" isCorrect="true" />
+                <Answer text="Immediately terminate the candidate's examination" isCorrect="true" />
                 <Answer text="Allow the candidate to complete the examination, but invalidate the results" />
-                <Answer text="Immediately terminate everyone’s examination and close the session" />
+                <Answer text="Immediately terminate everyone's examination and close the session" />
             </Question>
             <Question code="E1E08" text="To which of the following examinees may a VE not administer an examination?" fccReference="97.509">
                 <Answer text="Employees of the VE" />
@@ -383,7 +383,7 @@
                 <Answer text="All these choices are correct" />
             </Question>
             <Question code="E1E09" text="What may be the penalty for a VE who fraudulently administers or certifies an examination?" fccReference="97.509">
-                <Answer text="Revocation of the VE’s amateur station license grant and the suspension of the VE’s amateur operator license grant" isCorrect="true" />
+                <Answer text="Revocation of the VE's amateur station license grant and the suspension of the VE's amateur operator license grant" isCorrect="true" />
                 <Answer text="A fine of up to $1000 per occurrence" />
                 <Answer text="A sentence of up to one year in prison" />
                 <Answer text="All these choices are correct" />
@@ -402,7 +402,7 @@
             </Question>
             <Question code="E1E12" text="What must the VE team do with the application form if the examinee does not pass the exam?" fccReference="97.509(j)">
                 <Answer text="Return the application document to the examinee" isCorrect="true" />
-                <Answer text="Maintain the application form with the VEC’s records" />
+                <Answer text="Maintain the application form with the VEC's records" />
                 <Answer text="Send the application form to the FCC and inform the FCC of the grade" />
                 <Answer text="Destroy the application form" />
             </Question>
@@ -421,10 +421,10 @@
                 <Answer text="Full privileges, up to and including those of the Amateur Extra Class license, on the 80, 40, 20, 15, and 10 meter bands" />
             </Question>
             <Question code="E1F03" text="Under what circumstances may a dealer sell an external RF power amplifier capable of operation below 144 MHz if it has not been granted FCC certification?" fccReference="97.315">
-                <Answer text="It was purchased in used condition from an amateur operator and is sold to another amateur operator for use at that operator’s station" isCorrect="true" />
+                <Answer text="It was purchased in used condition from an amateur operator and is sold to another amateur operator for use at that operator's station" isCorrect="true" />
                 <Answer text="The equipment dealer assembled it from a kit" />
                 <Answer text="It was imported from a manufacturer in a country that does not require certification of RF power amplifiers" />
-                <Answer text="It was imported from a manufacturer in another country and was certificated by that country’s government" />
+                <Answer text="It was imported from a manufacturer in another country and was certificated by that country's government" />
             </Question>
             <Question code="E1F04" text="Which of the following geographic descriptions approximately describes &quot;Line A&quot;?" fccReference="97.3">
                 <Answer text="A line roughly parallel to and south of the border between the U.S. and Canada" isCorrect="true" />
@@ -472,7 +472,7 @@
                 <Answer text="It must produce full legal output when driven by not more than 5 watts of mean RF input power" />
                 <Answer text="It must be capable of external RF switching between its input and output networks" />
                 <Answer text="It must exhibit a gain of 0 dB or less over its full output range" />
-                <Answer text="It must satisfy the FCC’s spurious emission standards when operated at the lesser of 1500 watts or its full output power" isCorrect="true" />
+                <Answer text="It must satisfy the FCC's spurious emission standards when operated at the lesser of 1500 watts or its full output power" isCorrect="true" />
             </Question>
         </Group>
     </Subelement>
@@ -498,11 +498,11 @@
             </Question>
             <Question code="E2A04" text="What is meant by the term “mode” as applied to an amateur radio satellite?">
                 <Answer text="Whether the satellite is in a low earth or geostationary orbit" />
-                <Answer text="The satellite’s uplink and downlink frequency bands" isCorrect="true" />
-                <Answer text="The satellite’s orientation with respect to the Earth" />
+                <Answer text="The satellite's uplink and downlink frequency bands" isCorrect="true" />
+                <Answer text="The satellite's orientation with respect to the Earth" />
                 <Answer text="Whether the satellite is in a polar or equatorial orbit" />
             </Question>
-            <Question code="E2A05" text="What do the letters in a satellite’s mode designator specify?">
+            <Question code="E2A05" text="What do the letters in a satellite's mode designator specify?">
                 <Answer text="Power limits for uplink and downlink transmissions" />
                 <Answer text="The location of the ground control station" />
                 <Answer text="The polarization of uplink and downlink signals" />
@@ -639,10 +639,10 @@
                 <Answer text="No additional indicator is required" isCorrect="true" />
             </Question>
             <Question code="E2C02" text="Which of the following best describes the term “self-spotting” in connection with HF contest operating?">
-                <Answer text="The often-prohibited practice of posting one’s own call sign and frequency on a spotting network" isCorrect="true" />
+                <Answer text="The often-prohibited practice of posting one's own call sign and frequency on a spotting network" isCorrect="true" />
                 <Answer text="The acceptable practice of manually posting the call signs of stations on a spotting network" />
-                <Answer text="A manual technique for rapidly zero beating or tuning to a station’s frequency before calling that station" />
-                <Answer text="An automatic method for rapidly zero beating or tuning to a station’s frequency before calling that station" />
+                <Answer text="A manual technique for rapidly zero beating or tuning to a station's frequency before calling that station" />
+                <Answer text="An automatic method for rapidly zero beating or tuning to a station's frequency before calling that station" />
             </Question>
             <Question code="E2C03" text="From which of the following bands is amateur radio contesting generally excluded?">
                 <Answer text="30 meters" isCorrect="true" />
@@ -763,7 +763,7 @@
             <Question code="E2D10" text="How can an APRS station be used to help support a public service communications activity?">
                 <Answer text="An APRS station with an emergency medical technician can automatically transmit medical data to the nearest hospital" />
                 <Answer text="APRS stations with General Personnel Scanners can automatically relay the participant numbers and time as they pass the check points" />
-                <Answer text="An APRS station with a Global Positioning System unit can automatically transmit information to show a mobile station’s position during the event" isCorrect="true" />
+                <Answer text="An APRS station with a Global Positioning System unit can automatically transmit information to show a mobile station's position during the event" isCorrect="true" />
                 <Answer text="All these choices are correct" />
             </Question>
             <Question code="E2D11" text="Which of the following data are used by the APRS network to communicate station location?">
@@ -898,7 +898,7 @@
                 <Answer text="Bodies of water" isCorrect="true" />
                 <Answer text="Urban areas" />
             </Question>
-            <Question code="E3A08" text="When a meteor strikes the Earth’s atmosphere, a cylindrical region of free electrons is formed at what layer of the ionosphere?">
+            <Question code="E3A08" text="When a meteor strikes the Earth's atmosphere, a cylindrical region of free electrons is formed at what layer of the ionosphere?">
                 <Answer text="The E layer" isCorrect="true" />
                 <Answer text="The F1 layer" />
                 <Answer text="The F2 layer" />
@@ -925,7 +925,7 @@
             <Question code="E3A12" text="What is the cause of auroral activity?">
                 <Answer text="The interaction in the F2 layer between the solar wind and the Van Allen belt" />
                 <Answer text="An extreme low-pressure area in the polar regions" />
-                <Answer text="The interaction in the E layer of charged particles from the Sun with the Earth’s magnetic field" isCorrect="true" />
+                <Answer text="The interaction in the E layer of charged particles from the Sun with the Earth's magnetic field" isCorrect="true" />
                 <Answer text="Meteor showers concentrated in the extreme northern and southern latitudes" />
             </Question>
             <Question code="E3A13" text="Which of these emission modes is best for auroral propagation?">
@@ -1012,7 +1012,7 @@
         <Group code="E3C" title="Radio horizon; ground wave; propagation prediction techniques and modeling; effects of space weather parameters on propagation">
             <Question code="E3C01" text="What does the radio communication term “ray tracing” describe?">
                 <Answer text="The process in which an electronic display presents a pattern" />
-                <Answer text="Modeling a radio wave’s path through the ionosphere" isCorrect="true" />
+                <Answer text="Modeling a radio wave's path through the ionosphere" isCorrect="true" />
                 <Answer text="Determining the radiation pattern from an array of antennas" />
                 <Answer text="Evaluating high voltage sources for x-rays" />
             </Question>
@@ -1168,7 +1168,7 @@
                 <Answer text="Loosely couple the analyzer near the antenna base" />
                 <Answer text="Connect the analyzer via a high-impedance transformer to the antenna" />
                 <Answer text="Loosely couple the antenna and a dummy load to the analyzer" />
-                <Answer text="Connect the antenna feed line directly to the analyzer’s connector" isCorrect="true" />
+                <Answer text="Connect the antenna feed line directly to the analyzer's connector" isCorrect="true" />
             </Question>
         </Group>
         <Group code="E4B" title="Measurement technique and limitations: instrument accuracy and performance limitations; probes; techniques to minimize errors; measurement of Q; instrument calibration; S parameters; vector network analyzers">
@@ -1240,9 +1240,9 @@
             </Question>
         </Group>
         <Group code="E4C" title="Receiver performance characteristics: phase noise, noise floor, image rejection, MDS, signal-to-noise ratio, noise figure, reciprocal mixing; selectivity; effects of SDR receiver non-linearity; use of attenuators at low frequencies">
-            <Question code="E4C01" text="What is an effect of excessive phase noise in a receiver’s local oscillator?">
-                <Answer text="It limits the receiver’s ability to receive strong signals" />
-                <Answer text="It can affect the receiver’s frequency calibration" />
+            <Question code="E4C01" text="What is an effect of excessive phase noise in a receiver's local oscillator?">
+                <Answer text="It limits the receiver's ability to receive strong signals" />
+                <Answer text="It can affect the receiver's frequency calibration" />
                 <Answer text="It decreases receiver third-order intercept point" />
                 <Answer text="It can combine with strong signals on nearby frequencies to generate interference" isCorrect="true" />
             </Question>
@@ -1306,7 +1306,7 @@
                 <Answer text="Signals are attenuated separately from the noise" />
                 <Answer text="Atmospheric noise is generally greater than internally generated noise even after attenuation" isCorrect="true" />
             </Question>
-            <Question code="E4C12" text="Which of the following has the largest effect on an SDR receiver’s dynamic range?">
+            <Question code="E4C12" text="Which of the following has the largest effect on an SDR receiver's dynamic range?">
                 <Answer text="CPU register width in bits" />
                 <Answer text="Anti-aliasing input filter bandwidth" />
                 <Answer text="RAM speed used for data storage" />
@@ -1352,7 +1352,7 @@
             </Question>
             <Question code="E4D04" text="Which of the following may reduce or eliminate intermodulation interference in a repeater caused by another transmitter operating in close proximity?">
                 <Answer text="A band-pass filter in the feed line between the transmitter and receiver" />
-                <Answer text="A properly terminated circulator at the output of the repeater’s transmitter" isCorrect="true" />
+                <Answer text="A properly terminated circulator at the output of the repeater's transmitter" isCorrect="true" />
                 <Answer text="Utilizing a Class C final amplifier" />
                 <Answer text="Utilizing a Class D final amplifier" />
             </Question>
@@ -1427,11 +1427,11 @@
             <Question code="E4E04" text="How can conducted and radiated noise caused by an automobile alternator be suppressed?">
                 <Answer text="By installing filter capacitors in series with the DC power lead and a blocking capacitor in the field lead" />
                 <Answer text="By installing a noise suppression resistor and a blocking capacitor in both leads" />
-                <Answer text="By installing a high-pass filter in series with the radio’s power lead and a low-pass filter in parallel with the field lead" />
-                <Answer text="By connecting the radio’s power leads directly to the battery and by installing coaxial capacitors in line with the alternator leads" isCorrect="true" />
+                <Answer text="By installing a high-pass filter in series with the radio's power lead and a low-pass filter in parallel with the field lead" />
+                <Answer text="By connecting the radio's power leads directly to the battery and by installing coaxial capacitors in line with the alternator leads" isCorrect="true" />
             </Question>
             <Question code="E4E05" text="How can radio frequency interference from an AC motor be suppressed?">
-                <Answer text="By installing a high-pass filter in series with the motor’s power leads" />
+                <Answer text="By installing a high-pass filter in series with the motor's power leads" />
                 <Answer text="By installing a brute-force AC-line filter in series with the motor leads" isCorrect="true" />
                 <Answer text="By installing a bypass capacitor in series with the motor leads" />
                 <Answer text="By using a ground-fault current interrupter in the circuit used to power the motor" />
@@ -1964,7 +1964,7 @@
                 <Answer text="To cause the output to change states continually" />
                 <Answer text="To increase the sensitivity" />
             </Question>
-            <Question code="E6C02" text="What happens when the level of a comparator’s input signal crosses the threshold?">
+            <Question code="E6C02" text="What happens when the level of a comparator's input signal crosses the threshold?">
                 <Answer text="The IC input can be damaged" />
                 <Answer text="The comparator changes its output state" isCorrect="true" />
                 <Answer text="The comparator enters latch-up" />
@@ -2094,8 +2094,8 @@
             </Question>
             <Question code="E6D12" text="What is inductor saturation?">
                 <Answer text="The inductor windings are over-coupled" />
-                <Answer text="The inductor’s voltage rating is exceeded causing a flashover" />
-                <Answer text="The ability of the inductor’s core to store magnetic energy has been exceeded" isCorrect="true" />
+                <Answer text="The inductor's voltage rating is exceeded causing a flashover" />
+                <Answer text="The ability of the inductor's core to store magnetic energy has been exceeded" isCorrect="true" />
                 <Answer text="Adjacent inductors become over-coupled" />
             </Question>
             <Question code="E6D13" text="What is the primary cause of inductor self-resonance?">
@@ -2428,7 +2428,7 @@
             </Question>
         </Group>
         <Group code="E7C" title="Filters and matching networks: types of networks; types of filters; filter applications; filter characteristics; impedance matching; DSP filtering">
-            <Question code="E7C01" text="How are the capacitors and inductors of a low-pass filter Pi-network arranged between the network’s input and output?">
+            <Question code="E7C01" text="How are the capacitors and inductors of a low-pass filter Pi-network arranged between the network's input and output?">
                 <Answer text="Two inductors are in series between the input and output, and a capacitor is connected between the two inductors and ground" />
                 <Answer text="Two capacitors are in series between the input and output, and an inductor is connected between the two capacitors and ground" />
                 <Answer text="An inductor is connected between the input and ground, another inductor is connected between the output and ground, and a capacitor is connected between the input and output" />
@@ -2488,7 +2488,7 @@
                 <Answer text="A DSP filter" />
                 <Answer text="An L-C filter" />
             </Question>
-            <Question code="E7C11" text="Which of the following describes a receiving filter’s ability to reject signals occupying an adjacent channel?">
+            <Question code="E7C11" text="Which of the following describes a receiving filter's ability to reject signals occupying an adjacent channel?">
                 <Answer text="Passband ripple" />
                 <Answer text="Phase response" />
                 <Answer text="Shape factor" isCorrect="true" />
@@ -2511,7 +2511,7 @@
             <Question code="E7D02" text="What is a characteristic of a switching electronic voltage regulator?">
                 <Answer text="The resistance of a control element is varied in direct proportion to the line voltage or load current" />
                 <Answer text="It is generally less efficient than a linear regulator" />
-                <Answer text="The controlled device’s duty cycle is changed to produce a constant average output voltage" isCorrect="true" />
+                <Answer text="The controlled device's duty cycle is changed to produce a constant average output voltage" isCorrect="true" />
                 <Answer text="It gives a ramp voltage at its output" />
             </Question>
             <Question code="E7D03" text="What device is typically used as a stable voltage reference in a linear voltage regulator?">
@@ -2781,8 +2781,8 @@
             <Question code="E7G06" text="What is the gain-bandwidth of an operational amplifier?">
                 <Answer text="The maximum frequency for a filter circuit using that type of amplifier" />
                 <Answer text="The frequency at which the open-loop gain of the amplifier equals one" isCorrect="true" />
-                <Answer text="The gain of the amplifier at a filter’s cutoff frequency" />
-                <Answer text="The frequency at which the amplifier’s offset voltage is zero" />
+                <Answer text="The gain of the amplifier at a filter's cutoff frequency" />
+                <Answer text="The frequency at which the amplifier's offset voltage is zero" />
             </Question>
             <Question code="E7G07" text="What magnitude of voltage gain can be expected from the circuit in Figure E7-3 when R1 is 10 ohms and RF is 470 ohms?" illustration="E7-3">
                 <Answer text="0.21" />
@@ -2858,9 +2858,9 @@
                 <Answer text="Armstrong and deForest" />
                 <Answer text="Negative feedback and balanced feedback" />
             </Question>
-            <Question code="E7H07" text="How can an oscillator’s microphonic responses be reduced?">
+            <Question code="E7H07" text="How can an oscillator's microphonic responses be reduced?">
                 <Answer text="Use NP0 capacitors" />
-                <Answer text="Reduce noise on the oscillator’s power supply" />
+                <Answer text="Reduce noise on the oscillator's power supply" />
                 <Answer text="Increase the bias voltage" />
                 <Answer text="Mechanically isolate the oscillator circuitry from its enclosure" isCorrect="true" />
             </Question>
@@ -3490,7 +3490,7 @@
                 <Answer text="The radiation resistance increases and the capacitive reactance decreases" />
                 <Answer text="The radiation resistance increases and the capacitive reactance increases" />
             </Question>
-            <Question code="E9D11" text="Which of the following conductors would be best for minimizing losses in a station’s RF ground system?">
+            <Question code="E9D11" text="Which of the following conductors would be best for minimizing losses in a station's RF ground system?">
                 <Answer text="Resistive wire, such as spark plug wire" />
                 <Answer text="Wide flat copper strap" isCorrect="true" />
                 <Answer text="Stranded wire" />
@@ -3528,7 +3528,7 @@
                 <Answer text="To provide a rejection notch that prevents the radiation of harmonics" />
                 <Answer text="To transform the antenna impedance to a higher value" />
             </Question>
-            <Question code="E9E05" text="How must an antenna’s driven element be tuned to use a hairpin matching system?">
+            <Question code="E9E05" text="How must an antenna's driven element be tuned to use a hairpin matching system?">
                 <Answer text="The driven element reactance must be capacitive" isCorrect="true" />
                 <Answer text="The driven element reactance must be inductive" />
                 <Answer text="The driven element resonance must be lower than the operating frequency" />
@@ -3796,7 +3796,7 @@
                 <Answer text="Reduce RF current flow between pieces of equipment" />
                 <Answer text="Reduce RFI to telephones and home entertainment systems" />
             </Question>
-            <Question code="E0A02" text="When evaluating RF exposure levels from your station at a neighbor’s home, what must you do?">
+            <Question code="E0A02" text="When evaluating RF exposure levels from your station at a neighbor's home, what must you do?">
                 <Answer text="Ensure signals from your station are less than the controlled Maximum Permitted Exposure (MPE) limits" />
                 <Answer text="Ensure signals from your station are less than the uncontrolled Maximum Permitted Exposure (MPE) limits" isCorrect="true" />
                 <Answer text="Ensure signals from your station are less than the controlled Maximum Permitted Emission (MPE) limits" />

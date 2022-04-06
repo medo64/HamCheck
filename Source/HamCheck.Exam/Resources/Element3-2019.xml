@@ -3,7 +3,7 @@
     <Illustrations>
         <Illustration name="G7-1" picture="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" />
     </Illustrations>
-    <Subelement code="G1" title="COMMISSION’S RULES [5 Exam Questions - 5 Groups]">
+    <Subelement code="G1" title="COMMISSION'S RULES [5 Exam Questions - 5 Groups]">
         <Group code="G1A" title="General class control operator frequency privileges; primary and secondary allocations">
             <Question code="G1A01" text="On which HF/MF bands is a General class license holder granted all amateur frequency privileges?" fccReference="97.301(d)">
                 <Answer text="60 meters, 20 meters, 17 meters, and 12 meters" />
@@ -79,7 +79,7 @@
             </Question>
             <Question code="G1A13" text="What is the appropriate action if, when operating on either the 30-meter or 60-meter bands, a station in the primary service interferes with your contact?" fccReference="97.303(5)(h)(2)(j)">
                 <Answer text="Notify the FCCs regional Engineer in Charge of the interference" />
-                <Answer text="Increase your transmitter’s power to overcome the interference" />
+                <Answer text="Increase your transmitter's power to overcome the interference" />
                 <Answer text="Attempt to contact the station and request that it stop the interference" />
                 <Answer text="Move to a clear frequency or stop transmitting" isCorrect="true" />
             </Question>
@@ -308,7 +308,7 @@
             <Question code="G1D08" text="Which of the following criteria must be met for a non-U.S. citizen to be an accredited Volunteer Examiner?" fccReference="97.509(b)(3)">
                 <Answer text="The person must be a resident of the U.S. for a minimum of 5 years" />
                 <Answer text="The person must hold an FCC granted Amateur Radio license of General class or above" isCorrect="true" />
-                <Answer text="The person’s home citizenship must be in ITU region 2" />
+                <Answer text="The person's home citizenship must be in ITU region 2" />
                 <Answer text="None of these choices is correct; a non-U.S. citizen cannot be a Volunteer Examiner" />
             </Question>
             <Question code="G1D09" text="How long is a Certificate of Successful Completion of Examination (CSCE) valid for exam element credit?" fccReference="97.9(b)">
@@ -332,7 +332,7 @@
         </Group>
         <Group code="G1E" title="Control categories; repeater regulations; third-party rules; ITU regions; automatically controlled digital station">
             <Question code="G1E01" text="Which of the following would disqualify a third party from participating in stating a message over an amateur station?" fccReference="97.115(b)(2)">
-                <Answer text="The third party’s amateur license has been revoked and not reinstated" isCorrect="true" />
+                <Answer text="The third party's amateur license has been revoked and not reinstated" isCorrect="true" />
                 <Answer text="The third party is not a U.S. citizen" />
                 <Answer text="The third party is a licensed amateur" />
                 <Answer text="The third party is speaking in a language other than English" />
@@ -644,7 +644,7 @@
             <Question code="G2D06" text="How is a directional antenna pointed when making a “long-path” contact with another station?">
                 <Answer text="Toward the rising sun" />
                 <Answer text="Along the grayline" />
-                <Answer text="180 degrees from the station’s short-path heading" isCorrect="true" />
+                <Answer text="180 degrees from the station's short-path heading" isCorrect="true" />
                 <Answer text="Toward the north" />
             </Question>
             <Question code="G2D07" text="Which of the following are examples of the NATO Phonetic Alphabet?">
@@ -737,7 +737,7 @@
                 <Answer text="Send an email to the system control operator" />
                 <Answer text="Send QRL in Morse code" />
                 <Answer text="Respond when the station broadcasts its SSID" />
-                <Answer text="Transmit a connect message on the station’s published frequency" isCorrect="true" />
+                <Answer text="Transmit a connect message on the station's published frequency" isCorrect="true" />
             </Question>
             <Question code="G2E11" text="Which of the following is characteristic of the FT8 mode of the WSJT-X family?">
                 <Answer text="It is a keyboard-to-keyboard chat mode" />
@@ -807,7 +807,7 @@
                 <Answer text="A sudden drop in the solar flux index" />
                 <Answer text="A thunderstorm that affects radio propagation" />
                 <Answer text="Ripples in the ionosphere" />
-                <Answer text="A temporary disturbance in Earth’s magnetosphere" isCorrect="true" />
+                <Answer text="A temporary disturbance in Earth's magnetosphere" isCorrect="true" />
             </Question>
             <Question code="G3A07" text="At what point in the solar cycle does the 20-meter band usually support worldwide propagation during daylight hours?">
                 <Answer text="At the summer solstice" />
@@ -829,8 +829,8 @@
             </Question>
             <Question code="G3A10" text="What causes HF propagation conditions to vary periodically in a roughly 28-day cycle?">
                 <Answer text="Long term oscillations in the upper atmosphere" />
-                <Answer text="Cyclic variation in Earth’s radiation belts" />
-                <Answer text="The sun’s rotation on its axis" isCorrect="true" />
+                <Answer text="Cyclic variation in Earth's radiation belts" />
+                <Answer text="The sun's rotation on its axis" isCorrect="true" />
                 <Answer text="The position of the moon in its orbit" />
             </Question>
             <Question code="G3A11" text="How long does it take charged particles from coronal mass ejections to affect radio propagation on Earth?">
@@ -841,14 +841,14 @@
             </Question>
             <Question code="G3A12" text="What does the K-index indicate?">
                 <Answer text="The relative position of sunspots on the surface of the sun" />
-                <Answer text="The short-term stability of Earth’s magnetic field" isCorrect="true" />
-                <Answer text="The stability of the sun’s magnetic field" />
+                <Answer text="The short-term stability of Earth's magnetic field" isCorrect="true" />
+                <Answer text="The stability of the sun's magnetic field" />
                 <Answer text="The solar radio flux at Boulder, Colorado" />
             </Question>
             <Question code="G3A13" text="What does the A-index indicate?">
                 <Answer text="The relative position of sunspots on the surface of the sun" />
-                <Answer text="The amount of polarization of the sun’s electric field" />
-                <Answer text="The long-term stability of Earth’s geomagnetic field" isCorrect="true" />
+                <Answer text="The amount of polarization of the sun's electric field" />
+                <Answer text="The long-term stability of Earth's geomagnetic field" isCorrect="true" />
                 <Answer text="The solar radio flux at Boulder, Colorado" />
             </Question>
             <Question code="G3A14" text="How are radio communications usually affected by the charged particles that reach Earth from solar coronal holes?">
@@ -907,13 +907,13 @@
                 <Answer text="The Minimum Usable Frequency during a 24-hour period" />
                 <Answer text="The Maximum Usable Frequency during a 24-hour period" />
             </Question>
-            <Question code="G3B09" text="What is the approximate maximum distance along the Earth’s surface that is normally covered in one hop using the F2 region?">
+            <Question code="G3B09" text="What is the approximate maximum distance along the Earth's surface that is normally covered in one hop using the F2 region?">
                 <Answer text="180 miles" />
                 <Answer text="1,200 miles" />
                 <Answer text="2,500 miles" isCorrect="true" />
                 <Answer text="12,000 miles" />
             </Question>
-            <Question code="G3B10" text="What is the approximate maximum distance along the Earth’s surface that is normally covered in one hop using the E region?">
+            <Question code="G3B10" text="What is the approximate maximum distance along the Earth's surface that is normally covered in one hop using the E region?">
                 <Answer text="180 miles" />
                 <Answer text="1,200 miles" isCorrect="true" />
                 <Answer text="2,500 miles" />
@@ -975,7 +975,7 @@
                 <Answer text="Propagation is through ground waves, which absorb most of the signal energy" />
                 <Answer text="Propagation is through ducts in the F region, which absorb most of the energy" />
             </Question>
-            <Question code="G3C09" text="What type of propagation allows signals to be heard in the transmitting station’s skip zone?">
+            <Question code="G3C09" text="What type of propagation allows signals to be heard in the transmitting station's skip zone?">
                 <Answer text="Faraday rotation" />
                 <Answer text="Scatter" isCorrect="true" />
                 <Answer text="Chordal hop" />
@@ -1075,7 +1075,7 @@
                 <Answer text="To reduce power consumption when operating from batteries" />
                 <Answer text="To slow down received CW signals for better copy" />
             </Question>
-            <Question code="G4A14" text="What is likely to happen if a transceiver’s ALC system is not set properly when transmitting AFSK signals with the radio using single sideband mode?">
+            <Question code="G4A14" text="What is likely to happen if a transceiver's ALC system is not set properly when transmitting AFSK signals with the radio using single sideband mode?">
                 <Answer text="ALC will invert the modulation of the AFSK mode" />
                 <Answer text="Improper action of ALC distorts the signal and can cause spurious emissions" isCorrect="true" />
                 <Answer text="When using digital modes, too much ALC activity can cause the transmitter to overheat" />
@@ -1201,7 +1201,7 @@
             </Question>
             <Question code="G4C02" text="Which of the following could be a cause of interference covering a wide range of frequencies?">
                 <Answer text="Not using a balun or line isolator to feed balanced antennas" />
-                <Answer text="Lack of rectification of the transmitter’s signal in power conductors" />
+                <Answer text="Lack of rectification of the transmitter's signal in power conductors" />
                 <Answer text="Arcing at a poor electrical connection" isCorrect="true" />
                 <Answer text="Using a balun to feed an unbalanced antenna" />
             </Question>
@@ -1248,7 +1248,7 @@
                 <Answer text="Connect all ground conductors to a single point" isCorrect="true" />
             </Question>
             <Question code="G4C10" text="What could be a symptom of a ground loop somewhere in your station?">
-                <Answer text="You receive reports of “hum” on your station’s transmitted signal" isCorrect="true" />
+                <Answer text="You receive reports of “hum” on your station's transmitted signal" isCorrect="true" />
                 <Answer text="The SWR reading for one or more antennas is suddenly very high" />
                 <Answer text="An item of station equipment starts to draw excessive amounts of current" />
                 <Answer text="You receive reports of harmonic interference from your station" />
@@ -1359,9 +1359,9 @@
                 <Answer text="To the battery using resistor wire" />
                 <Answer text="To the alternator or generator using resistor wire" />
             </Question>
-            <Question code="G4E04" text="Why is it best NOT to draw the DC power for a 100 watt HF transceiver from a vehicle’s auxiliary power socket?">
+            <Question code="G4E04" text="Why is it best NOT to draw the DC power for a 100 watt HF transceiver from a vehicle's auxiliary power socket?">
                 <Answer text="The socket is not wired with an RF-shielded power cable" />
-                <Answer text="The socket’s wiring may be inadequate for the current drawn by the transceiver" isCorrect="true" />
+                <Answer text="The socket's wiring may be inadequate for the current drawn by the transceiver" isCorrect="true" />
                 <Answer text="The DC polarity of the socket is reversed from the polarity of modern HF transceivers" />
                 <Answer text="Drawing more than 50 watts from this socket could cause the engine to overheat" />
             </Question>
@@ -1708,10 +1708,10 @@
                 <Answer text="1.0 volts" />
             </Question>
             <Question code="G6A06" text="Which of the following is a reason not to use wire-wound resistors in an RF circuit?">
-                <Answer text="The resistor’s tolerance value would not be adequate for such a circuit" />
-                <Answer text="The resistor’s inductance could make circuit performance unpredictable" isCorrect="true" />
+                <Answer text="The resistor's tolerance value would not be adequate for such a circuit" />
+                <Answer text="The resistor's inductance could make circuit performance unpredictable" isCorrect="true" />
                 <Answer text="The resistor could overheat" />
-                <Answer text="The resistor’s internal capacitance would detune the circuit" />
+                <Answer text="The resistor's internal capacitance would detune the circuit" />
             </Question>
             <Question code="G6A07" text="What are the stable operating points for a bipolar transistor used as a switch in a logic circuit?">
                 <Answer text="Its saturation and cutoff regions" isCorrect="true" />
@@ -1818,7 +1818,7 @@
                 <Answer text="It has relatively short lifetime" />
             </Question>
             <Question code="G6B10" text="How does a ferrite bead or core reduce common-mode RF current on the shield of a coaxial cable?">
-                <Answer text="By creating an impedance in the current’s path" isCorrect="true" />
+                <Answer text="By creating an impedance in the current's path" isCorrect="true" />
                 <Answer text="It converts common-mode current to differential mode" />
                 <Answer text="By creating an out-of-phase current to cancel the common-mode current" />
                 <Answer text="Ferrites expel magnetic fields" />
@@ -2059,13 +2059,13 @@
                 <Answer text="A radio that uses crystal filters designed using software" />
                 <Answer text="A computer model that can simulate performance of a radio to aid in the design process" />
             </Question>
-            <Question code="G7C12" text="What is the frequency above which a low-pass filter’s output power is less than half the input power?">
+            <Question code="G7C12" text="What is the frequency above which a low-pass filter's output power is less than half the input power?">
                 <Answer text="Notch frequency" />
                 <Answer text="Neper frequency" />
                 <Answer text="Cutoff frequency" isCorrect="true" />
                 <Answer text="Rolloff frequency" />
             </Question>
-            <Question code="G7C13" text="What term specifies a filter’s maximum ability to reject signals outside its passband?">
+            <Question code="G7C13" text="What term specifies a filter's maximum ability to reject signals outside its passband?">
                 <Answer text="Notch depth" />
                 <Answer text="Rolloff" />
                 <Answer text="Insertion loss" />
@@ -2077,7 +2077,7 @@
                 <Answer text="Pole and zero" />
                 <Answer text="Image and harmonic" />
             </Question>
-            <Question code="G7C15" text="What term specifies a filter’s attenuation inside its passband?">
+            <Question code="G7C15" text="What term specifies a filter's attenuation inside its passband?">
                 <Answer text="Insertion loss" isCorrect="true" />
                 <Answer text="Return loss" />
                 <Answer text="Q" />
@@ -2095,8 +2095,8 @@
         <Group code="G8A" title="Carriers and modulation: AM; FM; single sideband; modulation envelope; digital modulation; overmodulation">
             <Question code="G8A01" text="How is an FSK signal generated?">
                 <Answer text="By keying an FM transmitter with a sub-audible tone" />
-                <Answer text="By changing an oscillator’s frequency directly with a digital control signal" isCorrect="true" />
-                <Answer text="By using a transceiver’s computer data interface protocol to change frequencies" />
+                <Answer text="By changing an oscillator's frequency directly with a digital control signal" isCorrect="true" />
+                <Answer text="By using a transceiver's computer data interface protocol to change frequencies" />
                 <Answer text="By reconfiguring the CW keying input to act as a tone generator" />
             </Question>
             <Question code="G8A02" text="What is the name of the process that changes the phase angle of an RF signal to convey information?">
@@ -2149,9 +2149,9 @@
             </Question>
             <Question code="G8A10" text="What is meant by the term “flat-topping,” when referring to a single sideband phone transmission?">
                 <Answer text="Signal distortion caused by insufficient collector current" />
-                <Answer text="The transmitter’s automatic level control (ALC) is properly adjusted" />
+                <Answer text="The transmitter's automatic level control (ALC) is properly adjusted" />
                 <Answer text="Signal distortion caused by excessive drive" isCorrect="true" />
-                <Answer text="The transmitter’s carrier is properly suppressed" />
+                <Answer text="The transmitter's carrier is properly suppressed" />
             </Question>
             <Question code="G8A11" text="What is the modulation envelope of an AM signal?">
                 <Answer text="The waveform created by connecting the peak values of the modulated signal" isCorrect="true" />
@@ -2211,7 +2211,7 @@
             </Question>
             <Question code="G8B08" text="Why is it important to know the duty cycle of the mode you are using when transmitting?">
                 <Answer text="To aid in tuning your transmitter" />
-                <Answer text="Some modes have high duty cycles that could exceed the transmitter’s average power rating" isCorrect="true" />
+                <Answer text="Some modes have high duty cycles that could exceed the transmitter's average power rating" isCorrect="true" />
                 <Answer text="To allow time for the other station to break in during a transmission" />
                 <Answer text="The attenuator will have to be adjusted accordingly" />
             </Question>
@@ -2227,7 +2227,7 @@
                 <Answer text="Lower symbol rates require wider bandwidth" />
                 <Answer text="Bandwidth is always half the symbol rate" />
             </Question>
-            <Question code="G8B11" text="What combination of a mixer’s Local Oscillator (LO) and RF input frequencies is found in the output?">
+            <Question code="G8B11" text="What combination of a mixer's Local Oscillator (LO) and RF input frequencies is found in the output?">
                 <Answer text="The ratio" />
                 <Answer text="The average" />
                 <Answer text="The sum and difference" isCorrect="true" />
@@ -2597,7 +2597,7 @@
                 <Answer text="Broadside to the plane of the halo" />
                 <Answer text="Opposite the feed point" />
                 <Answer text="Omnidirectional in the plane of the halo" isCorrect="true" />
-                <Answer text="Toward the halo’s supporting mast" />
+                <Answer text="Toward the halo's supporting mast" />
             </Question>
             <Question code="G9D04" text="What is the primary purpose of antenna traps?">
                 <Answer text="To permit multiband operation" isCorrect="true" />
@@ -2798,7 +2798,7 @@
                 <Answer text="They must be bonded together with all other grounds" isCorrect="true" />
             </Question>
             <Question code="G0B12" text="What is the purpose of a power supply interlock?">
-                <Answer text="To prevent unauthorized changes to the circuit that would void the manufacturer’s warranty" />
+                <Answer text="To prevent unauthorized changes to the circuit that would void the manufacturer's warranty" />
                 <Answer text="To shut down the unit if it becomes too hot" />
                 <Answer text="To ensure that dangerous voltages are removed if the cabinet is opened" isCorrect="true" />
                 <Answer text="To shut off the power supply if too much voltage is produced" />
