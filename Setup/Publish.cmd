@@ -7,7 +7,7 @@ SET   FILE_EXECUTABLE="..\Binaries\HamCheck.exe"
 SET  FILES_EXECUTABLE="..\Binaries\HamCheck.exe" "..\Binaries\HamCheckExam.dll"
 SET       FILES_OTHER="..\Binaries\ReadMe.txt" "..\Binaries\License.txt"
 
-SET   COMPILE_TOOL_17="%PROGRAMFILES(X86)%\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
+SET   COMPILE_TOOL_17="%PROGRAMFILES%\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
 SET   COMPILE_TOOL_16="%PROGRAMFILES(X86)%\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"
 
 SET        SETUP_TOOL="%PROGRAMFILES(x86)%\Inno Setup 5\iscc.exe"
