@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31605.320
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamCheck", "HamCheck\HamCheck.csproj", "{F09D5CC4-950A-4803-97F9-9ED89AC4C8E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamCheck.Exam", "HamCheck.Exam\HamCheck.Exam.csproj", "{8133CE19-8E56-4167-B743-8BEF0F8ABBF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamCheck.Import", "HamCheck.Import\HamCheck.Import.csproj", "{29C47F2E-6DB6-41F2-8BB0-1646FBE36638}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamCheck.Export", "HamCheck.Export\HamCheck.Export.csproj", "{02059431-339C-4B46-89C7-303C9F51FA9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{29C47F2E-6DB6-41F2-8BB0-1646FBE36638}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C47F2E-6DB6-41F2-8BB0-1646FBE36638}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C47F2E-6DB6-41F2-8BB0-1646FBE36638}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02059431-339C-4B46-89C7-303C9F51FA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02059431-339C-4B46-89C7-303C9F51FA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02059431-339C-4B46-89C7-303C9F51FA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02059431-339C-4B46-89C7-303C9F51FA9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
