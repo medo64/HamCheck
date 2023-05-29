@@ -53,7 +53,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Properties\App.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\App.manifest</ApplicationManifest>
@@ -110,7 +111,6 @@
     </Compile>
     <None Include="App.config" />
     <None Include="Properties\App.manifest" />
-    <None Include="Properties\App.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HamCheck.Exam\HamCheck.Exam.csproj">

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace HamCheck {
 
@@ -15,8 +15,8 @@ namespace HamCheck {
         /// <exception cref="System.ArgumentNullException">Text cannot be null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Text cannot be empty.</exception>
         internal ExamAnswer(string text, bool isCorrect) {
-            if (text == null) { throw new ArgumentNullException("text", "Text cannot be null."); }
-            text = text.Trim(); if (string.IsNullOrEmpty(text)) { throw new ArgumentNullException("text", "Text cannot be empty."); }
+            if (text == null) { throw new ArgumentNullException(nameof(text), "Text cannot be null."); }
+            text = text.Trim(); if (string.IsNullOrEmpty(text)) { throw new ArgumentNullException(nameof(text), "Text cannot be empty."); }
 
             this.Text = text;
             this.IsCorrect = isCorrect;

@@ -19,7 +19,7 @@ namespace HamCheck {
         }
 
 
-        private static ExamElements _all;
+        private static ExamElements? _all;
         /// <summary>
         /// Gets all elements
         /// </summary>
@@ -27,12 +27,11 @@ namespace HamCheck {
             get {
                 if (_all == null) {
                     _all = new ExamElements();
-                    string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+                    var resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
                     foreach (var resourceName in resourceNames) {
                         if (resourceName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase)) {
-                            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)) {
-                                _all.Add(ExamElement.Load(stream));
-                            }
+                            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
+                            _all.Add(ExamElement.Load(stream));
                         }
                     }
                 }
@@ -41,7 +40,7 @@ namespace HamCheck {
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-        private readonly List<ExamElement> BaseList = new List<ExamElement>();
+        private readonly List<ExamElement> BaseList = new();
 
 
         /// <summary>

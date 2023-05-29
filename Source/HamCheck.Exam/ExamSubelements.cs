@@ -18,7 +18,7 @@ namespace HamCheck {
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-        private readonly List<ExamSubelement> BaseList = new List<ExamSubelement>();
+        private readonly List<ExamSubelement> BaseList = new();
 
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -14,17 +14,15 @@ namespace HamCheck {
         /// <summary>
         /// Creates a new instance.
         /// </summary>
-        /// <param name="code">Question code.</param>
-        /// <param name="text">Question text.</param>
-        /// <param name="illustration">Question illustration.</param>
-        /// <param name="fccReference">FCC reference text.</param>
+        /// <param name="name">Illustration name</param>
+        /// <param name="pictureBytes">Illustration bytes</param>
         /// <exception cref="System.ArgumentNullException">Name cannot be null. -or- Illustration cannot be null.</exception>
-        internal ExamIllustration(string name, Bitmap picture) {
-            if (name == null) { throw new ArgumentNullException("name", "Name cannot be null."); }
-            if (picture == null) { throw new ArgumentNullException("picture", "Picture cannot be null."); }
+        internal ExamIllustration(string name, byte[] pictureBytes) {
+            if (name == null) { throw new ArgumentNullException(nameof(name), "Name cannot be null."); }
+            if (pictureBytes == null) { throw new ArgumentNullException(nameof(pictureBytes), "Picture cannot be null."); }
 
             this.Name = name;
-            this.Picture = picture;
+            this.PictureBytes = pictureBytes;
         }
 
 
@@ -36,7 +34,9 @@ namespace HamCheck {
         /// <summary>
         /// Gets illustration bitmap.
         /// </summary>
-        public Bitmap Picture { get; private set; }
+#pragma warning disable CA1819 // Properties should not return arrays
+        public byte[] PictureBytes { get; private set; }
+#pragma warning restore CA1819 // Properties should not return arrays
 
         #region Overrides
 
@@ -46,7 +46,7 @@ namespace HamCheck {
         /// <param name="obj">The object to compare with the current object.</param>
         public override bool Equals(object obj) {
             var other = obj as ExamIllustration;
-            return (other != null) && (this.Name.Equals(other.Name));
+            return (other != null) && (this.Name.Equals(other.Name, StringComparison.Ordinal));
         }
 
         /// <summary>

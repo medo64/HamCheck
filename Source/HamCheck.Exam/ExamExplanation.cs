@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 
 namespace HamCheck {
@@ -12,15 +12,15 @@ namespace HamCheck {
         /// Creates a new instance.
         /// </summary>
         /// <param name="text">Explanation text.</param>
-        /// <param name="illustration">Explanation illustration.</param>
-        /// <exception cref="System.ArgumentNullException">Text cannot be null.</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">Text cannot be empty.</exception>
-        internal ExamExplanation(string text, Bitmap illustration) {
-            if (text == null) { throw new ArgumentNullException("text", "Text cannot be null."); }
-            text = text.Trim(); if (string.IsNullOrEmpty(text)) { throw new ArgumentNullException("text", "Text cannot be empty."); }
+        /// <param name="illustrationBytes">Explanation illustration.</param>
+        /// <exception cref="ArgumentNullException">Text cannot be null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Text cannot be empty.</exception>
+        internal ExamExplanation(string text, byte[]? illustrationBytes) {
+            if (text == null) { throw new ArgumentNullException(nameof(text), "Text cannot be null."); }
+            text = text.Trim(); if (string.IsNullOrEmpty(text)) { throw new ArgumentNullException(nameof(text), "Text cannot be empty."); }
 
             this.Text = text;
-            this.Illustration = illustration;
+            this.IllustrationBytes = illustrationBytes;
         }
 
 
@@ -32,7 +32,9 @@ namespace HamCheck {
         /// <summary>
         /// Gets explanation illustration.
         /// </summary>
-        public Bitmap Illustration { get; private set; }
+#pragma warning disable CA1819 // Properties should not return arrays
+        public byte[]? IllustrationBytes { get; private set; }
+#pragma warning restore CA1819 // Properties should not return arrays
 
 
         #region Overrides

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ namespace HamCheck {
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-        private readonly List<ExamIllustration> BaseList = new List<ExamIllustration>();
+        private readonly List<ExamIllustration> BaseList = new();
 
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace HamCheck {
         /// Gets item with specified name.
         /// </summary>
         /// <param name="name">Name.</param>
-        public ExamIllustration this[string name] {
+        public ExamIllustration? this[string? name] {
             get {
                 foreach (var item in this.BaseList) {
                     if (item.Name.Equals(name, StringComparison.OrdinalIgnoreCase)) {

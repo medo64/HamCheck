@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HamCheck {
@@ -483,8 +484,9 @@ namespace HamCheck {
                 int illustrationBottom = 0;
                 int illustrationWidth = 0;
                 if (item.Question.Illustration != null) {
-                    var imageWidth = item.Question.Illustration.Picture.Width;
-                    var imageHeight = item.Question.Illustration.Picture.Height;
+                    var image = (Bitmap)Image.FromStream(new MemoryStream(item.Question.Illustration.PictureBytes));
+                    var imageWidth = image.Width;
+                    var imageHeight = image.Height;
                     while (imageWidth > width / 2) {
                         imageWidth = (int)(imageWidth * 0.75);
                         imageHeight = (int)(imageHeight * 0.75);
@@ -493,7 +495,7 @@ namespace HamCheck {
                     var imageTop = top;
                     var imageRectange = new Rectangle(imageLeft, imageTop, imageWidth, imageHeight);
 
-                    e.Graphics.DrawImage(item.Question.Illustration.Picture, imageRectange);
+                    e.Graphics.DrawImage(image, imageRectange);
                     if (Settings.DebugShowHitBoxes) { e.Graphics.DrawRectangle(Pens.Red, imageRectange); }
 
                     illustrationBottom = imageRectange.Bottom + emSize.Height / 4;

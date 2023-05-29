@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace HamCheck {
     internal partial class MainForm : Form {
         public MainForm() {
-            InitializeComponent();
+            this.InitializeComponent();
             this.Font = SystemFonts.MessageBoxFont;
             hamSelect.Font = this.Font;
             hamSetup.Font = this.Font;
@@ -21,10 +21,10 @@ namespace HamCheck {
 
         private void Form_FormClosing(object sender, FormClosingEventArgs e) {
             if (hamShow.Visible) {
-                hamShow_GoBack(null, null);
+                this.hamShow_GoBack(null, null);
                 e.Cancel = true;
             } else if (hamSetup.Visible) {
-                hamSetup_GoBack(null, null);
+                this.hamSetup_GoBack(null, null);
                 e.Cancel = true;
             }
         }

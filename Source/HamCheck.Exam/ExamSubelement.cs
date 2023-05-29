@@ -18,10 +18,10 @@ namespace HamCheck {
         /// <exception cref="System.ArgumentNullException">Code cannot be null. -or- Title cannot be null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Code must be exactly two characters in length. -or- Title cannot be empty.</exception>
         internal ExamSubelement(string code, string title) {
-            if (code == null) { throw new ArgumentNullException("code", "Code cannot be null."); }
-            code = code.Trim(); if (code.Length != 2) { throw new ArgumentNullException("code", "Code must be exactly two characters in length."); }
-            if (title == null) { throw new ArgumentNullException("title", "Title cannot be null."); }
-            title = title.Trim(); if (string.IsNullOrEmpty(title)) { throw new ArgumentNullException("title", "Title cannot be empty."); }
+            if (code == null) { throw new ArgumentNullException(nameof(code), "Code cannot be null."); }
+            code = code.Trim(); if (code.Length != 2) { throw new ArgumentNullException(nameof(code), "Code must be exactly two characters in length."); }
+            if (title == null) { throw new ArgumentNullException(nameof(title), "Title cannot be null."); }
+            title = title.Trim(); if (string.IsNullOrEmpty(title)) { throw new ArgumentNullException(nameof(title), "Title cannot be empty."); }
 
             this.Code = code;
             this.Title = title;
@@ -54,7 +54,7 @@ namespace HamCheck {
         /// <param name="obj">The object to compare with the current object.</param>
         public override bool Equals(object obj) {
             var other = obj as ExamSubelement;
-            return (other != null) && (this.Code.Equals(other.Code));
+            return (other != null) && (this.Code.Equals(other.Code, StringComparison.Ordinal));
         }
 
         /// <summary>

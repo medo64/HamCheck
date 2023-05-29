@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
@@ -13,10 +13,9 @@ namespace HamCheck {
 
         [STAThread]
         static void Main() {
-            bool createdNew;
             var mutexSecurity = new MutexSecurity();
             mutexSecurity.AddAccessRule(new MutexAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow));
-            using (var setupMutex = new Mutex(false, @"Global\JosipMedved_HamCheck", out createdNew, mutexSecurity)) {
+            using (var setupMutex = new Mutex(false, @"Global\JosipMedved_HamCheck", out var createdNew, mutexSecurity)) {
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
