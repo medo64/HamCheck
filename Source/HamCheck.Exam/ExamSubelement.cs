@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 
@@ -72,6 +72,21 @@ namespace HamCheck {
         }
 
         #endregion
+
+
+
+        /// <summary>
+        /// Gets question count for a subelement.
+        /// </summary>
+        public int QuestionCount {
+            get {
+                var questionCount = 0;
+                foreach (var group in this.Groups) {
+                    questionCount += group.Questions.Count;
+                }
+                return questionCount;
+            }
+        }
 
     }
 }
