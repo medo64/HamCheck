@@ -23,7 +23,7 @@ namespace HamCheck.Import {
                                                      @"..\Reference\4 Extra [2020-2024] {20210817}"));
 
                 foreach (var exam in exams) {
-                    using (var stream = File.OpenWrite(@"Element" + exam.Number.ToString(CultureInfo.InvariantCulture) + "-" + exam.ValidFrom.Date.Year.ToString(CultureInfo.InvariantCulture) +  ".xml")) {
+                    using (var stream = File.OpenWrite(@"..\Source\HamCheck.Exam\Resources\Element" + exam.Number.ToString(CultureInfo.InvariantCulture) + "-" + exam.ValidFrom.Date.Year.ToString(CultureInfo.InvariantCulture) +  ".xml")) {
                         exam.Save(stream);
                     }
 
